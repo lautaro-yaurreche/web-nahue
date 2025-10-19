@@ -121,7 +121,7 @@ export default function Navbar() {
                             left: "-100%",
                             width: "60%",
                             height: "2px",
-                            bg: "primary.500",
+                            bg: "text",
                             animation: "slideRight 1s ease-in-out infinite",
                           }
                         : {}
