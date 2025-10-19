@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { Box, Container, Flex, Button, HStack } from '@chakra-ui/react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Box, Container, Flex, Button, HStack } from "@chakra-ui/react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
 
   const links = [
-    { href: '/', label: 'Inicio' },
-    { href: '/actividades', label: 'Actividades' },
-    { href: '/servicios', label: 'Servicios' },
-    { href: '/galeria', label: 'Galería' },
-    { href: '/contacto', label: 'Contacto' },
+    { href: "/", label: "Inicio" },
+    { href: "/actividades", label: "Actividades" },
+    { href: "/servicios", label: "Servicios" },
+    { href: "/galeria", label: "Galería" },
+    { href: "/contacto", label: "Contacto" },
   ];
 
   return (
@@ -34,38 +34,37 @@ export default function Navbar() {
               fontSize="2xl"
               fontWeight="bold"
               cursor="pointer"
-              bgGradient="linear(to-r, purple.600, purple.400)"
-              bgClip="text"
-              _hover={{ opacity: 0.8 }}
-              transition="opacity 0.2s"
+              color="purple.600"
+              _hover={{ color: "purple.500" }}
+              transition="color 0.2s"
             >
-              Casas Nahue
+              Casa de piedra
             </Box>
           </Link>
 
-          <HStack gap={2} display={{ base: 'none', lg: 'flex' }}>
+          <HStack gap={2} display={{ base: "none", lg: "flex" }}>
             {links.map((link) => (
               <Link key={link.href} href={link.href}>
                 <Button
                   variant="ghost"
-                  color={pathname === link.href ? 'purple.600' : 'gray.700'}
-                  fontWeight={pathname === link.href ? 'semibold' : 'normal'}
+                  color={pathname === link.href ? "purple.600" : "gray.700"}
+                  fontWeight={pathname === link.href ? "semibold" : "normal"}
                   _hover={{
-                    bg: 'purple.50',
-                    color: 'purple.600',
+                    bg: "purple.50",
+                    color: "purple.600",
                   }}
                   position="relative"
                   _after={
                     pathname === link.href
                       ? {
                           content: '""',
-                          position: 'absolute',
+                          position: "absolute",
                           bottom: 0,
-                          left: '50%',
-                          transform: 'translateX(-50%)',
-                          width: '60%',
-                          height: '2px',
-                          bg: 'purple.600',
+                          left: "50%",
+                          transform: "translateX(-50%)",
+                          width: "60%",
+                          height: "2px",
+                          bg: "purple.600",
                         }
                       : {}
                   }
@@ -82,10 +81,10 @@ export default function Navbar() {
               bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
               color="white"
               px={6}
-              display={{ base: 'none', lg: 'block' }}
+              display={{ base: "none", lg: "block" }}
               _hover={{
-                transform: 'translateY(-2px)',
-                boxShadow: 'lg',
+                transform: "translateY(-2px)",
+                boxShadow: "lg",
               }}
               transition="all 0.2s"
             >

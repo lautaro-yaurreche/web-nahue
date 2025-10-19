@@ -1,75 +1,89 @@
-'use client';
+"use client";
 
-import { Box, Container, Heading, Text, Button, VStack, SimpleGrid, Stack, Icon } from '@chakra-ui/react';
-import Link from 'next/link';
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  Button,
+  VStack,
+  SimpleGrid,
+  Stack,
+  Icon,
+} from "@chakra-ui/react";
+import Link from "next/link";
 
 export default function Home() {
   const features = [
     {
-      title: 'Ubicación Privilegiada',
-      description: 'A pasos de las mejores playas y atractivos turísticos',
-      icon: '📍',
+      title: "Ubicación Privilegiada",
+      description: "A pasos de las mejores playas y atractivos turísticos",
+      icon: "📍",
     },
     {
-      title: 'Confort Total',
-      description: 'Casas completamente equipadas con todas las comodidades',
-      icon: '🏡',
+      title: "Confort Total",
+      description: "Casas completamente equipadas con todas las comodidades",
+      icon: "🏡",
     },
     {
-      title: 'Espacios Amplios',
-      description: 'Propiedades espaciosas ideales para familias y grupos',
-      icon: '✨',
+      title: "Espacios Amplios",
+      description: "Propiedades espaciosas ideales para familias y grupos",
+      icon: "✨",
     },
     {
-      title: 'Entorno Natural',
-      description: 'Rodeado de naturaleza y paisajes inolvidables',
-      icon: '🌿',
+      title: "Entorno Natural",
+      description: "Rodeado de naturaleza y paisajes inolvidables",
+      icon: "🌿",
     },
   ];
 
   return (
     <Box>
-      {/* Hero Section - Full Height with Background */}
+      {/* Hero Section - Full Height with Image Background */}
       <Box
         position="relative"
-        h={{ base: '70vh', md: '85vh' }}
-        bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        h={{ base: "70vh", md: "85vh" }}
         display="flex"
         alignItems="center"
         justifyContent="center"
         overflow="hidden"
+        backgroundImage="url('/hero-background.jpg')"
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
         _before={{
           content: '""',
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          bgGradient: 'linear(to-br, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.8))',
+          bg: "rgba(0, 0, 0, 0.4)",
           zIndex: 1,
         }}
       >
         <Container maxW="container.xl" position="relative" zIndex={2}>
           <VStack gap={8} textAlign="center" color="white">
-            <Heading
-              as="h1"
-              fontSize={{ base: '4xl', md: '6xl', lg: '7xl' }}
-              fontWeight="bold"
-              lineHeight="1.2"
-              textShadow="0 2px 10px rgba(0,0,0,0.2)"
-            >
-              Tu Refugio Ideal
-            </Heading>
-            <Text
-              fontSize={{ base: 'xl', md: '2xl' }}
-              maxW="3xl"
-              fontWeight="300"
-              textShadow="0 1px 5px rgba(0,0,0,0.1)"
-            >
-              Descubre nuestras hermosas casas de alquiler y vive unas vacaciones inolvidables
-              en un entorno único
-            </Text>
-            <Stack direction={{ base: 'column', md: 'row' }} gap={4} mt={4}>
+            <Box>
+              <Heading
+                as="h1"
+                fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
+                fontWeight="bold"
+                lineHeight="1.2"
+                textShadow="0 2px 10px rgba(0,0,0,0.2)"
+              >
+                Casa de piedra
+              </Heading>
+              <Text
+                fontSize={{ base: "xl", md: "2xl" }}
+                maxW="3xl"
+                fontWeight="300"
+                textShadow="0 1px 5px rgba(0,0,0,0.1)"
+              >
+                Bella Vista, Maldonado
+              </Text>
+            </Box>
+            <Stack direction={{ base: "column", md: "row" }} gap={4} mt={4}>
               <Link href="/reservas">
                 <Button
                   size="lg"
@@ -79,7 +93,7 @@ export default function Home() {
                   py={6}
                   fontSize="lg"
                   fontWeight="semibold"
-                  _hover={{ transform: 'translateY(-2px)', boxShadow: 'xl' }}
+                  _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
                   transition="all 0.3s"
                 >
                   Reservar Ahora
@@ -96,9 +110,9 @@ export default function Home() {
                   fontSize="lg"
                   fontWeight="semibold"
                   _hover={{
-                    bg: 'whiteAlpha.200',
-                    transform: 'translateY(-2px)',
-                    boxShadow: 'xl',
+                    bg: "whiteAlpha.200",
+                    transform: "translateY(-2px)",
+                    boxShadow: "xl",
                   }}
                   transition="all 0.3s"
                 >
@@ -124,11 +138,12 @@ export default function Home() {
             >
               Nuestros Beneficios
             </Text>
-            <Heading as="h2" fontSize={{ base: '3xl', md: '4xl' }} mb={4}>
+            <Heading as="h2" fontSize={{ base: "3xl", md: "4xl" }} mb={4}>
               ¿Por qué elegirnos?
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">
-              Ofrecemos una experiencia única con todas las comodidades que necesitas
+              Ofrecemos una experiencia única con todas las comodidades que
+              necesitas
             </Text>
           </Box>
 
@@ -143,8 +158,8 @@ export default function Home() {
                 textAlign="center"
                 transition="all 0.3s"
                 _hover={{
-                  transform: 'translateY(-8px)',
-                  boxShadow: '2xl',
+                  transform: "translateY(-8px)",
+                  boxShadow: "2xl",
                 }}
               >
                 <Text fontSize="4xl" mb={4}>
@@ -170,13 +185,22 @@ export default function Home() {
             textAlign="center"
             color="white"
           >
-            <Heading as="h2" fontSize={{ base: '3xl', md: '4xl' }} mb={4}>
+            <Heading as="h2" fontSize={{ base: "3xl", md: "4xl" }} mb={4}>
               ¿Listo para tu próxima aventura?
             </Heading>
-            <Text fontSize={{ base: 'lg', md: 'xl' }} mb={8} maxW="2xl" mx="auto">
+            <Text
+              fontSize={{ base: "lg", md: "xl" }}
+              mb={8}
+              maxW="2xl"
+              mx="auto"
+            >
               Contáctanos para más información sobre disponibilidad y precios
             </Text>
-            <Stack direction={{ base: 'column', md: 'row' }} gap={4} justify="center">
+            <Stack
+              direction={{ base: "column", md: "row" }}
+              gap={4}
+              justify="center"
+            >
               <Link href="/contacto">
                 <Button
                   size="lg"
@@ -185,7 +209,7 @@ export default function Home() {
                   px={8}
                   py={6}
                   fontSize="lg"
-                  _hover={{ transform: 'translateY(-2px)', boxShadow: 'xl' }}
+                  _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
                   transition="all 0.3s"
                 >
                   Contactar
@@ -201,9 +225,9 @@ export default function Home() {
                   py={6}
                   fontSize="lg"
                   _hover={{
-                    bg: 'whiteAlpha.200',
-                    transform: 'translateY(-2px)',
-                    boxShadow: 'xl',
+                    bg: "whiteAlpha.200",
+                    transform: "translateY(-2px)",
+                    boxShadow: "xl",
                   }}
                   transition="all 0.3s"
                 >

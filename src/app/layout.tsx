@@ -1,10 +1,11 @@
-import { Providers } from './providers';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import { Providers } from "./providers";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata = {
-  title: 'Alquiler de Casas',
-  description: 'Descubre nuestras hermosas propiedades en alquiler',
+  title: "Alquiler de Casas",
+  description: "Descubre nuestras hermosas propiedades en alquiler",
 };
 
 export default function RootLayout({
@@ -14,11 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <body
+        style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
+      >
         <Providers>
           <Navbar />
           <main style={{ flex: 1 }}>{children}</main>
           <Footer />
+          <WhatsAppButton phoneNumber="59897105450" />
         </Providers>
       </body>
     </html>
