@@ -2,50 +2,96 @@
 
 import { Box, Container, Flex, Button, HStack } from '@chakra-ui/react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const links = [
+    { href: '/', label: 'Inicio' },
+    { href: '/actividades', label: 'Actividades' },
+    { href: '/servicios', label: 'Servicios' },
+    { href: '/galeria', label: 'Galería' },
+    { href: '/contacto', label: 'Contacto' },
+  ];
+
   return (
-    <Box as="nav" bg="blue.600" color="white" py={4} position="sticky" top={0} zIndex={1000}>
+    <Box
+      as="nav"
+      bg="white"
+      boxShadow="sm"
+      py={4}
+      position="sticky"
+      top={0}
+      zIndex={1000}
+      borderBottom="1px"
+      borderColor="gray.100"
+    >
       <Container maxW="container.xl">
         <Flex justify="space-between" align="center">
           <Link href="/">
-            <Box fontSize="2xl" fontWeight="bold" cursor="pointer">
-              Alquiler de Casas
+            <Box
+              fontSize="2xl"
+              fontWeight="bold"
+              cursor="pointer"
+              bgGradient="linear(to-r, purple.600, purple.400)"
+              bgClip="text"
+              _hover={{ opacity: 0.8 }}
+              transition="opacity 0.2s"
+            >
+              Casas Nahue
             </Box>
           </Link>
 
-          <HStack gap={4}>
-            <Link href="/">
-              <Button variant="ghost" colorScheme="whiteAlpha">
-                Inicio
-              </Button>
-            </Link>
-            <Link href="/actividades">
-              <Button variant="ghost" colorScheme="whiteAlpha">
-                Actividades
-              </Button>
-            </Link>
-            <Link href="/servicios">
-              <Button variant="ghost" colorScheme="whiteAlpha">
-                Servicios
-              </Button>
-            </Link>
-            <Link href="/reservas">
-              <Button variant="ghost" colorScheme="whiteAlpha">
-                Reservas
-              </Button>
-            </Link>
-            <Link href="/galeria">
-              <Button variant="ghost" colorScheme="whiteAlpha">
-                Galería
-              </Button>
-            </Link>
-            <Link href="/contacto">
-              <Button variant="ghost" colorScheme="whiteAlpha">
-                Contacto
-              </Button>
-            </Link>
+          <HStack gap={2} display={{ base: 'none', lg: 'flex' }}>
+            {links.map((link) => (
+              <Link key={link.href} href={link.href}>
+                <Button
+                  variant="ghost"
+                  color={pathname === link.href ? 'purple.600' : 'gray.700'}
+                  fontWeight={pathname === link.href ? 'semibold' : 'normal'}
+                  _hover={{
+                    bg: 'purple.50',
+                    color: 'purple.600',
+                  }}
+                  position="relative"
+                  _after={
+                    pathname === link.href
+                      ? {
+                          content: '""',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          width: '60%',
+                          height: '2px',
+                          bg: 'purple.600',
+                        }
+                      : {}
+                  }
+                >
+                  {link.label}
+                </Button>
+              </Link>
+            ))}
           </HStack>
+
+          {/* CTA Button */}
+          <Link href="/reservas">
+            <Button
+              bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+              color="white"
+              px={6}
+              display={{ base: 'none', lg: 'block' }}
+              _hover={{
+                transform: 'translateY(-2px)',
+                boxShadow: 'lg',
+              }}
+              transition="all 0.2s"
+            >
+              Reservar
+            </Button>
+          </Link>
         </Flex>
       </Container>
     </Box>
