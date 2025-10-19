@@ -134,6 +134,25 @@ export default function ReservasPage() {
 
       {/* Calendar and Form Section */}
       <Container maxW="container.xl" py={{ base: 12, md: 20 }}>
+        {/* Info Box */}
+        <Box
+          mb={8}
+          p={6}
+          bg="primary.50"
+          borderRadius="xl"
+          border="1px"
+          borderColor="primary.200"
+        >
+          <Text fontSize="sm" color="accent.500" fontWeight="medium" mb={2}>
+            Información importante:
+          </Text>
+          <VStack align="start" gap={2} fontSize="sm" color="primary.600">
+            <Text>
+              • Horario de check-in y check-out: Se arregla con la propetaria
+            </Text>
+            <Text>• Estadía mínima: 2 noches</Text>
+          </VStack>
+        </Box>
         <SimpleGrid columns={{ base: 1, lg: 2 }} gap={8}>
           {/* Left Column - Calendar */}
           <Box
@@ -349,26 +368,6 @@ export default function ReservasPage() {
             )}
           </VStack>
         </SimpleGrid>
-
-        {/* Info Box */}
-        <Box
-          mt={8}
-          p={6}
-          bg="primary.50"
-          borderRadius="xl"
-          border="1px"
-          borderColor="primary.200"
-        >
-          <Text fontSize="sm" color="accent.500" fontWeight="medium" mb={2}>
-            Información importante:
-          </Text>
-          <VStack align="start" gap={2} fontSize="sm" color="primary.600">
-            <Text>• Check-in: a partir de las 15:00</Text>
-            <Text>• Check-out: hasta las 11:00</Text>
-            <Text>• Estadía mínima: 2 noches</Text>
-            <Text>• Se requiere seña del 30% para confirmar la reserva</Text>
-          </VStack>
-        </Box>
       </Container>
     </Box>
   );

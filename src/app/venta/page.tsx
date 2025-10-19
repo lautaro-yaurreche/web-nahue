@@ -90,7 +90,7 @@ export default function ContactoPage() {
               letterSpacing="wider"
               opacity={0.9}
             >
-              Oportunidad de inversión
+              Oportunidad de inversión o tu nuevo refugio
             </Text>
             <Heading
               as="h1"
@@ -100,7 +100,7 @@ export default function ContactoPage() {
               Venta
             </Heading>
             <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
-              Tu oportunidad de adquirir un refugio único
+              Una propuesta única
             </Text>
           </VStack>
         </Container>
@@ -121,290 +121,299 @@ export default function ContactoPage() {
               ¿Por qué invertir aquí?
             </Heading>
             <Text fontSize="lg" color="gray.600">
-              Una oportunidad real para quienes buscan un hogar rodeado de naturaleza o un negocio rentable con retorno comprobado.
+              Una oportunidad real para quienes buscan un hogar rodeado de
+              naturaleza o un negocio rentable con retorno comprobado.
             </Text>
           </Box>
 
-          <SimpleGrid columns={{ base: 1, lg: 2 }} gap={{ base: 8, lg: 12 }} w="full">
+          <SimpleGrid
+            columns={{ base: 1, lg: 2 }}
+            gap={{ base: 8, lg: 12 }}
+            w="full"
+          >
             {/* Left: Sale Information */}
             <VStack align="stretch" gap={6}>
               <Box
+                bg="white"
+                p={8}
+                borderRadius="2xl"
+                boxShadow="lg"
+                border="1px"
+                borderColor="gray.100"
+              >
+                <VStack align="start" gap={5}>
+                  <Box>
+                    <Text
+                      fontSize="sm"
+                      fontWeight="bold"
+                      color="accent.600"
+                      textTransform="uppercase"
+                      letterSpacing="wide"
+                      mb={3}
+                    >
+                      Características destacadas
+                    </Text>
+                    <VStack align="start" gap={3}>
+                      <Box>
+                        <Text fontWeight="semibold" color="gray.800" mb={1}>
+                          Propiedad en venta
+                        </Text>
+                        <Text fontSize="sm" color="gray.600">
+                          Lista para disfrutar o comenzar a generar ingresos
+                          desde el primer día.
+                        </Text>
+                      </Box>
+                      <Box>
+                        <Text fontWeight="semibold" color="gray.800" mb={1}>
+                          Ideal para inversión
+                        </Text>
+                        <Text fontSize="sm" color="gray.600">
+                          Negocio de alquiler con alta demanda turística
+                          comprobada en la zona.
+                        </Text>
+                      </Box>
+                      <Box>
+                        <Text fontWeight="semibold" color="gray.800" mb={1}>
+                          Entorno natural
+                        </Text>
+                        <Text fontSize="sm" color="gray.600">
+                          Ubicación privilegiada, rodeada de árboles,
+                          tranquilidad y a solo minutos del mar.
+                        </Text>
+                      </Box>
+                      <Box>
+                        <Text fontWeight="semibold" color="gray.800" mb={1}>
+                          Diseño único
+                        </Text>
+                        <Text fontSize="sm" color="gray.600">
+                          Construcción sólida, fresca en verano y cálida en
+                          invierno, con detalles en piedra y amplios espacios
+                          exteriores.
+                        </Text>
+                      </Box>
+                    </VStack>
+                  </Box>
+
+                  <Box w="full" h="1px" bg="gray.200" my={2} />
+
+                  <Box>
+                    <Text
+                      fontSize="sm"
+                      fontWeight="bold"
+                      color="accent.600"
+                      textTransform="uppercase"
+                      letterSpacing="wide"
+                      mb={4}
+                    >
+                      Si estas interesado, te pasamos:
+                    </Text>
+                    <VStack align="start" gap={2}>
+                      <Text fontSize="sm" color="gray.700">
+                        📄 PDF con propuesta completa y detalles de la casa
+                      </Text>
+                      <Text fontSize="sm" color="gray.700">
+                        📊 Análisis de rentabilidad y retorno real
+                      </Text>
+                      <Text fontSize="sm" color="gray.700">
+                        💰 Información sobre ingresos anuales y costos reales
+                      </Text>
+                      <Text fontSize="sm" color="gray.700">
+                        🏡 Beneficios de la ubicación y crecimiento del área
+                      </Text>
+                      <Text fontSize="sm" color="gray.700">
+                        📄 Propuesta "Full Service"
+                      </Text>
+                    </VStack>
+                  </Box>
+
+                  <Box
+                    w="full"
+                    p={4}
+                    bg="primary.50"
+                    borderRadius="lg"
+                    border="1px"
+                    borderColor="primary.200"
+                  >
+                    <Text
+                      fontSize="sm"
+                      fontWeight="semibold"
+                      color="primary.700"
+                      mb={2}
+                    >
+                      Consultas directas
+                    </Text>
+                    <Text fontSize="sm" color="primary.600">
+                      Trato directo con los propietarios. <br /> Precio real,
+                      sin sobrevaloraciones ni comisiones de inmobiliaria.{" "}
+                      <br />
+                      Ya sea que busques un lugar para vivir o una inversión
+                      segura, te acompañamos en todo el proceso.
+                    </Text>
+                  </Box>
+                </VStack>
+              </Box>
+            </VStack>
+
+            {/* Right: Contact Form */}
+            <Box
               bg="white"
-              p={8}
+              p={{ base: 8, md: 10 }}
               borderRadius="2xl"
-              boxShadow="lg"
+              boxShadow="xl"
               border="1px"
               borderColor="gray.100"
+              h="fit-content"
             >
-              <VStack align="start" gap={5}>
-                <Box>
-                  <Text
-                    fontSize="sm"
-                    fontWeight="bold"
-                    color="accent.600"
-                    textTransform="uppercase"
-                    letterSpacing="wide"
-                    mb={3}
-                  >
-                    Características destacadas
-                  </Text>
-                  <VStack align="start" gap={3}>
-                    <Box>
-                      <Text fontWeight="semibold" color="gray.800" mb={1}>
-                        Propiedad en venta
-                      </Text>
-                      <Text fontSize="sm" color="gray.600">
-                        Lista para disfrutar o comenzar a generar ingresos desde
-                        el primer día.
-                      </Text>
-                    </Box>
-                    <Box>
-                      <Text fontWeight="semibold" color="gray.800" mb={1}>
-                        Ideal para inversión
-                      </Text>
-                      <Text fontSize="sm" color="gray.600">
-                        Negocio de alquiler con alta demanda turística
-                        comprobada en la zona.
-                      </Text>
-                    </Box>
-                    <Box>
-                      <Text fontWeight="semibold" color="gray.800" mb={1}>
-                        Entorno natural
-                      </Text>
-                      <Text fontSize="sm" color="gray.600">
-                        Ubicación privilegiada, rodeada de árboles, tranquilidad
-                        y a solo minutos del mar.
-                      </Text>
-                    </Box>
-                    <Box>
-                      <Text fontWeight="semibold" color="gray.800" mb={1}>
-                        Diseño único
-                      </Text>
-                      <Text fontSize="sm" color="gray.600">
-                        Construcción sólida, fresca en verano y cálida en
-                        invierno, con detalles en piedra y amplios espacios
-                        exteriores.
-                      </Text>
-                    </Box>
-                  </VStack>
-                </Box>
+              <Heading
+                as="h3"
+                fontSize={{ base: "xl", md: "2xl" }}
+                fontWeight="bold"
+                color="gray.800"
+                mb={6}
+              >
+                Contactanos
+              </Heading>
 
-                <Box w="full" h="1px" bg="gray.200" my={2} />
+              <Box as="form" onSubmit={handleSubmit}>
+                <VStack gap={5}>
+                  <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} w="full">
+                    <Box>
+                      <Text mb={2} fontWeight="medium" color="gray.700">
+                        Nombre *
+                      </Text>
+                      <Input
+                        placeholder="Tu nombre"
+                        value={formData.firstName}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            firstName: e.target.value,
+                          })
+                        }
+                        required
+                        size="lg"
+                        borderColor="gray.300"
+                        _hover={{ borderColor: "primary.500" }}
+                        _focus={{
+                          borderColor: "primary.600",
+                          boxShadow: "0 0 0 1px primary.600",
+                        }}
+                      />
+                    </Box>
+                    <Box>
+                      <Text mb={2} fontWeight="medium" color="gray.700">
+                        Apellido *
+                      </Text>
+                      <Input
+                        placeholder="Tu apellido"
+                        value={formData.lastName}
+                        onChange={(e) =>
+                          setFormData({ ...formData, lastName: e.target.value })
+                        }
+                        required
+                        size="lg"
+                        borderColor="gray.300"
+                        _hover={{ borderColor: "primary.500" }}
+                        _focus={{
+                          borderColor: "primary.600",
+                          boxShadow: "0 0 0 1px primary.600",
+                        }}
+                      />
+                    </Box>
+                  </SimpleGrid>
 
-                <Box>
-                  <Text
-                    fontSize="sm"
-                    fontWeight="bold"
-                    color="accent.600"
-                    textTransform="uppercase"
-                    letterSpacing="wide"
-                    mb={4}
-                  >
-                    Si estas interesado, te pasamos:
-                  </Text>
-                  <VStack align="start" gap={2}>
-                    <Text fontSize="sm" color="gray.700">
-                      📄 PDF con propuesta completa y detalles de la casa
+                  <Box w="full">
+                    <Text mb={2} fontWeight="medium" color="gray.700">
+                      Email *
                     </Text>
-                    <Text fontSize="sm" color="gray.700">
-                      📊 Análisis de rentabilidad y retorno real
-                    </Text>
-                    <Text fontSize="sm" color="gray.700">
-                      💰 Información sobre ingresos anuales y costos reales
-                    </Text>
-                    <Text fontSize="sm" color="gray.700">
-                      🏡 Beneficios de la ubicación y crecimiento del área
-                    </Text>
-                    <Text fontSize="sm" color="gray.700">
-                      📄 Propuesta "Full Service"
-                    </Text>
-                  </VStack>
-                </Box>
+                    <Input
+                      type="email"
+                      placeholder="tu@email.com"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      required
+                      size="lg"
+                      borderColor="gray.300"
+                      _hover={{ borderColor: "primary.500" }}
+                      _focus={{
+                        borderColor: "primary.600",
+                        boxShadow: "0 0 0 1px primary.600",
+                      }}
+                    />
+                  </Box>
 
-                <Box
-                  w="full"
-                  p={4}
-                  bg="primary.50"
-                  borderRadius="lg"
-                  border="1px"
-                  borderColor="primary.200"
-                >
-                  <Text
-                    fontSize="sm"
+                  <Box w="full">
+                    <Text mb={2} fontWeight="medium" color="gray.700">
+                      Teléfono *
+                    </Text>
+                    <Input
+                      type="tel"
+                      placeholder="+598 99 123 456"
+                      value={formData.phone}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
+                      required
+                      size="lg"
+                      borderColor="gray.300"
+                      _hover={{ borderColor: "primary.500" }}
+                      _focus={{
+                        borderColor: "primary.600",
+                        boxShadow: "0 0 0 1px primary.600",
+                      }}
+                    />
+                  </Box>
+
+                  <Box w="full">
+                    <Text mb={2} fontWeight="medium" color="gray.700">
+                      Mensaje *
+                    </Text>
+                    <Textarea
+                      placeholder="Cuéntanos qué te interesa saber sobre la propiedad..."
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
+                      rows={5}
+                      required
+                      size="lg"
+                      borderColor="gray.300"
+                      _hover={{ borderColor: "primary.500" }}
+                      _focus={{
+                        borderColor: "primary.600",
+                        boxShadow: "0 0 0 1px primary.600",
+                      }}
+                    />
+                  </Box>
+
+                  <Button
+                    type="submit"
+                    size="lg"
+                    w="full"
+                    bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+                    color="white"
+                    py={7}
+                    fontSize="lg"
                     fontWeight="semibold"
-                    color="primary.700"
-                    mb={2}
+                    loading={loading}
+                    _hover={{
+                      transform: "translateY(-2px)",
+                      boxShadow: "xl",
+                    }}
+                    transition="all 0.2s"
                   >
-                    Consultas directas
+                    Enviar Mensaje
+                  </Button>
+
+                  <Text fontSize="sm" color="gray.500" textAlign="center">
+                    Te responderemos en menos de 24 hs.
                   </Text>
-                  <Text fontSize="sm" color="primary.600">
-                    Trato directo con los propietarios. <br /> Precio real, sin
-                    sobrevaloraciones ni comisiones de inmobiliaria. <br />
-                    Ya sea que busques un lugar para vivir o una inversión
-                    segura, te acompañamos en todo el proceso.
-                  </Text>
-                </Box>
-              </VStack>
+                </VStack>
+              </Box>
             </Box>
-          </VStack>
-
-          {/* Right: Contact Form */}
-          <Box
-            bg="white"
-            p={{ base: 8, md: 10 }}
-            borderRadius="2xl"
-            boxShadow="xl"
-            border="1px"
-            borderColor="gray.100"
-            h="fit-content"
-          >
-            <Heading
-              as="h3"
-              fontSize={{ base: "xl", md: "2xl" }}
-              fontWeight="bold"
-              color="gray.800"
-              mb={6}
-            >
-              Contactanos
-            </Heading>
-
-            <Box as="form" onSubmit={handleSubmit}>
-              <VStack gap={5}>
-                <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} w="full">
-                  <Box>
-                    <Text mb={2} fontWeight="medium" color="gray.700">
-                      Nombre *
-                    </Text>
-                    <Input
-                      placeholder="Tu nombre"
-                      value={formData.firstName}
-                      onChange={(e) =>
-                        setFormData({ ...formData, firstName: e.target.value })
-                      }
-                      required
-                      size="lg"
-                      borderColor="gray.300"
-                      _hover={{ borderColor: "primary.500" }}
-                      _focus={{
-                        borderColor: "primary.600",
-                        boxShadow: "0 0 0 1px primary.600",
-                      }}
-                    />
-                  </Box>
-                  <Box>
-                    <Text mb={2} fontWeight="medium" color="gray.700">
-                      Apellido *
-                    </Text>
-                    <Input
-                      placeholder="Tu apellido"
-                      value={formData.lastName}
-                      onChange={(e) =>
-                        setFormData({ ...formData, lastName: e.target.value })
-                      }
-                      required
-                      size="lg"
-                      borderColor="gray.300"
-                      _hover={{ borderColor: "primary.500" }}
-                      _focus={{
-                        borderColor: "primary.600",
-                        boxShadow: "0 0 0 1px primary.600",
-                      }}
-                    />
-                  </Box>
-                </SimpleGrid>
-
-                <Box w="full">
-                  <Text mb={2} fontWeight="medium" color="gray.700">
-                    Email *
-                  </Text>
-                  <Input
-                    type="email"
-                    placeholder="tu@email.com"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    required
-                    size="lg"
-                    borderColor="gray.300"
-                    _hover={{ borderColor: "primary.500" }}
-                    _focus={{
-                      borderColor: "primary.600",
-                      boxShadow: "0 0 0 1px primary.600",
-                    }}
-                  />
-                </Box>
-
-                <Box w="full">
-                  <Text mb={2} fontWeight="medium" color="gray.700">
-                    Teléfono *
-                  </Text>
-                  <Input
-                    type="tel"
-                    placeholder="+598 99 123 456"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    required
-                    size="lg"
-                    borderColor="gray.300"
-                    _hover={{ borderColor: "primary.500" }}
-                    _focus={{
-                      borderColor: "primary.600",
-                      boxShadow: "0 0 0 1px primary.600",
-                    }}
-                  />
-                </Box>
-
-                <Box w="full">
-                  <Text mb={2} fontWeight="medium" color="gray.700">
-                    Mensaje *
-                  </Text>
-                  <Textarea
-                    placeholder="Cuéntanos qué te interesa saber sobre la propiedad..."
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    rows={5}
-                    required
-                    size="lg"
-                    borderColor="gray.300"
-                    _hover={{ borderColor: "primary.500" }}
-                    _focus={{
-                      borderColor: "primary.600",
-                      boxShadow: "0 0 0 1px primary.600",
-                    }}
-                  />
-                </Box>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  w="full"
-                  bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
-                  color="white"
-                  py={7}
-                  fontSize="lg"
-                  fontWeight="semibold"
-                  loading={loading}
-                  _hover={{
-                    transform: "translateY(-2px)",
-                    boxShadow: "xl",
-                  }}
-                  transition="all 0.2s"
-                >
-                  Enviar Mensaje
-                </Button>
-
-                <Text fontSize="sm" color="gray.500" textAlign="center">
-                  Te responderemos en menos de 24 hs.
-                </Text>
-              </VStack>
-            </Box>
-          </Box>
-        </SimpleGrid>
+          </SimpleGrid>
         </VStack>
       </Container>
     </Box>
