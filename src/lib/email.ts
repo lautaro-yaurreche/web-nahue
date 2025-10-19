@@ -20,7 +20,7 @@ export async function sendContactEmail(data: ContactFormData) {
     subject: `Nuevo mensaje de contacto - ${firstName} ${lastName}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #6B5344; border-bottom: 3px solid #8B7355; padding-bottom: 10px;">
+        <h2 style="color: #B89A5C; border-bottom: 3px solid #D1B16D; padding-bottom: 10px;">
           Nuevo mensaje de contacto
         </h2>
 
@@ -32,7 +32,7 @@ export async function sendContactEmail(data: ContactFormData) {
         </div>
 
         <div style="background: #F5F1ED; padding: 20px; border-radius: 10px; margin: 20px 0;">
-          <h3 style="color: #6B5344; margin-top: 0;">Mensaje</h3>
+          <h3 style="color: #B89A5C; margin-top: 0;">Mensaje</h3>
           <p style="white-space: pre-wrap;">${message}</p>
         </div>
 
@@ -56,7 +56,7 @@ export async function sendReservationEmail(data: ReservationFormData) {
     subject: `Nueva reserva - ${firstName} ${lastName}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #6B5344; border-bottom: 3px solid #8B7355; padding-bottom: 10px;">
+        <h2 style="color: #B89A5C; border-bottom: 3px solid #D1B16D; padding-bottom: 10px;">
           Nueva solicitud de reserva
         </h2>
 
@@ -72,7 +72,7 @@ export async function sendReservationEmail(data: ReservationFormData) {
         </div>
 
         <div style="background: #F5F1ED; padding: 20px; border-radius: 10px; margin: 20px 0;">
-          <h3 style="color: #6B5344; margin-top: 0;">Fechas de estadía</h3>
+          <h3 style="color: #B89A5C; margin-top: 0;">Fechas de estadía</h3>
           <p><strong>Check-in:</strong> ${new Date(checkIn).toLocaleDateString(
             "es-ES",
             { weekday: "long", year: "numeric", month: "long", day: "numeric" }

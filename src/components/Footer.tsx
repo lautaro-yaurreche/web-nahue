@@ -14,12 +14,12 @@ export default function Footer() {
   return (
     <Box
       as="footer"
-      bg="gray.900"
-      color="white"
+      bg="accent.500"
+      color="text"
       py={12}
       mt="auto"
       borderTop="1px"
-      borderColor="gray.800"
+      borderColor="accent.600"
     >
       <Container maxW="container.xl">
         <SimpleGrid columns={{ base: 1, md: 3 }} gap={8} mb={8}>
@@ -28,14 +28,15 @@ export default function Footer() {
             <Text
               fontSize="2xl"
               fontWeight="bold"
-              bgGradient="linear(to-r, #A0826D, #D7CCC8)"
+              bgGradient="linear(to-r, primary.400, primary.200)"
               bgClip="text"
             >
               Casa de piedra
             </Text>
             <Text
               fontSize="sm"
-              color="gray.400"
+              color="text"
+              opacity={0.8}
               maxW="xs"
               textAlign={{ base: "center", md: "left" }}
             >
@@ -46,15 +47,16 @@ export default function Footer() {
 
           {/* Links */}
           <VStack align={{ base: "center", md: "start" }} gap={2}>
-            <Text fontSize="sm" fontWeight="semibold" mb={2} color="gray.300">
+            <Text fontSize="sm" fontWeight="semibold" mb={2} color="text">
               Navegación
             </Text>
             <Link href="/">
               <Text
                 fontSize="sm"
-                color="gray.400"
-                _hover={{ color: "#A0826D" }}
-                transition="color 0.2s"
+                color="text"
+                opacity={0.8}
+                _hover={{ color: "primary.400", opacity: 1 }}
+                transition="all 0.2s"
               >
                 Inicio
               </Text>
@@ -62,9 +64,10 @@ export default function Footer() {
             <Link href="/servicios">
               <Text
                 fontSize="sm"
-                color="gray.400"
-                _hover={{ color: "#A0826D" }}
-                transition="color 0.2s"
+                color="text"
+                opacity={0.8}
+                _hover={{ color: "primary.400", opacity: 1 }}
+                transition="all 0.2s"
               >
                 Servicios
               </Text>
@@ -72,9 +75,10 @@ export default function Footer() {
             <Link href="/actividades">
               <Text
                 fontSize="sm"
-                color="gray.400"
-                _hover={{ color: "#A0826D" }}
-                transition="color 0.2s"
+                color="text"
+                opacity={0.8}
+                _hover={{ color: "primary.400", opacity: 1 }}
+                transition="all 0.2s"
               >
                 Actividades
               </Text>
@@ -82,9 +86,10 @@ export default function Footer() {
             <Link href="/galeria">
               <Text
                 fontSize="sm"
-                color="gray.400"
-                _hover={{ color: "#A0826D" }}
-                transition="color 0.2s"
+                color="text"
+                opacity={0.8}
+                _hover={{ color: "primary.400", opacity: 1 }}
+                transition="all 0.2s"
               >
                 Galería
               </Text>
@@ -93,15 +98,16 @@ export default function Footer() {
 
           {/* Contact */}
           <VStack align={{ base: "center", md: "start" }} gap={2}>
-            <Text fontSize="sm" fontWeight="semibold" mb={2} color="gray.300">
+            <Text fontSize="sm" fontWeight="semibold" mb={2} color="text">
               Contacto
             </Text>
             <Link href="/reservas">
               <Text
                 fontSize="sm"
-                color="gray.400"
-                _hover={{ color: "#A0826D" }}
-                transition="color 0.2s"
+                color="text"
+                opacity={0.8}
+                _hover={{ color: "primary.400", opacity: 1 }}
+                transition="all 0.2s"
               >
                 Hacer una Reserva
               </Text>
@@ -109,9 +115,10 @@ export default function Footer() {
             <Link href="/contacto">
               <Text
                 fontSize="sm"
-                color="gray.400"
-                _hover={{ color: "#A0826D" }}
-                transition="color 0.2s"
+                color="text"
+                opacity={0.8}
+                _hover={{ color: "primary.400", opacity: 1 }}
+                transition="all 0.2s"
               >
                 Contáctanos
               </Text>
@@ -120,8 +127,8 @@ export default function Footer() {
         </SimpleGrid>
 
         {/* Bottom */}
-        <Box pt={8} borderTop="1px" borderColor="gray.800" textAlign="center">
-          <Text fontSize="sm" color="gray.500">
+        <Box pt={8} borderTop="1px" borderColor="accent.600" textAlign="center">
+          <Text fontSize="sm" color="text" opacity={0.6}>
             © {new Date().getFullYear()} Casa de piedra. Todos los derechos
             reservados.
           </Text>

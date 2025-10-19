@@ -18,7 +18,6 @@ import {
   addDays,
   differenceInDays,
 } from "date-fns";
-import { es } from "date-fns/locale";
 import "react-calendar/dist/Calendar.css";
 import "@/styles/calendar.css";
 
@@ -119,7 +118,7 @@ export default function ReservationCalendar({
   if (loading) {
     return (
       <Box textAlign="center" py={10}>
-        <Spinner size="xl" color="#6B5344" />
+        <Spinner size="xl" color="primary.600" />
         <Text mt={4} color="gray.600">
           Cargando disponibilidad...
         </Text>
@@ -181,12 +180,7 @@ export default function ReservationCalendar({
             </Text>
           </HStack>
           <HStack gap={2}>
-            <Box
-              w={4}
-              h={4}
-              bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
-              borderRadius="sm"
-            />
+            <Box w={4} h={4} bg="#D1B16D" borderRadius="sm" />
             <Text fontSize={{ base: "xs", md: "sm" }} color="gray.600">
               Seleccionado
             </Text>

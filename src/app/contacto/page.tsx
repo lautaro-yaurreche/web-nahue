@@ -75,10 +75,10 @@ export default function ContactoPage() {
 
   return (
     <Box bg="gray.50" minH="100vh">
+      <Box h="5.25rem" />
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
-        color="white"
+        bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
         py={{ base: 16, md: 20 }}
       >
         <Container maxW="container.xl">
@@ -134,8 +134,8 @@ export default function ContactoPage() {
                     borderColor="gray.300"
                     _hover={{ borderColor: "#A0826D" }}
                     _focus={{
-                      borderColor: "#6B5344",
-                      boxShadow: "0 0 0 1px #6B5344",
+                      borderColor: "primary.600",
+                      boxShadow: "0 0 0 1px primary.600",
                     }}
                   />
                 </Box>
@@ -154,8 +154,8 @@ export default function ContactoPage() {
                     borderColor="gray.300"
                     _hover={{ borderColor: "#A0826D" }}
                     _focus={{
-                      borderColor: "#6B5344",
-                      boxShadow: "0 0 0 1px #6B5344",
+                      borderColor: "primary.600",
+                      boxShadow: "0 0 0 1px primary.600",
                     }}
                   />
                 </Box>
@@ -231,7 +231,7 @@ export default function ContactoPage() {
                 type="submit"
                 size="lg"
                 w="full"
-                bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
+                bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
                 color="white"
                 py={7}
                 fontSize="lg"

@@ -87,8 +87,8 @@ export default function Home() {
               <Link href="/reservas">
                 <Button
                   size="lg"
-                  bg="white"
-                  color="#6B5344"
+                  bg="primary.500"
+                  color="accent.500"
                   px={8}
                   py={6}
                   fontSize="lg"
@@ -103,14 +103,15 @@ export default function Home() {
                 <Button
                   size="lg"
                   variant="outline"
-                  borderColor="white"
-                  color="white"
+                  borderColor="primary.500"
+                  color="text"
                   px={8}
                   py={6}
                   fontSize="lg"
                   fontWeight="semibold"
                   _hover={{
-                    bg: "whiteAlpha.200",
+                    bg: "primary.500",
+                    color: "accent.500",
                     transform: "translateY(-2px)",
                     boxShadow: "xl",
                   }}
@@ -133,12 +134,12 @@ export default function Home() {
               fontWeight="semibold"
               textTransform="uppercase"
               letterSpacing="wider"
-              color="#6B8E23"
+              color="primary.600"
               mb={3}
             >
               Nuestros Beneficios
             </Text>
-            <Heading as="h2" fontSize={{ base: "3xl", md: "4xl" }} mb={4}>
+            <Heading as="h2" fontSize={{ base: "3xl", md: "4xl" }} mb={4} color="accent.500">
               ¿Por qué elegirnos?
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">
@@ -179,11 +180,11 @@ export default function Home() {
       <Box bg="gray.50" py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <Box
-            bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
+            bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
             borderRadius="2xl"
             p={{ base: 10, md: 16 }}
             textAlign="center"
-            color="white"
+            color="accent.500"
           >
             <Heading as="h2" fontSize={{ base: "3xl", md: "4xl" }} mb={4}>
               ¿Listo para tu próxima aventura?
@@ -201,7 +202,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   bg="white"
-                  color="#6B5344"
+                  color="primary.700"
                   px={8}
                   py={6}
                   fontSize="lg"

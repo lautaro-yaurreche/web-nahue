@@ -58,8 +58,8 @@
 }
 
 .react-calendar__navigation button:hover:not(:disabled) {
-  background: #F5F1ED;
-  color: #6B5344;
+  background: #F9F5EB;
+  color: #B89A5C;
 }
 
 .react-calendar__navigation button:disabled {
@@ -125,7 +125,7 @@
 }
 
 .react-calendar__tile:not(:disabled):hover:not(.react-calendar__tile--rangeStart):not(.react-calendar__tile--rangeEnd):not(.react-calendar__tile--range) {
-  background: #F5F1ED;
+  background: #F9F5EB;
   transform: scale(1.05);
 }
 
@@ -158,7 +158,7 @@
 
 /* Fecha de inicio del rango - marrón intenso con border-radius */
 button[class*="rangeStart"] {
-  background: linear-gradient(135deg, #8B7355 0%, #6B5344 100%) !important;
+  background: linear-gradient(135deg, #D1B16D 0%, #B89A5C 100%) !important;
   color: white !important;
   font-weight: 700 !important;
   border-top-left-radius: 0.5rem !important;
@@ -170,7 +170,7 @@ button[class*="rangeStart"] {
 
 /* Fecha final del rango - marrón intenso con border-radius */
 button[class*="rangeEnd"] {
-  background: linear-gradient(135deg, #8B7355 0%, #6B5344 100%) !important;
+  background: linear-gradient(135deg, #D1B16D 0%, #B89A5C 100%) !important;
   color: white !important;
   font-weight: 700 !important;
   border-top-left-radius: 0 !important;
@@ -182,7 +182,7 @@ button[class*="rangeEnd"] {
 
 /* Cuando la fecha de inicio y fin son la misma (una sola noche) */
 button[class*="rangeStart"][class*="rangeEnd"] {
-  background: linear-gradient(135deg, #8B7355 0%, #6B5344 100%) !important;
+  background: linear-gradient(135deg, #D1B16D 0%, #B89A5C 100%) !important;
   color: white !important;
   font-weight: 700 !important;
   border-radius: 0.5rem !important;
@@ -191,15 +191,15 @@ button[class*="rangeStart"][class*="rangeEnd"] {
 
 /* Fechas intermedias del rango */
 button[class*="--range"]:not([class*="rangeStart"]):not([class*="rangeEnd"]) {
-  background: #E8DDD0 !important;
-  color: #6B5344 !important;
+  background: #E7D9AD !important;
+  color: #B89A5C !important;
   font-weight: 600 !important;
   border-radius: 0 !important;
   transform: none !important;
 }
 
 .react-calendar__tile--active:not(.react-calendar__tile--range):not(.react-calendar__tile--rangeStart):not(.react-calendar__tile--rangeEnd) {
-  background: #6B8E23;
+  background: #D1B16D;
   color: white;
 }
 
