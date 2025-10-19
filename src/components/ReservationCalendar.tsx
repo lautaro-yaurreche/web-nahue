@@ -1,12 +1,26 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Calendar from 'react-calendar';
-import { Box, Text, VStack, Spinner, HStack, Badge, Tooltip } from '@chakra-ui/react';
-import { format, isWithinInterval, parseISO, isSameDay, addDays, differenceInDays } from 'date-fns';
-import { es } from 'date-fns/locale';
-import 'react-calendar/dist/Calendar.css';
-import '@/styles/calendar.css';
+import { useState, useEffect } from "react";
+import Calendar from "react-calendar";
+import {
+  Box,
+  Text,
+  VStack,
+  Spinner,
+  HStack,
+  Badge,
+  Tooltip,
+} from "@chakra-ui/react";
+import {
+  isWithinInterval,
+  parseISO,
+  isSameDay,
+  addDays,
+  differenceInDays,
+} from "date-fns";
+import { es } from "date-fns/locale";
+import "react-calendar/dist/Calendar.css";
+import "@/styles/calendar.css";
 
 interface BlockedDate {
   start: string;
@@ -18,9 +32,13 @@ interface ReservationCalendarProps {
   onDateSelect: (startDate: Date, endDate: Date) => void;
 }
 
-export default function ReservationCalendar({ onDateSelect }: ReservationCalendarProps) {
+export default function ReservationCalendar({
+  onDateSelect,
+}: ReservationCalendarProps) {
   const [blockedDates, setBlockedDates] = useState<BlockedDate[]>([]);
-  const [selectedRange, setSelectedRange] = useState<[Date | null, Date | null]>([null, null]);
+  const [selectedRange, setSelectedRange] = useState<
+    [Date | null, Date | null]
+  >([null, null]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,11 +47,11 @@ export default function ReservationCalendar({ onDateSelect }: ReservationCalenda
 
   const fetchBlockedDates = async () => {
     try {
-      const response = await fetch('/api/calendar-events');
+      const response = await fetch("/api/calendar-events");
       const data = await response.json();
       setBlockedDates(data.blockedDates || []);
     } catch (error) {
-      console.error('Error fetching blocked dates:', error);
+      console.error("Error fetching blocked dates:", error);
     } finally {
       setLoading(false);
     }
@@ -76,12 +94,13 @@ export default function ReservationCalendar({ onDateSelect }: ReservationCalenda
 
     // Resaltar rango seleccionado
     if (start && end && isWithinInterval(date, { start, end })) {
-      if (isSameDay(date, start)) return 'react-calendar__tile--rangeStart';
-      if (isSameDay(date, end)) return 'react-calendar__tile--rangeEnd';
-      return 'react-calendar__tile--range';
+      if (isSameDay(date, start)) return "react-calendar__tile--rangeStart";
+      if (isSameDay(date, end)) return "react-calendar__tile--rangeEnd";
+      return "react-calendar__tile--range";
     }
 
-    if (start && isSameDay(date, start)) return 'react-calendar__tile--rangeStart';
+    if (start && isSameDay(date, start))
+      return "react-calendar__tile--rangeStart";
 
     return null;
   };
@@ -101,14 +120,17 @@ export default function ReservationCalendar({ onDateSelect }: ReservationCalenda
     return (
       <Box textAlign="center" py={10}>
         <Spinner size="xl" color="#6B5344" />
-        <Text mt={4} color="gray.600">Cargando disponibilidad...</Text>
+        <Text mt={4} color="gray.600">
+          Cargando disponibilidad...
+        </Text>
       </Box>
     );
   }
 
-  const nights = selectedRange[0] && selectedRange[1]
-    ? differenceInDays(selectedRange[1], selectedRange[0])
-    : 0;
+  const nights =
+    selectedRange[0] && selectedRange[1]
+      ? differenceInDays(selectedRange[1], selectedRange[0])
+      : 0;
 
   return (
     <VStack gap={6} align="stretch">
@@ -118,18 +140,36 @@ export default function ReservationCalendar({ onDateSelect }: ReservationCalenda
         </Text>
 
         {/* Leyenda */}
-        <HStack gap={4} flexWrap="wrap" mb={4}>
+        <HStack gap={4} flexWrap="wrap">
           <HStack gap={2}>
-            <Box w={4} h={4} bg="white" border="2px solid" borderColor="gray.300" borderRadius="sm" />
-            <Text fontSize="sm" color="gray.600">Disponible</Text>
+            <Box
+              w={4}
+              h={4}
+              bg="white"
+              border="2px solid"
+              borderColor="gray.300"
+              borderRadius="sm"
+            />
+            <Text fontSize="sm" color="gray.600">
+              Disponible
+            </Text>
           </HStack>
           <HStack gap={2}>
             <Box w={4} h={4} bg="gray.200" borderRadius="sm" />
-            <Text fontSize="sm" color="gray.600">No disponible</Text>
+            <Text fontSize="sm" color="gray.600">
+              No disponible
+            </Text>
           </HStack>
           <HStack gap={2}>
-            <Box w={4} h={4} bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)" borderRadius="sm" />
-            <Text fontSize="sm" color="gray.600">Seleccionado</Text>
+            <Box
+              w={4}
+              h={4}
+              bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
+              borderRadius="sm"
+            />
+            <Text fontSize="sm" color="gray.600">
+              Seleccionado
+            </Text>
           </HStack>
         </HStack>
       </Box>
@@ -145,7 +185,6 @@ export default function ReservationCalendar({ onDateSelect }: ReservationCalenda
           locale="es-ES"
         />
       </Box>
-
     </VStack>
   );
 }

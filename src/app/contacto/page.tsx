@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import {
   Box,
   Container,
@@ -12,22 +12,22 @@ import {
   createToaster,
   Text,
   SimpleGrid,
-} from '@chakra-ui/react';
-import type { ContactFormData } from '@/types';
+} from "@chakra-ui/react";
+import type { ContactFormData } from "@/types";
 
 const toaster = createToaster({
-  placement: 'top-end',
+  placement: "top-end",
   duration: 5000,
 });
 
 export default function ContactoPage() {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    message: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -35,10 +35,10 @@ export default function ContactoPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -47,26 +47,26 @@ export default function ContactoPage() {
 
       if (data.success) {
         toaster.success({
-          title: 'Mensaje enviado',
-          description: 'Te responderemos a la brevedad',
+          title: "Mensaje enviado",
+          description: "Te responderemos a la brevedad",
         });
         setFormData({
-          firstName: '',
-          lastName: '',
-          phone: '',
-          email: '',
-          message: '',
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          message: "",
         });
       } else {
         toaster.error({
-          title: 'Error',
+          title: "Error",
           description: data.message,
         });
       }
     } catch (error) {
       toaster.error({
-        title: 'Error',
-        description: 'Ocurrió un error al enviar el mensaje',
+        title: "Error",
+        description: "Ocurrió un error al enviar el mensaje",
       });
     } finally {
       setLoading(false);
@@ -92,11 +92,15 @@ export default function ContactoPage() {
             >
               Hablemos
             </Text>
-            <Heading as="h1" fontSize={{ base: '4xl', md: '5xl' }} fontWeight="bold">
+            <Heading
+              as="h1"
+              fontSize={{ base: "4xl", md: "5xl" }}
+              fontWeight="bold"
+            >
               Contacto
             </Heading>
-            <Text fontSize={{ base: 'lg', md: 'xl' }} maxW="3xl" opacity={0.95}>
-              ¿Tienes alguna pregunta? Estamos aquí para ayudarte
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
+              ¿Tenés alguna pregunta? Estamos para ayudarte
             </Text>
           </VStack>
         </Container>
@@ -122,12 +126,17 @@ export default function ContactoPage() {
                   <Input
                     placeholder="Tu nombre"
                     value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, firstName: e.target.value })
+                    }
                     required
                     size="lg"
                     borderColor="gray.300"
-                    _hover={{ borderColor: '#A0826D' }}
-                    _focus={{ borderColor: '#6B5344', boxShadow: '0 0 0 1px #6B5344' }}
+                    _hover={{ borderColor: "#A0826D" }}
+                    _focus={{
+                      borderColor: "#6B5344",
+                      boxShadow: "0 0 0 1px #6B5344",
+                    }}
                   />
                 </Box>
                 <Box>
@@ -137,12 +146,17 @@ export default function ContactoPage() {
                   <Input
                     placeholder="Tu apellido"
                     value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, lastName: e.target.value })
+                    }
                     required
                     size="lg"
                     borderColor="gray.300"
-                    _hover={{ borderColor: '#A0826D' }}
-                    _focus={{ borderColor: '#6B5344', boxShadow: '0 0 0 1px #6B5344' }}
+                    _hover={{ borderColor: "#A0826D" }}
+                    _focus={{
+                      borderColor: "#6B5344",
+                      boxShadow: "0 0 0 1px #6B5344",
+                    }}
                   />
                 </Box>
               </SimpleGrid>
@@ -155,12 +169,17 @@ export default function ContactoPage() {
                   type="email"
                   placeholder="tu@email.com"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   required
                   size="lg"
                   borderColor="gray.300"
-                  _hover={{ borderColor: 'purple.400' }}
-                  _focus={{ borderColor: 'purple.500', boxShadow: '0 0 0 1px var(--chakra-colors-purple-500)' }}
+                  _hover={{ borderColor: "purple.400" }}
+                  _focus={{
+                    borderColor: "purple.500",
+                    boxShadow: "0 0 0 1px var(--chakra-colors-purple-500)",
+                  }}
                 />
               </Box>
 
@@ -172,12 +191,17 @@ export default function ContactoPage() {
                   type="tel"
                   placeholder="+598 99 123 456"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   required
                   size="lg"
                   borderColor="gray.300"
-                  _hover={{ borderColor: 'purple.400' }}
-                  _focus={{ borderColor: 'purple.500', boxShadow: '0 0 0 1px var(--chakra-colors-purple-500)' }}
+                  _hover={{ borderColor: "purple.400" }}
+                  _focus={{
+                    borderColor: "purple.500",
+                    boxShadow: "0 0 0 1px var(--chakra-colors-purple-500)",
+                  }}
                 />
               </Box>
 
@@ -188,13 +212,18 @@ export default function ContactoPage() {
                 <Textarea
                   placeholder="Cuéntanos cómo podemos ayudarte..."
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   rows={6}
                   required
                   size="lg"
                   borderColor="gray.300"
-                  _hover={{ borderColor: 'purple.400' }}
-                  _focus={{ borderColor: 'purple.500', boxShadow: '0 0 0 1px var(--chakra-colors-purple-500)' }}
+                  _hover={{ borderColor: "purple.400" }}
+                  _focus={{
+                    borderColor: "purple.500",
+                    boxShadow: "0 0 0 1px var(--chakra-colors-purple-500)",
+                  }}
                 />
               </Box>
 
@@ -209,8 +238,8 @@ export default function ContactoPage() {
                 fontWeight="semibold"
                 loading={loading}
                 _hover={{
-                  transform: 'translateY(-2px)',
-                  boxShadow: 'xl',
+                  transform: "translateY(-2px)",
+                  boxShadow: "xl",
                 }}
                 transition="all 0.2s"
               >

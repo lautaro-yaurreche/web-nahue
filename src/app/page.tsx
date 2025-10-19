@@ -42,7 +42,7 @@ export default function Home() {
       {/* Hero Section - Full Height with Image Background */}
       <Box
         position="relative"
-        h={{ base: "70vh", md: "85vh" }}
+        h={{ base: "70vh", md: "100vh" }}
         display="flex"
         alignItems="center"
         justifyContent="center"

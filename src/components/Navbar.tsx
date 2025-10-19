@@ -1,11 +1,23 @@
 "use client";
 
-import { Box, Container, Flex, Button, HStack, Image } from "@chakra-ui/react";
+import { useState, useTransition, useEffect } from "react";
+import {
+  Box,
+  Container,
+  Flex,
+  Button,
+  HStack,
+  Image,
+  Spinner,
+} from "@chakra-ui/react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [loadingLink, setLoadingLink] = useState<string | null>(null);
 
   const links = [
     { href: "/", label: "Inicio" },
@@ -15,13 +27,29 @@ export default function Navbar() {
     { href: "/contacto", label: "Contacto" },
   ];
 
+  // Limpiar el loading cuando la navegación termina
+  useEffect(() => {
+    setLoadingLink(null);
+  }, [pathname]);
+
+  const handleNavigation = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pathname === href) return;
+
+    setLoadingLink(href);
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   return (
     <Box
       as="nav"
       bg="white"
       boxShadow="sm"
       py={3}
-      position="sticky"
+      position="fixed"
+      w="full"
       top={0}
       zIndex={1000}
       borderBottom="1px"
@@ -29,11 +57,12 @@ export default function Navbar() {
     >
       <Container maxW="container.xl">
         <Flex justify="space-between" align="center">
-          <Link href="/">
+          <Link href="/" onClick={(e) => handleNavigation("/", e)}>
             <Box
               cursor="pointer"
               _hover={{ opacity: 0.8 }}
               transition="opacity 0.2s"
+              opacity={loadingLink === "/" ? 0.6 : 1}
             >
               <Image
                 src="/logo.svg"
@@ -45,40 +74,67 @@ export default function Navbar() {
           </Link>
 
           <HStack gap={2} display={{ base: "none", lg: "flex" }}>
-            {links.map((link) => (
-              <Link key={link.href} href={link.href}>
-                <Button
-                  variant="ghost"
-                  color={pathname === link.href ? "#6B5344" : "gray.700"}
-                  fontWeight={pathname === link.href ? "semibold" : "normal"}
-                  _hover={{
-                    bg: "#F5F1ED",
-                    color: "#6B5344",
-                  }}
-                  position="relative"
-                  _after={
-                    pathname === link.href
-                      ? {
-                          content: '""',
-                          position: "absolute",
-                          bottom: 0,
-                          left: "50%",
-                          transform: "translateX(-50%)",
-                          width: "60%",
-                          height: "2px",
-                          bg: "#6B8E23",
-                        }
-                      : {}
-                  }
+            {links.map((link) => {
+              const isActive = pathname === link.href;
+              const isLoading = loadingLink === link.href;
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavigation(link.href, e)}
                 >
-                  {link.label}
-                </Button>
-              </Link>
-            ))}
+                  <Button
+                    variant="ghost"
+                    color={isActive ? "#6B5344" : "gray.700"}
+                    fontWeight={isActive ? "semibold" : "normal"}
+                    _hover={{
+                      bg: "#F5F1ED",
+                      color: "#6B5344",
+                    }}
+                    position="relative"
+                    overflow="hidden"
+                    _after={
+                      isActive
+                        ? {
+                            content: '""',
+                            position: "absolute",
+                            bottom: 0,
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            width: "60%",
+                            height: "2px",
+                            bg: "#6B8E23",
+                          }
+                        : {}
+                    }
+                    _before={
+                      isLoading
+                        ? {
+                            content: '""',
+                            position: "absolute",
+                            bottom: 0,
+                            left: "-100%",
+                            width: "60%",
+                            height: "2px",
+                            bg: "#6B8E23",
+                            animation: "slideRight 1s ease-in-out infinite",
+                          }
+                        : {}
+                    }
+                  >
+                    {link.label}
+                  </Button>
+                </Link>
+              );
+            })}
           </HStack>
 
           {/* CTA Button */}
-          <Link href="/reservas">
+          <Link
+            href="/reservas"
+            onClick={(e) => handleNavigation("/reservas", e)}
+          >
             <Button
               bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
               color="white"
@@ -89,8 +145,9 @@ export default function Navbar() {
                 boxShadow: "lg",
               }}
               transition="all 0.2s"
+              opacity={loadingLink === "/reservas" ? 0.7 : 1}
             >
-              Reservar
+              {loadingLink === "/reservas" ? <Spinner /> : "Reservar"}
             </Button>
           </Link>
         </Flex>

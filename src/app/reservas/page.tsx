@@ -185,74 +185,64 @@ export default function ReservasPage() {
                 <Heading as="h3" size="md" mb={4} color="gray.800">
                   Tu Reserva
                 </Heading>
-                <VStack align="stretch" gap={3}>
-                  <Box
-                    p={4}
-                    bg="#F5F1ED"
-                    borderRadius="lg"
-                    border="1px"
-                    borderColor="#E8DDD0"
-                  >
-                    <SimpleGrid columns={2} gap={4}>
-                      <Box>
-                        <Text
-                          fontSize="xs"
-                          fontWeight="semibold"
-                          color="#6B5344"
-                          mb={1}
-                        >
-                          CHECK-IN
-                        </Text>
-                        <Text
-                          fontSize="md"
-                          fontWeight="bold"
-                          color="#5D4037"
-                        >
-                          {format(selectedDates.checkIn, "dd MMM yyyy", {
-                            locale: es,
-                          })}
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text
-                          fontSize="xs"
-                          fontWeight="semibold"
-                          color="#6B5344"
-                          mb={1}
-                        >
-                          CHECK-OUT
-                        </Text>
-                        <Text
-                          fontSize="md"
-                          fontWeight="bold"
-                          color="#5D4037"
-                        >
-                          {format(selectedDates.checkOut, "dd MMM yyyy", {
-                            locale: es,
-                          })}
-                        </Text>
-                      </Box>
-                    </SimpleGrid>
-                  </Box>
-                  <Box p={4} bg="gray.50" borderRadius="lg" textAlign="center">
-                    <Text fontSize="sm" color="gray.600">
-                      Estadía de{" "}
+                <Box
+                  p={4}
+                  bg="#F5F1ED"
+                  borderRadius="lg"
+                  border="1px"
+                  borderColor="#E8DDD0"
+                >
+                  <SimpleGrid columns={3} gap={4}>
+                    <Box>
                       <Text
-                        as="span"
-                        fontWeight="bold"
-                        fontSize="lg"
-                        color="#6B8E23"
+                        fontSize="xs"
+                        fontWeight="semibold"
+                        color="#6B5344"
+                        mb={1}
                       >
+                        CHECK-IN
+                      </Text>
+                      <Text fontSize="md" fontWeight="bold" color="#5D4037">
+                        {format(selectedDates.checkIn, "dd MMM yyyy", {
+                          locale: es,
+                        })}
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text
+                        fontSize="xs"
+                        fontWeight="semibold"
+                        color="#6B5344"
+                        mb={1}
+                      >
+                        CHECK-OUT
+                      </Text>
+                      <Text fontSize="md" fontWeight="bold" color="#5D4037">
+                        {format(selectedDates.checkOut, "dd MMM yyyy", {
+                          locale: es,
+                        })}
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text
+                        fontSize="xs"
+                        fontWeight="semibold"
+                        color="#6B5344"
+                        mb={1}
+                      >
+                        ESTADÍA
+                      </Text>
+                      <Text fontSize="md" fontWeight="bold" color="#6B8E23">
                         {Math.ceil(
                           (selectedDates.checkOut.getTime() -
                             selectedDates.checkIn.getTime()) /
                             (1000 * 60 * 60 * 24)
-                        )}
-                      </Text>{" "}
-                      noches
-                    </Text>
-                  </Box>
-                </VStack>
+                        )}{" "}
+                        noches
+                      </Text>
+                    </Box>
+                  </SimpleGrid>
+                </Box>
               </Box>
             )}
 
@@ -293,8 +283,7 @@ export default function ReservasPage() {
                         _hover={{ borderColor: "#A0826D" }}
                         _focus={{
                           borderColor: "#6B5344",
-                          boxShadow:
-                            "0 0 0 1px #6B5344",
+                          boxShadow: "0 0 0 1px #6B5344",
                         }}
                       />
                     </Box>
@@ -321,8 +310,7 @@ export default function ReservasPage() {
                         _hover={{ borderColor: "#A0826D" }}
                         _focus={{
                           borderColor: "#6B5344",
-                          boxShadow:
-                            "0 0 0 1px #6B5344",
+                          boxShadow: "0 0 0 1px #6B5344",
                         }}
                       />
                     </Box>
@@ -342,8 +330,9 @@ export default function ReservasPage() {
                         boxShadow: "xl",
                       }}
                       transition="all 0.2s"
+                      mt="0.5rem"
                     >
-                      Solicitar Reserva
+                      Solicitar reserva
                     </Button>
 
                     <Text fontSize="xs" color="gray.500" textAlign="center">
