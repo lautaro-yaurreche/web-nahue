@@ -28,7 +28,7 @@ export default function Navbar() {
     { href: "/actividades", label: "Actividades" },
     { href: "/servicios", label: "Servicios" },
     { href: "/galeria", label: "Galería" },
-    { href: "/contacto", label: "Contacto" },
+    { href: "/venta", label: "Venta" },
   ];
 
   // Limpiar el loading cuando la navegación termina

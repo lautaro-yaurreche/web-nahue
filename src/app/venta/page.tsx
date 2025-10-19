@@ -1,0 +1,394 @@
+"use client";
+
+import { useState } from "react";
+import {
+  Box,
+  Container,
+  Heading,
+  VStack,
+  Input,
+  Textarea,
+  Button,
+  createToaster,
+  Text,
+  SimpleGrid,
+} from "@chakra-ui/react";
+import type { ContactFormData } from "@/types";
+
+const toaster = createToaster({
+  placement: "top-end",
+  duration: 5000,
+});
+
+export default function ContactoPage() {
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState<ContactFormData>({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toaster.success({
+          title: "Mensaje enviado",
+          description: "Te responderemos a la brevedad",
+        });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        toaster.error({
+          title: "Error",
+          description: data.message,
+        });
+      }
+    } catch (error) {
+      toaster.error({
+        title: "Error",
+        description: "Ocurrió un error al enviar el mensaje",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <Box bg="gray.50" minH="100vh">
+      <Box h="5.25rem" />
+      {/* Header Section */}
+      <Box
+        bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+        py={{ base: 16, md: 20 }}
+      >
+        <Container maxW="container.xl">
+          <VStack gap={4} textAlign="center">
+            <Text
+              fontSize="sm"
+              fontWeight="semibold"
+              textTransform="uppercase"
+              letterSpacing="wider"
+              opacity={0.9}
+            >
+              Oportunidad de inversión
+            </Text>
+            <Heading
+              as="h1"
+              fontSize={{ base: "4xl", md: "5xl" }}
+              fontWeight="bold"
+            >
+              Venta
+            </Heading>
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
+              Tu oportunidad de adquirir un refugio único
+            </Text>
+          </VStack>
+        </Container>
+      </Box>
+
+      {/* Content Section */}
+      <Container maxW="container.xl" py={{ base: 12, md: 20 }}>
+        <SimpleGrid columns={{ base: 1, lg: 2 }} gap={{ base: 8, lg: 12 }}>
+          {/* Left: Sale Information */}
+          <VStack align="stretch" gap={6}>
+            <Box>
+              <Heading
+                as="h2"
+                fontSize={{ base: "2xl", md: "3xl" }}
+                fontWeight="bold"
+                color="primary.700"
+                mb={4}
+              >
+                ¿Por qué invertir aquí?
+              </Heading>
+              <Text fontSize="lg" color="gray.600" lineHeight="tall">
+                Una oportunidad única para quienes buscan un negocio rentable o
+                una residencia en un entorno natural privilegiado.
+              </Text>
+            </Box>
+
+            <Box
+              bg="white"
+              p={8}
+              borderRadius="2xl"
+              boxShadow="lg"
+              border="1px"
+              borderColor="gray.100"
+            >
+              <VStack align="start" gap={5}>
+                <Box>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="bold"
+                    color="accent.600"
+                    textTransform="uppercase"
+                    letterSpacing="wide"
+                    mb={3}
+                  >
+                    Características destacadas
+                  </Text>
+                  <VStack align="start" gap={3}>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        Propiedad en venta
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Lista para ser adquirida y comenzar a generar ingresos.
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        Ideal para inversión
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Negocio de alquiler rentable con alta demanda turística
+                        en la zona.
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        Entorno natural
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Ubicación privilegiada rodeada de naturaleza y
+                        tranquilidad.
+                      </Text>
+                    </Box>
+                  </VStack>
+                </Box>
+
+                <Box w="full" h="1px" bg="gray.200" my={2} />
+
+                <Box>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="bold"
+                    color="accent.600"
+                    textTransform="uppercase"
+                    letterSpacing="wide"
+                    mb={4}
+                  >
+                    Lo que incluimos
+                  </Text>
+                  <VStack align="start" gap={2}>
+                    <Text fontSize="sm" color="gray.700">
+                      📄 PDF con propuesta completa y detalles de la casa
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      📊 Análisis de retorno de inversión real
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      💰 Información sobre ingresos actuales
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      🏡 Beneficios y ventajas de la ubicación
+                    </Text>
+                  </VStack>
+                </Box>
+
+                <Box
+                  w="full"
+                  p={4}
+                  bg="primary.50"
+                  borderRadius="lg"
+                  border="1px"
+                  borderColor="primary.200"
+                >
+                  <Text
+                    fontSize="sm"
+                    fontWeight="semibold"
+                    color="primary.700"
+                    mb={2}
+                  >
+                    Consultas directas
+                  </Text>
+                  <Text fontSize="sm" color="primary.600">
+                    Tratá directamente con los propietarios. Precio real, sin
+                    intermediarios ni comisiones extra.
+                  </Text>
+                </Box>
+              </VStack>
+            </Box>
+          </VStack>
+
+          {/* Right: Contact Form */}
+          <Box
+            bg="white"
+            p={{ base: 8, md: 10 }}
+            borderRadius="2xl"
+            boxShadow="xl"
+            border="1px"
+            borderColor="gray.100"
+            h="fit-content"
+          >
+            <Heading
+              as="h3"
+              fontSize={{ base: "xl", md: "2xl" }}
+              fontWeight="bold"
+              color="gray.800"
+              mb={6}
+            >
+              Contactanos
+            </Heading>
+
+            <Box as="form" onSubmit={handleSubmit}>
+              <VStack gap={5}>
+                <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} w="full">
+                  <Box>
+                    <Text mb={2} fontWeight="medium" color="gray.700">
+                      Nombre *
+                    </Text>
+                    <Input
+                      placeholder="Tu nombre"
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
+                      required
+                      size="lg"
+                      borderColor="gray.300"
+                      _hover={{ borderColor: "primary.500" }}
+                      _focus={{
+                        borderColor: "primary.600",
+                        boxShadow: "0 0 0 1px primary.600",
+                      }}
+                    />
+                  </Box>
+                  <Box>
+                    <Text mb={2} fontWeight="medium" color="gray.700">
+                      Apellido *
+                    </Text>
+                    <Input
+                      placeholder="Tu apellido"
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
+                      required
+                      size="lg"
+                      borderColor="gray.300"
+                      _hover={{ borderColor: "primary.500" }}
+                      _focus={{
+                        borderColor: "primary.600",
+                        boxShadow: "0 0 0 1px primary.600",
+                      }}
+                    />
+                  </Box>
+                </SimpleGrid>
+
+                <Box w="full">
+                  <Text mb={2} fontWeight="medium" color="gray.700">
+                    Email *
+                  </Text>
+                  <Input
+                    type="email"
+                    placeholder="tu@email.com"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    required
+                    size="lg"
+                    borderColor="gray.300"
+                    _hover={{ borderColor: "primary.500" }}
+                    _focus={{
+                      borderColor: "primary.600",
+                      boxShadow: "0 0 0 1px primary.600",
+                    }}
+                  />
+                </Box>
+
+                <Box w="full">
+                  <Text mb={2} fontWeight="medium" color="gray.700">
+                    Teléfono *
+                  </Text>
+                  <Input
+                    type="tel"
+                    placeholder="+598 99 123 456"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    required
+                    size="lg"
+                    borderColor="gray.300"
+                    _hover={{ borderColor: "primary.500" }}
+                    _focus={{
+                      borderColor: "primary.600",
+                      boxShadow: "0 0 0 1px primary.600",
+                    }}
+                  />
+                </Box>
+
+                <Box w="full">
+                  <Text mb={2} fontWeight="medium" color="gray.700">
+                    Mensaje *
+                  </Text>
+                  <Textarea
+                    placeholder="Cuéntanos qué te interesa saber sobre la propiedad..."
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    rows={5}
+                    required
+                    size="lg"
+                    borderColor="gray.300"
+                    _hover={{ borderColor: "primary.500" }}
+                    _focus={{
+                      borderColor: "primary.600",
+                      boxShadow: "0 0 0 1px primary.600",
+                    }}
+                  />
+                </Box>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  w="full"
+                  bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+                  color="white"
+                  py={7}
+                  fontSize="lg"
+                  fontWeight="semibold"
+                  loading={loading}
+                  _hover={{
+                    transform: "translateY(-2px)",
+                    boxShadow: "xl",
+                  }}
+                  transition="all 0.2s"
+                >
+                  Enviar Mensaje
+                </Button>
+
+                <Text fontSize="sm" color="gray.500" textAlign="center">
+                  Te responderemos en menos de 24 hs.
+                </Text>
+              </VStack>
+            </Box>
+          </Box>
+        </SimpleGrid>
+      </Container>
+    </Box>
+  );
+}
