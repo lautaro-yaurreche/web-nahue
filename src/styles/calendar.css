@@ -24,6 +24,14 @@
   gap: 0.5rem;
 }
 
+@media (max-width: 768px) {
+  .react-calendar__navigation {
+    margin-bottom: 1rem;
+    height: auto;
+    min-height: 44px;
+  }
+}
+
 .react-calendar__navigation button {
   font-size: 1.1rem;
   font-weight: 700;
@@ -35,6 +43,18 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   transition: all 0.2s;
+}
+
+@media (max-width: 768px) {
+  .react-calendar__navigation button {
+    font-size: 0.85rem;
+    min-width: 36px;
+    padding: 0.25rem;
+  }
+
+  .react-calendar__navigation__label {
+    flex-grow: 1 !important;
+  }
 }
 
 .react-calendar__navigation button:hover:not(:disabled) {
@@ -65,6 +85,16 @@
   text-decoration: none;
 }
 
+@media (max-width: 768px) {
+  .react-calendar__month-view__weekdays {
+    font-size: 0.65rem;
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 0.5rem 0.25rem;
+  }
+}
+
 .react-calendar__tile {
   max-width: 100%;
   padding: 1rem;
@@ -81,8 +111,16 @@
 
 @media (max-width: 768px) {
   .react-calendar__tile {
-    padding: 0.75rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.8rem;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .react-calendar__tile abbr {
+    white-space: nowrap;
   }
 }
 

@@ -9,6 +9,10 @@ import {
   HStack,
   Image,
   Spinner,
+  IconButton,
+  VStack,
+  Drawer,
+  Portal,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -18,6 +22,7 @@ export default function Navbar() {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [loadingLink, setLoadingLink] = useState<string | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const links = [
     { href: "/", label: "Inicio" },
@@ -37,6 +42,7 @@ export default function Navbar() {
     if (pathname === href) return;
 
     setLoadingLink(href);
+    setIsMenuOpen(false); // Cerrar el menú al navegar
     startTransition(() => {
       router.push(href);
     });
@@ -49,7 +55,7 @@ export default function Navbar() {
       boxShadow="sm"
       py={3}
       position="fixed"
-      w="full"
+      w="100%"
       top={0}
       zIndex={1000}
       borderBottom="1px"
@@ -130,7 +136,7 @@ export default function Navbar() {
             })}
           </HStack>
 
-          {/* CTA Button */}
+          {/* CTA Button - Desktop */}
           <Link
             href="/reservas"
             onClick={(e) => handleNavigation("/reservas", e)}
@@ -150,8 +156,136 @@ export default function Navbar() {
               {loadingLink === "/reservas" ? <Spinner /> : "Reservar"}
             </Button>
           </Link>
+
+          {/* Hamburger Menu - Mobile */}
+          <IconButton
+            aria-label="Abrir menú"
+            variant="ghost"
+            display={{ base: "flex", lg: "none" }}
+            onClick={() => setIsMenuOpen(true)}
+            _hover={{ bg: "#F5F1ED" }}
+          >
+            <Box>
+              <Box
+                w="24px"
+                h="2px"
+                bg="#6B5344"
+                mb="6px"
+                borderRadius="2px"
+                transition="all 0.3s"
+              />
+              <Box
+                w="24px"
+                h="2px"
+                bg="#6B5344"
+                mb="6px"
+                borderRadius="2px"
+                transition="all 0.3s"
+              />
+              <Box
+                w="24px"
+                h="2px"
+                bg="#6B5344"
+                borderRadius="2px"
+                transition="all 0.3s"
+              />
+            </Box>
+          </IconButton>
         </Flex>
       </Container>
+
+      {/* Mobile Menu Drawer */}
+      <Drawer.Root
+        open={isMenuOpen}
+        onOpenChange={(e) => setIsMenuOpen(e.open)}
+        placement="end"
+        size="xs"
+      >
+        <Portal>
+          <Drawer.Backdrop />
+          <Drawer.Positioner>
+            <Drawer.Content>
+              {/* Close Button */}
+              <Flex justify="flex-end" p={4}>
+                <Drawer.CloseTrigger asChild>
+                  <IconButton
+                    aria-label="Cerrar menú"
+                    variant="ghost"
+                    _hover={{ bg: "#F5F1ED" }}
+                  >
+                    <Box fontSize="24px" fontWeight="300" color="#6B5344">
+                      ✕
+                    </Box>
+                  </IconButton>
+                </Drawer.CloseTrigger>
+              </Flex>
+
+              <Drawer.Body>
+                {/* Menu Links */}
+                <VStack gap={2} align="stretch">
+                  {links.map((link) => {
+                    const isActive = pathname === link.href;
+
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={(e) => handleNavigation(link.href, e)}
+                      >
+                        <Button
+                          variant="ghost"
+                          w="full"
+                          justifyContent="flex-start"
+                          color={isActive ? "#6B5344" : "gray.700"}
+                          fontWeight={isActive ? "semibold" : "normal"}
+                          _hover={{
+                            bg: "#F5F1ED",
+                            color: "#6B5344",
+                          }}
+                          borderLeft={
+                            isActive
+                              ? "3px solid #6B8E23"
+                              : "3px solid transparent"
+                          }
+                          borderRadius={0}
+                          pl={4}
+                        >
+                          {link.label}
+                        </Button>
+                      </Link>
+                    );
+                  })}
+
+                  {/* Reservar Button - Mobile */}
+                  <Link
+                    href="/reservas"
+                    onClick={(e) => handleNavigation("/reservas", e)}
+                  >
+                    <Button
+                      w="full"
+                      bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
+                      color="white"
+                      mt={4}
+                      _hover={{
+                        transform: "translateY(-2px)",
+                        boxShadow: "lg",
+                      }}
+                      transition="all 0.2s"
+                      opacity={loadingLink === "/reservas" ? 0.7 : 1}
+                    >
+                      {loadingLink === "/reservas" ? (
+                        <Spinner size="sm" />
+                      ) : (
+                        "Reservar"
+                      )}
+                    </Button>
+                  </Link>
+                </VStack>
+              </Drawer.Body>
+            </Drawer.Content>
+          </Drawer.Positioner>
+        </Portal>
+      </Drawer.Root>
     </Box>
   );
 }

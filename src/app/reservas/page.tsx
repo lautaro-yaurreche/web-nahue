@@ -191,9 +191,10 @@ export default function ReservasPage() {
                   borderRadius="lg"
                   border="1px"
                   borderColor="#E8DDD0"
+                  textAlign="center"
                 >
-                  <SimpleGrid columns={3} gap={4}>
-                    <Box>
+                  <SimpleGrid columns={{ base: 2, md: 3 }} gap={4}>
+                    <Box justifySelf={{ base: "start", md: "stretch" }}>
                       <Text
                         fontSize="xs"
                         fontWeight="semibold"
@@ -208,7 +209,7 @@ export default function ReservasPage() {
                         })}
                       </Text>
                     </Box>
-                    <Box>
+                    <Box justifySelf={{ base: "end", md: "stretch" }}>
                       <Text
                         fontSize="xs"
                         fontWeight="semibold"
@@ -223,7 +224,10 @@ export default function ReservasPage() {
                         })}
                       </Text>
                     </Box>
-                    <Box>
+                    <Box
+                      gridColumn={{ base: "1 / -1", md: "auto" }}
+                      justifySelf={{ base: "center", md: "stretch" }}
+                    >
                       <Text
                         fontSize="xs"
                         fontWeight="semibold"

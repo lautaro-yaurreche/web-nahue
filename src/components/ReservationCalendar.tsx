@@ -140,7 +140,11 @@ export default function ReservationCalendar({
         </Text>
 
         {/* Leyenda */}
-        <HStack gap={4} flexWrap="wrap">
+        <HStack
+          gap={{ base: 3, md: 4 }}
+          flexWrap="wrap"
+          justifyContent={{ base: "space-between", md: "flex-start" }}
+        >
           <HStack gap={2}>
             <Box
               w={4}
@@ -150,13 +154,29 @@ export default function ReservationCalendar({
               borderColor="gray.300"
               borderRadius="sm"
             />
-            <Text fontSize="sm" color="gray.600">
+            <Text fontSize={{ base: "xs", md: "sm" }} color="gray.600">
               Disponible
             </Text>
           </HStack>
           <HStack gap={2}>
-            <Box w={4} h={4} bg="gray.200" borderRadius="sm" />
-            <Text fontSize="sm" color="gray.600">
+            <Box
+              w={4}
+              h={4}
+              bg="gray.200"
+              borderRadius="sm"
+              position="relative"
+              _after={{
+                content: '""',
+                position: "absolute",
+                top: "50%",
+                left: "15%",
+                right: "15%",
+                height: "2px",
+                bg: "#cbd5e0",
+                transform: "translateY(-50%)",
+              }}
+            />
+            <Text fontSize={{ base: "xs", md: "sm" }} color="gray.600">
               No disponible
             </Text>
           </HStack>
@@ -167,7 +187,7 @@ export default function ReservationCalendar({
               bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
               borderRadius="sm"
             />
-            <Text fontSize="sm" color="gray.600">
+            <Text fontSize={{ base: "xs", md: "sm" }} color="gray.600">
               Seleccionado
             </Text>
           </HStack>
