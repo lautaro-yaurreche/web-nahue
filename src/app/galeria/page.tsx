@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Box,
   Container,
@@ -10,7 +10,7 @@ import {
   VStack,
   SimpleGrid,
   IconButton,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
 export default function GaleriaPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -19,63 +19,63 @@ export default function GaleriaPage() {
   const images = [
     {
       id: 1,
-      title: 'Vista Exterior Principal',
-      src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80',
+      title: "Vista Exterior Principal",
+      src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80",
     },
     {
       id: 2,
-      title: 'Sala de Estar',
-      src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',
+      title: "Sala de Estar",
+      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
     },
     {
       id: 3,
-      title: 'Piscina',
-      src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1200&q=80',
+      title: "Piscina",
+      src: "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1200&q=80",
     },
     {
       id: 4,
-      title: 'Jardín Frontal',
-      src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80',
+      title: "Jardín Frontal",
+      src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
     },
     {
       id: 5,
-      title: 'Dormitorio Principal',
-      src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80',
+      title: "Dormitorio Principal",
+      src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80",
     },
     {
       id: 6,
-      title: 'Área de Parrilla',
-      src: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80',
+      title: "Área de Parrilla",
+      src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
     },
     {
       id: 7,
-      title: 'Terraza con Vista',
-      src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80',
+      title: "Terraza con Vista",
+      src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
     },
     {
       id: 8,
-      title: 'Cocina Moderna',
-      src: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1200&q=80',
+      title: "Cocina Moderna",
+      src: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1200&q=80",
     },
     {
       id: 9,
-      title: 'Zona de Descanso',
-      src: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80',
+      title: "Zona de Descanso",
+      src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80",
     },
     {
       id: 10,
-      title: 'Fachada Nocturna',
-      src: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80',
+      title: "Fachada Nocturna",
+      src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
     },
     {
       id: 11,
-      title: 'Baño Principal',
-      src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80',
+      title: "Baño Principal",
+      src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
     },
     {
       id: 12,
-      title: 'Área de Juegos',
-      src: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200&q=80',
+      title: "Área de Juegos",
+      src: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200&q=80",
     },
   ];
 
@@ -104,25 +104,26 @@ export default function GaleriaPage() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedImage === null) return;
 
-      if (e.key === 'ArrowRight') {
+      if (e.key === "ArrowRight") {
         goToNext();
-      } else if (e.key === 'ArrowLeft') {
+      } else if (e.key === "ArrowLeft") {
         goToPrevious();
-      } else if (e.key === 'Escape') {
+      } else if (e.key === "Escape") {
         closeModal();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImage]);
 
   return (
     <Box bg="gray.50" minH="100vh">
+      <Box h="5.25rem" />
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
-        color="white"
+        bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+        color="accent.500"
         py={{ base: 16, md: 20 }}
       >
         <Container maxW="container.xl">
@@ -136,11 +137,16 @@ export default function GaleriaPage() {
             >
               Nuestros Espacios
             </Text>
-            <Heading as="h1" fontSize={{ base: '4xl', md: '5xl' }} fontWeight="bold">
+            <Heading
+              as="h1"
+              fontSize={{ base: "4xl", md: "5xl" }}
+              fontWeight="bold"
+            >
               Galería de Fotos
             </Heading>
-            <Text fontSize={{ base: 'lg', md: 'xl' }} maxW="3xl" opacity={0.95}>
-              Explora nuestras hermosas propiedades y descubre tu próximo destino
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
+              Explora nuestras hermosas propiedades y descubre tu próximo
+              destino
             </Text>
           </VStack>
         </Container>
@@ -159,16 +165,15 @@ export default function GaleriaPage() {
               cursor="pointer"
               onClick={() => openModal(index)}
               _hover={{
-                transform: 'scale(1.02)',
-                boxShadow: '2xl',
+                transform: "scale(1.02)",
+                boxShadow: "2xl",
               }}
               transition="all 0.3s"
               boxShadow="lg"
               backgroundImage={`url(${image.src})`}
               backgroundSize="cover"
               backgroundPosition="center"
-            >
-            </Box>
+            ></Box>
           ))}
         </SimpleGrid>
       </Container>
@@ -199,7 +204,7 @@ export default function GaleriaPage() {
             color="white"
             size="lg"
             fontSize="2xl"
-            _hover={{ bg: 'whiteAlpha.500' }}
+            _hover={{ bg: "whiteAlpha.500" }}
             backdropFilter="blur(10px)"
             borderRadius="full"
             zIndex={3}
@@ -228,7 +233,7 @@ export default function GaleriaPage() {
               color="white"
               size="lg"
               fontSize="3xl"
-              _hover={{ bg: 'whiteAlpha.500' }}
+              _hover={{ bg: "whiteAlpha.500" }}
               backdropFilter="blur(10px)"
               borderRadius="full"
               zIndex={2}
@@ -262,7 +267,7 @@ export default function GaleriaPage() {
                   src={images[selectedImage].src}
                   alt={images[selectedImage].title}
                   fill
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: "contain" }}
                   sizes="90vw"
                   priority
                 />
@@ -288,7 +293,7 @@ export default function GaleriaPage() {
               color="white"
               size="lg"
               fontSize="3xl"
-              _hover={{ bg: 'whiteAlpha.500' }}
+              _hover={{ bg: "whiteAlpha.500" }}
               backdropFilter="blur(10px)"
               borderRadius="full"
               zIndex={2}

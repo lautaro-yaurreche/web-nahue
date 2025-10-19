@@ -21,7 +21,6 @@ export default function RootLayout({
         style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
         <Providers>
-          <Box h="5.25rem" />
           <Navbar />
           <main style={{ flex: 1 }}>{children}</main>
           <Footer />

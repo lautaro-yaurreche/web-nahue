@@ -51,7 +51,7 @@ export default function Navbar() {
   return (
     <Box
       as="nav"
-      bg="white"
+      bg="background.primary"
       boxShadow="sm"
       py={2}
       position="fixed"
@@ -59,7 +59,7 @@ export default function Navbar() {
       top={0}
       zIndex={1000}
       borderBottom="1px"
-      borderColor="gray.100"
+      borderColor="primary.200"
     >
       <Container maxW="container.xl">
         <Flex justify="space-between" align="center">
@@ -68,7 +68,6 @@ export default function Navbar() {
               cursor="pointer"
               _hover={{ opacity: 0.8 }}
               transition="opacity 0.2s"
-              opacity={loadingLink === "/" ? 0.6 : 1}
             >
               <Image
                 src="/logo.svg"
@@ -92,11 +91,11 @@ export default function Navbar() {
                 >
                   <Button
                     variant="ghost"
-                    color={isActive ? "#6B5344" : "gray.700"}
-                    fontWeight={isActive ? "semibold" : "normal"}
+                    color="text"
+                    fontWeight="semibold"
                     _hover={{
-                      bg: "#F5F1ED",
-                      color: "#6B5344",
+                      bg: "background.secondary",
+                      color: "text",
                     }}
                     position="relative"
                     overflow="hidden"
@@ -110,7 +109,7 @@ export default function Navbar() {
                             transform: "translateX(-50%)",
                             width: "60%",
                             height: "2px",
-                            bg: "#6B8E23",
+                            bg: "text",
                           }
                         : {}
                     }
@@ -123,7 +122,7 @@ export default function Navbar() {
                             left: "-100%",
                             width: "60%",
                             height: "2px",
-                            bg: "#6B8E23",
+                            bg: "primary.500",
                             animation: "slideRight 1s ease-in-out infinite",
                           }
                         : {}
@@ -142,8 +141,8 @@ export default function Navbar() {
             onClick={(e) => handleNavigation("/reservas", e)}
           >
             <Button
-              bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
-              color="white"
+              bg="text"
+              color="accent.500"
               px={6}
               display={{ base: "none", lg: "block" }}
               _hover={{
@@ -163,13 +162,13 @@ export default function Navbar() {
             variant="ghost"
             display={{ base: "flex", lg: "none" }}
             onClick={() => setIsMenuOpen(true)}
-            _hover={{ bg: "#F5F1ED" }}
+            _hover={{ bg: "primary.50" }}
           >
             <Box>
               <Box
                 w="24px"
                 h="2px"
-                bg="#6B5344"
+                bg="primary.600"
                 mb="6px"
                 borderRadius="2px"
                 transition="all 0.3s"
@@ -177,7 +176,7 @@ export default function Navbar() {
               <Box
                 w="24px"
                 h="2px"
-                bg="#6B5344"
+                bg="primary.600"
                 mb="6px"
                 borderRadius="2px"
                 transition="all 0.3s"
@@ -185,7 +184,7 @@ export default function Navbar() {
               <Box
                 w="24px"
                 h="2px"
-                bg="#6B5344"
+                bg="primary.600"
                 borderRadius="2px"
                 transition="all 0.3s"
               />
@@ -211,9 +210,9 @@ export default function Navbar() {
                   <IconButton
                     aria-label="Cerrar menú"
                     variant="ghost"
-                    _hover={{ bg: "#F5F1ED" }}
+                    _hover={{ bg: "primary.50" }}
                   >
-                    <Box fontSize="24px" fontWeight="300" color="#6B5344">
+                    <Box fontSize="24px" fontWeight="300" color="primary.600">
                       ✕
                     </Box>
                   </IconButton>
@@ -236,15 +235,15 @@ export default function Navbar() {
                           variant="ghost"
                           w="full"
                           justifyContent="flex-start"
-                          color={isActive ? "#6B5344" : "gray.700"}
+                          color={isActive ? "primary.600" : "gray.700"}
                           fontWeight={isActive ? "semibold" : "normal"}
                           _hover={{
-                            bg: "#F5F1ED",
-                            color: "#6B5344",
+                            bg: "primary.50",
+                            color: "primary.600",
                           }}
                           borderLeft={
                             isActive
-                              ? "3px solid #6B8E23"
+                              ? "3px solid primary.500"
                               : "3px solid transparent"
                           }
                           borderRadius={0}
@@ -263,8 +262,8 @@ export default function Navbar() {
                   >
                     <Button
                       w="full"
-                      bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
-                      color="white"
+                      bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+                      color="accent.500"
                       mt={4}
                       _hover={{
                         transform: "translateY(-2px)",

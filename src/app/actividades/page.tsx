@@ -1,65 +1,80 @@
-'use client';
+"use client";
 
-import { Box, Container, Heading, Text, VStack, SimpleGrid } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  VStack,
+  SimpleGrid,
+} from "@chakra-ui/react";
 
 export default function ActividadesPage() {
   const activities = [
     {
-      title: 'Senderismo y Trekking',
-      description: 'Explora los senderos naturales de la zona con vistas espectaculares del paisaje.',
-      icon: '🥾',
-      color: 'green',
+      title: "Senderismo y Trekking",
+      description:
+        "Explora los senderos naturales de la zona con vistas espectaculares del paisaje.",
+      icon: "🥾",
+      color: "green",
     },
     {
-      title: 'Playas',
-      description: 'Disfruta de hermosas playas de arena blanca a pocos minutos de las propiedades.',
-      icon: '🏖️',
-      color: 'blue',
+      title: "Playas",
+      description:
+        "Disfruta de hermosas playas de arena blanca a pocos minutos de las propiedades.",
+      icon: "🏖️",
+      color: "blue",
     },
     {
-      title: 'Deportes Acuáticos',
-      description: 'Kayak, paddleboard, snorkel y otras actividades acuáticas disponibles.',
-      icon: '🏄',
-      color: 'cyan',
+      title: "Deportes Acuáticos",
+      description:
+        "Kayak, paddleboard, snorkel y otras actividades acuáticas disponibles.",
+      icon: "🏄",
+      color: "cyan",
     },
     {
-      title: 'Ciclismo',
-      description: 'Rutas en bicicleta para todos los niveles a través de paisajes únicos.',
-      icon: '🚴',
-      color: 'orange',
+      title: "Ciclismo",
+      description:
+        "Rutas en bicicleta para todos los niveles a través de paisajes únicos.",
+      icon: "🚴",
+      color: "orange",
     },
     {
-      title: 'Pesca Deportiva',
-      description: 'Zonas de pesca privilegiadas para los amantes de este deporte.',
-      icon: '🎣',
-      color: 'teal',
+      title: "Pesca Deportiva",
+      description:
+        "Zonas de pesca privilegiadas para los amantes de este deporte.",
+      icon: "🎣",
+      color: "teal",
     },
     {
-      title: 'Observación de Fauna',
-      description: 'Descubre la rica fauna local en su hábitat natural.',
-      icon: '🦅',
-      color: 'green',
+      title: "Observación de Fauna",
+      description: "Descubre la rica fauna local en su hábitat natural.",
+      icon: "🦅",
+      color: "green",
     },
     {
-      title: 'Paseos a Caballo',
-      description: 'Recorre los alrededores a caballo con guías experimentados.',
-      icon: '🐴',
-      color: 'yellow',
+      title: "Paseos a Caballo",
+      description:
+        "Recorre los alrededores a caballo con guías experimentados.",
+      icon: "🐴",
+      color: "yellow",
     },
     {
-      title: 'Gastronomía Local',
-      description: 'Degusta la cocina local en restaurantes y ferias de la zona.',
-      icon: '🍽️',
-      color: 'red',
+      title: "Gastronomía Local",
+      description:
+        "Degusta la cocina local en restaurantes y ferias de la zona.",
+      icon: "🍽️",
+      color: "red",
     },
   ];
 
   return (
     <Box bg="gray.50" minH="100vh">
+      <Box h="5.25rem" />
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
-        color="white"
+        bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+        color="accent.500"
         py={{ base: 16, md: 20 }}
       >
         <Container maxW="container.xl">
@@ -73,11 +88,16 @@ export default function ActividadesPage() {
             >
               Experiencias Únicas
             </Text>
-            <Heading as="h1" fontSize={{ base: '4xl', md: '5xl' }} fontWeight="bold">
+            <Heading
+              as="h1"
+              fontSize={{ base: "4xl", md: "5xl" }}
+              fontWeight="bold"
+            >
               Actividades
             </Heading>
-            <Text fontSize={{ base: 'lg', md: 'xl' }} maxW="3xl" opacity={0.95}>
-              Descubre todas las actividades que puedes disfrutar durante tu estadía
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
+              Descubre todas las actividades que puedes disfrutar durante tu
+              estadía
             </Text>
           </VStack>
         </Container>
@@ -95,8 +115,8 @@ export default function ActividadesPage() {
               boxShadow="md"
               textAlign="center"
               _hover={{
-                boxShadow: '2xl',
-                transform: 'translateY(-8px)',
+                boxShadow: "2xl",
+                transform: "translateY(-8px)",
               }}
               transition="all 0.3s"
               border="1px"
@@ -137,8 +157,8 @@ export default function ActividadesPage() {
             ¿Quieres saber más?
           </Heading>
           <Text fontSize="lg" color="gray.600">
-            Contáctanos para obtener información detallada sobre horarios, precios y
-            recomendaciones para cada actividad
+            Contáctanos para obtener información detallada sobre horarios,
+            precios y recomendaciones para cada actividad
           </Text>
         </Box>
       </Container>
