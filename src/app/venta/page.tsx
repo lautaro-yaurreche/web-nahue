@@ -107,7 +107,7 @@ export default function ContactoPage() {
       </Box>
 
       {/* Content Section */}
-      <Container maxW="container.xl" py={{ base: 12, md: 20 }}>
+      <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
         <VStack gap={12} align="stretch">
           {/* Section Title */}
           <Box>
@@ -238,7 +238,7 @@ export default function ContactoPage() {
                       fontSize="sm"
                       fontWeight="semibold"
                       color="primary.700"
-                      mb={2}
+                      mb={1}
                     >
                       Consultas directas
                     </Text>

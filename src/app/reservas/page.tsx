@@ -133,7 +133,7 @@ export default function ReservasPage() {
       </Box>
 
       {/* Calendar and Form Section */}
-      <Container maxW="container.xl" py={{ base: 12, md: 20 }}>
+      <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
         {/* Info Box */}
         <Box
           mb={8}

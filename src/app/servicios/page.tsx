@@ -114,7 +114,7 @@ export default function ServiciosPage() {
       </Box>
 
       {/* Services Grid */}
-      <Container maxW="container.xl" py={{ base: 12, md: 20 }}>
+      <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
           {services.map((service, index) => (
             <Box
