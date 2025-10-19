@@ -108,26 +108,27 @@ export default function ContactoPage() {
 
       {/* Content Section */}
       <Container maxW="container.xl" py={{ base: 12, md: 20 }}>
-        <SimpleGrid columns={{ base: 1, lg: 2 }} gap={{ base: 8, lg: 12 }}>
-          {/* Left: Sale Information */}
-          <VStack align="stretch" gap={6}>
-            <Box>
-              <Heading
-                as="h2"
-                fontSize={{ base: "2xl", md: "3xl" }}
-                fontWeight="bold"
-                color="primary.700"
-                mb={4}
-              >
-                ¿Por qué invertir aquí?
-              </Heading>
-              <Text fontSize="lg" color="gray.600" lineHeight="tall">
-                Una oportunidad única para quienes buscan un negocio rentable o
-                una residencia en un entorno natural privilegiado.
-              </Text>
-            </Box>
+        <VStack gap={12} align="stretch">
+          {/* Section Title */}
+          <Box>
+            <Heading
+              as="h2"
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontWeight="bold"
+              color="primary.700"
+              mb={3}
+            >
+              ¿Por qué invertir aquí?
+            </Heading>
+            <Text fontSize="lg" color="gray.600">
+              Una oportunidad real para quienes buscan un hogar rodeado de naturaleza o un negocio rentable con retorno comprobado.
+            </Text>
+          </Box>
 
-            <Box
+          <SimpleGrid columns={{ base: 1, lg: 2 }} gap={{ base: 8, lg: 12 }} w="full">
+            {/* Left: Sale Information */}
+            <VStack align="stretch" gap={6}>
+              <Box
               bg="white"
               p={8}
               borderRadius="2xl"
@@ -153,7 +154,8 @@ export default function ContactoPage() {
                         Propiedad en venta
                       </Text>
                       <Text fontSize="sm" color="gray.600">
-                        Lista para ser adquirida y comenzar a generar ingresos.
+                        Lista para disfrutar o comenzar a generar ingresos desde
+                        el primer día.
                       </Text>
                     </Box>
                     <Box>
@@ -161,8 +163,8 @@ export default function ContactoPage() {
                         Ideal para inversión
                       </Text>
                       <Text fontSize="sm" color="gray.600">
-                        Negocio de alquiler rentable con alta demanda turística
-                        en la zona.
+                        Negocio de alquiler con alta demanda turística
+                        comprobada en la zona.
                       </Text>
                     </Box>
                     <Box>
@@ -170,8 +172,18 @@ export default function ContactoPage() {
                         Entorno natural
                       </Text>
                       <Text fontSize="sm" color="gray.600">
-                        Ubicación privilegiada rodeada de naturaleza y
-                        tranquilidad.
+                        Ubicación privilegiada, rodeada de árboles, tranquilidad
+                        y a solo minutos del mar.
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        Diseño único
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Construcción sólida, fresca en verano y cálida en
+                        invierno, con detalles en piedra y amplios espacios
+                        exteriores.
                       </Text>
                     </Box>
                   </VStack>
@@ -188,20 +200,23 @@ export default function ContactoPage() {
                     letterSpacing="wide"
                     mb={4}
                   >
-                    Lo que incluimos
+                    Si estas interesado, te pasamos:
                   </Text>
                   <VStack align="start" gap={2}>
                     <Text fontSize="sm" color="gray.700">
                       📄 PDF con propuesta completa y detalles de la casa
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      📊 Análisis de retorno de inversión real
+                      📊 Análisis de rentabilidad y retorno real
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      💰 Información sobre ingresos actuales
+                      💰 Información sobre ingresos anuales y costos reales
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      🏡 Beneficios y ventajas de la ubicación
+                      🏡 Beneficios de la ubicación y crecimiento del área
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      📄 Propuesta "Full Service"
                     </Text>
                   </VStack>
                 </Box>
@@ -223,8 +238,10 @@ export default function ContactoPage() {
                     Consultas directas
                   </Text>
                   <Text fontSize="sm" color="primary.600">
-                    Tratá directamente con los propietarios. Precio real, sin
-                    intermediarios ni comisiones extra.
+                    Trato directo con los propietarios. <br /> Precio real, sin
+                    sobrevaloraciones ni comisiones de inmobiliaria. <br />
+                    Ya sea que busques un lugar para vivir o una inversión
+                    segura, te acompañamos en todo el proceso.
                   </Text>
                 </Box>
               </VStack>
@@ -388,6 +405,7 @@ export default function ContactoPage() {
             </Box>
           </Box>
         </SimpleGrid>
+        </VStack>
       </Container>
     </Box>
   );
