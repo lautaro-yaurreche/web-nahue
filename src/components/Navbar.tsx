@@ -53,7 +53,7 @@ export default function Navbar() {
       as="nav"
       bg="white"
       boxShadow="sm"
-      py={3}
+      py={2}
       position="fixed"
       w="100%"
       top={0}
@@ -73,7 +73,7 @@ export default function Navbar() {
               <Image
                 src="/logo.svg"
                 alt="Casa de piedra"
-                height="60px"
+                height="68px"
                 width="auto"
               />
             </Box>

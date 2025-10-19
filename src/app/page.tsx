@@ -16,22 +16,22 @@ import Link from "next/link";
 export default function Home() {
   const features = [
     {
-      title: "Ubicación Privilegiada",
+      title: "Ubicación privilegiada",
       description: "A pasos de las mejores playas y atractivos turísticos",
       icon: "📍",
     },
     {
-      title: "Confort Total",
-      description: "Casas completamente equipadas con todas las comodidades",
+      title: "Confort total",
+      description: "Casa completamente equipada con todas las comodidades",
       icon: "🏡",
     },
     {
-      title: "Espacios Amplios",
-      description: "Propiedades espaciosas ideales para familias y grupos",
+      title: "Espacios amplios",
+      description: "Propiedad espaciosa ideales para familias y grupos",
       icon: "✨",
     },
     {
-      title: "Entorno Natural",
+      title: "Entorno natural",
       description: "Rodeado de naturaleza y paisajes inolvidables",
       icon: "🌿",
     },
@@ -196,11 +196,7 @@ export default function Home() {
             >
               Contáctanos para más información sobre disponibilidad y precios
             </Text>
-            <Stack
-              direction={{ base: "column", md: "row" }}
-              gap={4}
-              justify="center"
-            >
+            <Box>
               <Link href="/contacto">
                 <Button
                   size="lg"
@@ -215,26 +211,7 @@ export default function Home() {
                   Contactar
                 </Button>
               </Link>
-              <Link href="/servicios">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  borderColor="white"
-                  color="white"
-                  px={8}
-                  py={6}
-                  fontSize="lg"
-                  _hover={{
-                    bg: "whiteAlpha.200",
-                    transform: "translateY(-2px)",
-                    boxShadow: "xl",
-                  }}
-                  transition="all 0.3s"
-                >
-                  Ver Servicios
-                </Button>
-              </Link>
-            </Stack>
+            </Box>
           </Box>
         </Container>
       </Box>

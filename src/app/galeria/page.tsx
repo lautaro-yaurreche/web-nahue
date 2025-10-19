@@ -168,23 +168,6 @@ export default function GaleriaPage() {
               backgroundSize="cover"
               backgroundPosition="center"
             >
-              <Box
-                position="absolute"
-                top={0}
-                left={0}
-                right={0}
-                bottom={0}
-                bg="linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7))"
-                display="flex"
-                flexDirection="column"
-                justifyContent="flex-end"
-                alignItems="center"
-                p={6}
-              >
-                <Text color="white" fontSize="2xl" fontWeight="bold">
-                  {image.title}
-                </Text>
-              </Box>
             </Box>
           ))}
         </SimpleGrid>
@@ -287,10 +270,7 @@ export default function GaleriaPage() {
 
               {/* Image Info */}
               <Box mt={6} textAlign="center">
-                <Text color="white" fontSize="3xl" fontWeight="bold" mb={2}>
-                  {images[selectedImage].title}
-                </Text>
-                <Text color="whiteAlpha.700" fontSize="sm" mt={4}>
+                <Text color="whiteAlpha.700" fontSize="sm">
                   {selectedImage + 1} / {images.length}
                 </Text>
               </Box>
