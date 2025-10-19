@@ -88,7 +88,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   bg="white"
-                  color="purple.600"
+                  color="#6B5344"
                   px={8}
                   py={6}
                   fontSize="lg"
@@ -133,7 +133,7 @@ export default function Home() {
               fontWeight="semibold"
               textTransform="uppercase"
               letterSpacing="wider"
-              color="purple.600"
+              color="#6B8E23"
               mb={3}
             >
               Nuestros Beneficios
@@ -179,7 +179,7 @@ export default function Home() {
       <Box bg="gray.50" py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <Box
-            bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+            bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
             borderRadius="2xl"
             p={{ base: 10, md: 16 }}
             textAlign="center"
@@ -205,7 +205,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   bg="white"
-                  color="purple.600"
+                  color="#6B5344"
                   px={8}
                   py={6}
                   fontSize="lg"

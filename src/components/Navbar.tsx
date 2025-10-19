@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Flex, Button, HStack } from "@chakra-ui/react";
+import { Box, Container, Flex, Button, HStack, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -20,7 +20,7 @@ export default function Navbar() {
       as="nav"
       bg="white"
       boxShadow="sm"
-      py={4}
+      py={3}
       position="sticky"
       top={0}
       zIndex={1000}
@@ -31,14 +31,16 @@ export default function Navbar() {
         <Flex justify="space-between" align="center">
           <Link href="/">
             <Box
-              fontSize="2xl"
-              fontWeight="bold"
               cursor="pointer"
-              color="purple.600"
-              _hover={{ color: "purple.500" }}
-              transition="color 0.2s"
+              _hover={{ opacity: 0.8 }}
+              transition="opacity 0.2s"
             >
-              Casa de piedra
+              <Image
+                src="/logo.svg"
+                alt="Casa de piedra"
+                height="60px"
+                width="auto"
+              />
             </Box>
           </Link>
 
@@ -47,11 +49,11 @@ export default function Navbar() {
               <Link key={link.href} href={link.href}>
                 <Button
                   variant="ghost"
-                  color={pathname === link.href ? "purple.600" : "gray.700"}
+                  color={pathname === link.href ? "#6B5344" : "gray.700"}
                   fontWeight={pathname === link.href ? "semibold" : "normal"}
                   _hover={{
-                    bg: "purple.50",
-                    color: "purple.600",
+                    bg: "#F5F1ED",
+                    color: "#6B5344",
                   }}
                   position="relative"
                   _after={
@@ -64,7 +66,7 @@ export default function Navbar() {
                           transform: "translateX(-50%)",
                           width: "60%",
                           height: "2px",
-                          bg: "purple.600",
+                          bg: "#6B8E23",
                         }
                       : {}
                   }
@@ -78,7 +80,7 @@ export default function Navbar() {
           {/* CTA Button */}
           <Link href="/reservas">
             <Button
-              bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+              bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
               color="white"
               px={6}
               display={{ base: "none", lg: "block" }}

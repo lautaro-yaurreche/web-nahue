@@ -77,7 +77,7 @@ export default function ContactoPage() {
     <Box bg="gray.50" minH="100vh">
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
         color="white"
         py={{ base: 16, md: 20 }}
       >
@@ -126,8 +126,8 @@ export default function ContactoPage() {
                     required
                     size="lg"
                     borderColor="gray.300"
-                    _hover={{ borderColor: 'purple.400' }}
-                    _focus={{ borderColor: 'purple.500', boxShadow: '0 0 0 1px var(--chakra-colors-purple-500)' }}
+                    _hover={{ borderColor: '#A0826D' }}
+                    _focus={{ borderColor: '#6B5344', boxShadow: '0 0 0 1px #6B5344' }}
                   />
                 </Box>
                 <Box>
@@ -141,8 +141,8 @@ export default function ContactoPage() {
                     required
                     size="lg"
                     borderColor="gray.300"
-                    _hover={{ borderColor: 'purple.400' }}
-                    _focus={{ borderColor: 'purple.500', boxShadow: '0 0 0 1px var(--chakra-colors-purple-500)' }}
+                    _hover={{ borderColor: '#A0826D' }}
+                    _focus={{ borderColor: '#6B5344', boxShadow: '0 0 0 1px #6B5344' }}
                   />
                 </Box>
               </SimpleGrid>
@@ -202,7 +202,7 @@ export default function ContactoPage() {
                 type="submit"
                 size="lg"
                 w="full"
-                bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
                 color="white"
                 py={7}
                 fontSize="lg"

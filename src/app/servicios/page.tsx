@@ -15,7 +15,7 @@ export default function ServiciosPage() {
       title: 'Estacionamiento Privado',
       description: 'Espacio de estacionamiento privado y seguro para tu vehículo.',
       icon: '🚗',
-      color: 'purple',
+      color: 'gray',
     },
     {
       title: 'Cocina Totalmente Equipada',
@@ -65,7 +65,7 @@ export default function ServiciosPage() {
     <Box bg="gray.50" minH="100vh">
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
         color="white"
         py={{ base: 16, md: 20 }}
       >
@@ -149,7 +149,7 @@ export default function ServiciosPage() {
             <Link href="/contacto">
               <Button
                 size="lg"
-                bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
                 color="white"
                 px={8}
                 _hover={{
@@ -165,10 +165,11 @@ export default function ServiciosPage() {
               <Button
                 size="lg"
                 variant="outline"
-                colorScheme="purple"
+                borderColor="#6B5344"
+                color="#6B5344"
                 px={8}
                 _hover={{
-                  bg: 'purple.50',
+                  bg: '#F5F1ED',
                   transform: 'translateY(-2px)',
                   boxShadow: 'xl',
                 }}

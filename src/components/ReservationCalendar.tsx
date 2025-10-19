@@ -100,7 +100,7 @@ export default function ReservationCalendar({ onDateSelect }: ReservationCalenda
   if (loading) {
     return (
       <Box textAlign="center" py={10}>
-        <Spinner size="xl" color="purple.600" />
+        <Spinner size="xl" color="#6B5344" />
         <Text mt={4} color="gray.600">Cargando disponibilidad...</Text>
       </Box>
     );
@@ -128,7 +128,7 @@ export default function ReservationCalendar({ onDateSelect }: ReservationCalenda
             <Text fontSize="sm" color="gray.600">No disponible</Text>
           </HStack>
           <HStack gap={2}>
-            <Box w={4} h={4} bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)" borderRadius="sm" />
+            <Box w={4} h={4} bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)" borderRadius="sm" />
             <Text fontSize="sm" color="gray.600">Seleccionado</Text>
           </HStack>
         </HStack>

@@ -20,73 +20,61 @@ export default function GaleriaPage() {
     {
       id: 1,
       title: 'Vista Exterior Principal',
-      category: 'Exterior',
       src: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80',
     },
     {
       id: 2,
       title: 'Sala de Estar',
-      category: 'Interior',
       src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80',
     },
     {
       id: 3,
       title: 'Piscina',
-      category: 'Amenidades',
       src: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1200&q=80',
     },
     {
       id: 4,
       title: 'Jardín Frontal',
-      category: 'Exterior',
       src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80',
     },
     {
       id: 5,
       title: 'Dormitorio Principal',
-      category: 'Interior',
       src: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80',
     },
     {
       id: 6,
       title: 'Área de Parrilla',
-      category: 'Amenidades',
       src: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80',
     },
     {
       id: 7,
       title: 'Terraza con Vista',
-      category: 'Exterior',
       src: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80',
     },
     {
       id: 8,
       title: 'Cocina Moderna',
-      category: 'Interior',
       src: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1200&q=80',
     },
     {
       id: 9,
       title: 'Zona de Descanso',
-      category: 'Amenidades',
       src: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80',
     },
     {
       id: 10,
       title: 'Fachada Nocturna',
-      category: 'Exterior',
       src: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80',
     },
     {
       id: 11,
       title: 'Baño Principal',
-      category: 'Interior',
       src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80',
     },
     {
       id: 12,
       title: 'Área de Juegos',
-      category: 'Amenidades',
       src: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200&q=80',
     },
   ];
@@ -133,7 +121,7 @@ export default function GaleriaPage() {
     <Box bg="gray.50" minH="100vh">
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
         color="white"
         py={{ base: 16, md: 20 }}
       >
@@ -193,50 +181,13 @@ export default function GaleriaPage() {
                 alignItems="center"
                 p={6}
               >
-                <Text color="white" fontSize="2xl" fontWeight="bold" mb={2}>
+                <Text color="white" fontSize="2xl" fontWeight="bold">
                   {image.title}
                 </Text>
-                <Box
-                  px={4}
-                  py={1}
-                  bg="whiteAlpha.300"
-                  borderRadius="full"
-                  backdropFilter="blur(10px)"
-                >
-                  <Text color="white" fontSize="sm" fontWeight="medium">
-                    {image.category}
-                  </Text>
-                </Box>
               </Box>
             </Box>
           ))}
         </SimpleGrid>
-
-        {/* Instructions Box */}
-        <Box
-          mt={16}
-          p={8}
-          bg="white"
-          borderRadius="2xl"
-          textAlign="center"
-          boxShadow="lg"
-          border="1px"
-          borderColor="gray.100"
-        >
-          <Text fontSize="lg" color="gray.700" mb={2}>
-            <strong>Para agregar tus fotos:</strong>
-          </Text>
-          <Text color="gray.600" mb={4}>
-            1. Coloca las imágenes en <code style={{ background: '#f7fafc', padding: '2px 8px', borderRadius: '4px' }}>public/images/</code>
-          </Text>
-          <Text color="gray.600">
-            2. Actualiza el array de imágenes en{' '}
-            <code style={{ background: '#f7fafc', padding: '2px 8px', borderRadius: '4px' }}>
-              src/app/galeria/page.tsx
-            </code>
-            {' '}con las rutas reales
-          </Text>
-        </Box>
       </Container>
 
       {/* Lightbox Modal */}
@@ -339,18 +290,6 @@ export default function GaleriaPage() {
                 <Text color="white" fontSize="3xl" fontWeight="bold" mb={2}>
                   {images[selectedImage].title}
                 </Text>
-                <Box
-                  display="inline-block"
-                  px={6}
-                  py={2}
-                  bg="whiteAlpha.300"
-                  borderRadius="full"
-                  backdropFilter="blur(10px)"
-                >
-                  <Text color="white" fontSize="lg" fontWeight="medium">
-                    {images[selectedImage].category}
-                  </Text>
-                </Box>
                 <Text color="whiteAlpha.700" fontSize="sm" mt={4}>
                   {selectedImage + 1} / {images.length}
                 </Text>

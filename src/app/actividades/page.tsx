@@ -38,7 +38,7 @@ export default function ActividadesPage() {
       title: 'Observación de Fauna',
       description: 'Descubre la rica fauna local en su hábitat natural.',
       icon: '🦅',
-      color: 'purple',
+      color: 'green',
     },
     {
       title: 'Paseos a Caballo',
@@ -58,7 +58,7 @@ export default function ActividadesPage() {
     <Box bg="gray.50" minH="100vh">
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
         color="white"
         py={{ base: 16, md: 20 }}
       >

@@ -28,7 +28,7 @@ export default function Footer() {
             <Text
               fontSize="2xl"
               fontWeight="bold"
-              bgGradient="linear(to-r, purple.400, purple.200)"
+              bgGradient="linear(to-r, #A0826D, #D7CCC8)"
               bgClip="text"
             >
               Casa de piedra
@@ -53,7 +53,7 @@ export default function Footer() {
               <Text
                 fontSize="sm"
                 color="gray.400"
-                _hover={{ color: "purple.300" }}
+                _hover={{ color: "#A0826D" }}
                 transition="color 0.2s"
               >
                 Inicio
@@ -63,7 +63,7 @@ export default function Footer() {
               <Text
                 fontSize="sm"
                 color="gray.400"
-                _hover={{ color: "purple.300" }}
+                _hover={{ color: "#A0826D" }}
                 transition="color 0.2s"
               >
                 Servicios
@@ -73,7 +73,7 @@ export default function Footer() {
               <Text
                 fontSize="sm"
                 color="gray.400"
-                _hover={{ color: "purple.300" }}
+                _hover={{ color: "#A0826D" }}
                 transition="color 0.2s"
               >
                 Actividades
@@ -83,7 +83,7 @@ export default function Footer() {
               <Text
                 fontSize="sm"
                 color="gray.400"
-                _hover={{ color: "purple.300" }}
+                _hover={{ color: "#A0826D" }}
                 transition="color 0.2s"
               >
                 Galería
@@ -100,7 +100,7 @@ export default function Footer() {
               <Text
                 fontSize="sm"
                 color="gray.400"
-                _hover={{ color: "purple.300" }}
+                _hover={{ color: "#A0826D" }}
                 transition="color 0.2s"
               >
                 Hacer una Reserva
@@ -110,7 +110,7 @@ export default function Footer() {
               <Text
                 fontSize="sm"
                 color="gray.400"
-                _hover={{ color: "purple.300" }}
+                _hover={{ color: "#A0826D" }}
                 transition="color 0.2s"
               >
                 Contáctanos

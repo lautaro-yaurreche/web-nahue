@@ -102,7 +102,7 @@ export default function ReservasPage() {
     <Box bg="gray.50" minH="100vh">
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+        bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
         color="white"
         py={{ base: 16, md: 20 }}
       >
@@ -188,17 +188,17 @@ export default function ReservasPage() {
                 <VStack align="stretch" gap={3}>
                   <Box
                     p={4}
-                    bg="purple.50"
+                    bg="#F5F1ED"
                     borderRadius="lg"
                     border="1px"
-                    borderColor="purple.200"
+                    borderColor="#E8DDD0"
                   >
                     <SimpleGrid columns={2} gap={4}>
                       <Box>
                         <Text
                           fontSize="xs"
                           fontWeight="semibold"
-                          color="purple.700"
+                          color="#6B5344"
                           mb={1}
                         >
                           CHECK-IN
@@ -206,7 +206,7 @@ export default function ReservasPage() {
                         <Text
                           fontSize="md"
                           fontWeight="bold"
-                          color="purple.900"
+                          color="#5D4037"
                         >
                           {format(selectedDates.checkIn, "dd MMM yyyy", {
                             locale: es,
@@ -217,7 +217,7 @@ export default function ReservasPage() {
                         <Text
                           fontSize="xs"
                           fontWeight="semibold"
-                          color="purple.700"
+                          color="#6B5344"
                           mb={1}
                         >
                           CHECK-OUT
@@ -225,7 +225,7 @@ export default function ReservasPage() {
                         <Text
                           fontSize="md"
                           fontWeight="bold"
-                          color="purple.900"
+                          color="#5D4037"
                         >
                           {format(selectedDates.checkOut, "dd MMM yyyy", {
                             locale: es,
@@ -241,7 +241,7 @@ export default function ReservasPage() {
                         as="span"
                         fontWeight="bold"
                         fontSize="lg"
-                        color="purple.600"
+                        color="#6B8E23"
                       >
                         {Math.ceil(
                           (selectedDates.checkOut.getTime() -
@@ -290,11 +290,11 @@ export default function ReservasPage() {
                         required
                         size="lg"
                         borderColor="gray.300"
-                        _hover={{ borderColor: "purple.400" }}
+                        _hover={{ borderColor: "#A0826D" }}
                         _focus={{
-                          borderColor: "purple.500",
+                          borderColor: "#6B5344",
                           boxShadow:
-                            "0 0 0 1px var(--chakra-colors-purple-500)",
+                            "0 0 0 1px #6B5344",
                         }}
                       />
                     </Box>
@@ -318,11 +318,11 @@ export default function ReservasPage() {
                         required
                         size="lg"
                         borderColor="gray.300"
-                        _hover={{ borderColor: "purple.400" }}
+                        _hover={{ borderColor: "#A0826D" }}
                         _focus={{
-                          borderColor: "purple.500",
+                          borderColor: "#6B5344",
                           boxShadow:
-                            "0 0 0 1px var(--chakra-colors-purple-500)",
+                            "0 0 0 1px #6B5344",
                         }}
                       />
                     </Box>
@@ -331,7 +331,7 @@ export default function ReservasPage() {
                       type="submit"
                       size="lg"
                       w="full"
-                      bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                      bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
                       color="white"
                       py={7}
                       fontSize="lg"
@@ -361,15 +361,15 @@ export default function ReservasPage() {
         <Box
           mt={8}
           p={6}
-          bg="purple.50"
+          bg="#F5F1ED"
           borderRadius="xl"
           border="1px"
-          borderColor="purple.100"
+          borderColor="#E8DDD0"
         >
-          <Text fontSize="sm" color="purple.900" fontWeight="medium" mb={2}>
+          <Text fontSize="sm" color="#5D4037" fontWeight="medium" mb={2}>
             Información importante:
           </Text>
-          <VStack align="start" gap={2} fontSize="sm" color="purple.800">
+          <VStack align="start" gap={2} fontSize="sm" color="#6B5344">
             <Text>• Check-in: a partir de las 15:00</Text>
             <Text>• Check-out: hasta las 11:00</Text>
             <Text>• Estadía mínima: 2 noches</Text>
