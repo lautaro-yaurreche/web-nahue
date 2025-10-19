@@ -8,7 +8,6 @@ import {
   Button,
   HStack,
   Image,
-  Spinner,
   IconButton,
   VStack,
   Drawer,
@@ -150,9 +149,24 @@ export default function Navbar() {
                 boxShadow: "lg",
               }}
               transition="all 0.2s"
-              opacity={loadingLink === "/reservas" ? 0.7 : 1}
+              position="relative"
+              overflow="hidden"
+              _before={
+                loadingLink === "/reservas"
+                  ? {
+                      content: '""',
+                      position: "absolute",
+                      bottom: 0,
+                      left: "-100%",
+                      width: "60%",
+                      height: "2px",
+                      bg: "accent.500",
+                      animation: "slideRight 1s ease-in-out infinite",
+                    }
+                  : {}
+              }
             >
-              {loadingLink === "/reservas" ? <Spinner /> : "Reservar"}
+              Reservar
             </Button>
           </Link>
 
@@ -270,13 +284,24 @@ export default function Navbar() {
                         boxShadow: "lg",
                       }}
                       transition="all 0.2s"
-                      opacity={loadingLink === "/reservas" ? 0.7 : 1}
+                      position="relative"
+                      overflow="hidden"
+                      _before={
+                        loadingLink === "/reservas"
+                          ? {
+                              content: '""',
+                              position: "absolute",
+                              bottom: 0,
+                              left: "-100%",
+                              width: "60%",
+                              height: "2px",
+                              bg: "accent.500",
+                              animation: "slideRight 1s ease-in-out infinite",
+                            }
+                          : {}
+                      }
                     >
-                      {loadingLink === "/reservas" ? (
-                        <Spinner size="sm" />
-                      ) : (
-                        "Reservar"
-                      )}
+                      Reservar
                     </Button>
                   </Link>
                 </VStack>

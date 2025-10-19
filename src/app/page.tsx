@@ -77,50 +77,27 @@ export default function Home() {
               <Text
                 fontSize={{ base: "xl", md: "2xl" }}
                 maxW="3xl"
-                fontWeight="300"
+                fontWeight="500"
                 textShadow="0 1px 5px rgba(0,0,0,0.1)"
               >
                 Bella Vista, Maldonado
               </Text>
             </Box>
-            <Stack direction={{ base: "column", md: "row" }} gap={4} mt={4}>
-              <Link href="/reservas">
-                <Button
-                  size="lg"
-                  bg="primary.500"
-                  color="accent.500"
-                  px={8}
-                  py={6}
-                  fontSize="lg"
-                  fontWeight="semibold"
-                  _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
-                  transition="all 0.3s"
-                >
-                  Reservar Ahora
-                </Button>
-              </Link>
-              <Link href="/galeria">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  borderColor="primary.500"
-                  color="text"
-                  px={8}
-                  py={6}
-                  fontSize="lg"
-                  fontWeight="semibold"
-                  _hover={{
-                    bg: "primary.500",
-                    color: "accent.500",
-                    transform: "translateY(-2px)",
-                    boxShadow: "xl",
-                  }}
-                  transition="all 0.3s"
-                >
-                  Ver Galería
-                </Button>
-              </Link>
-            </Stack>
+            <Link href="/reservas">
+              <Button
+                size="lg"
+                bg="primary.500"
+                color="accent.500"
+                px={8}
+                py={6}
+                fontSize="lg"
+                fontWeight="semibold"
+                _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
+                transition="all 0.3s"
+              >
+                Reservar Ahora
+              </Button>
+            </Link>
           </VStack>
         </Container>
       </Box>
@@ -139,7 +116,12 @@ export default function Home() {
             >
               Nuestros Beneficios
             </Text>
-            <Heading as="h2" fontSize={{ base: "3xl", md: "4xl" }} mb={4} color="accent.500">
+            <Heading
+              as="h2"
+              fontSize={{ base: "3xl", md: "4xl" }}
+              mb={4}
+              color="accent.500"
+            >
               ¿Por qué elegirnos?
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">

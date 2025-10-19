@@ -218,3 +218,9 @@ button[class*="--range"]:not([class*="rangeStart"]):not([class*="rangeEnd"]) {
 .react-calendar__tile--rangeStart.react-calendar__tile--rangeEnd:hover {
   transform: none !important;
 }
+
+/* Ocultar flechas de navegación de año */
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  display: none;
+}
