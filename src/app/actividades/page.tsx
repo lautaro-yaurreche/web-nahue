@@ -128,26 +128,6 @@ export default function ActividadesPage() {
             </Box>
           ))}
         </SimpleGrid>
-
-        {/* Info Box */}
-        <Box
-          mt={16}
-          p={10}
-          bg="white"
-          borderRadius="2xl"
-          textAlign="center"
-          boxShadow="lg"
-          border="1px"
-          borderColor="gray.100"
-        >
-          <Heading as="h3" size="xl" mb={4} color="gray.800">
-            ¿Quieres saber más?
-          </Heading>
-          <Text fontSize="lg" color="gray.600">
-            Contáctanos para obtener información detallada sobre horarios,
-            precios y recomendaciones para cada actividad
-          </Text>
-        </Box>
       </Container>
     </Box>
   );
