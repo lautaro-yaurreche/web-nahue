@@ -16,6 +16,7 @@ export default function GaleriaPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
+    { id: 1, title: "Foto 1", src: "/images/foto1.jpeg" },
     { id: 2, title: "Foto 2", src: "/images/foto2.jpeg" },
     { id: 3, title: "Foto 3", src: "/images/foto3.jpeg" },
     { id: 4, title: "Foto 4", src: "/images/foto4.jpeg" },
@@ -39,7 +40,6 @@ export default function GaleriaPage() {
     { id: 24, title: "Foto 24", src: "/images/foto24.jpeg" },
     { id: 25, title: "Foto 25", src: "/images/foto25.jpeg" },
     { id: 26, title: "Foto 26", src: "/images/foto26.jpeg" },
-    { id: 27, title: "Foto 27", src: "/images/foto27.jpeg" },
   ];
 
   const openModal = (index: number) => {

@@ -37,15 +37,14 @@ export default function ContactoPage() {
         : "Vivienda permanente";
 
     // Construir mensaje de WhatsApp
-    const message = `
-    VENTA
+    const message = `VENTA
 
-    Nombre: ${formData.firstName} ${formData.lastName}
-    Email: ${formData.email}
+Nombre: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
 
-    Interés: ${purposeText}
+Interés: ${purposeText}
 
-    Mensaje: ${formData.message}`;
+Mensaje: ${formData.message}`;
 
     // Abrir WhatsApp
     const phoneNumber = "59897105450";

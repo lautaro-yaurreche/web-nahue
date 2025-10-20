@@ -14,7 +14,7 @@ export default function ActividadesPage() {
     {
       title: "Playas",
       description:
-        "Ideal para baño, y caminatas relajadas. Es un lugar ideal para los amantes de la pesca. Perfecta para quienes buscan desconectarse, leer o disfrutar del sonido del mar.",
+        "Ideal para baño y caminatas relajadas. Es el lugar perfecto para quienes buscan desconectarse, leer o disfrutar del sonido del mar. ",
       icon: "🏖️",
       color: "blue",
     },
@@ -35,7 +35,7 @@ export default function ActividadesPage() {
     {
       title: "Paseos y entorno natural",
       description:
-        "El balneario ofrece calles arboladas y caminos costeros para pasear a pie o en bici. Hacia el oeste, el paisaje se funde con las Sierras de las Ánimas, donde podés hacer breves caminatas y disfrutar vistas panorámicas.",
+        "El balneario ofrece calles arboladas y caminos costeros para pasear a pie o en bici. Hacia el oeste, el paisaje se funde con las Sierras de las Ánimas",
       icon: "🚶🏻",
       color: "cyan",
     },
@@ -47,9 +47,9 @@ export default function ActividadesPage() {
       color: "orange",
     },
     {
-      title: "Bosques",
+      title: "Naturaleza y tranquilidad",
       description:
-        "Bosques de coronilla, arrayanes y tala rodean la zona, creando un refugio de flora y fauna autóctona. Un entorno donde el estrés no tiene lugar, ideal para quienes buscan bienestar y conexión con la naturaleza",
+        "Un entorno donde el estrés no tiene lugar, ideal para quienes buscan bienestar y conexión con la naturaleza",
       icon: "🌳",
       color: "cyan",
     },

@@ -58,14 +58,13 @@ export default function ReservasPage() {
     });
 
     // Construir mensaje de WhatsApp
-    const message = `
-    ALQUILER
+    const message = `ALQUILER
 
-    Nombre completo: ${formData.fullName}
+Nombre completo: ${formData.fullName}
 
-    Fechas: desde ${checkInFormatted} hasta ${checkOutFormatted}
+Fechas: desde ${checkInFormatted} hasta ${checkOutFormatted}
 
-    Cantidad de personas: ${formData.guests}`;
+Cantidad de personas: ${formData.guests}`;
 
     // Abrir WhatsApp
     const phoneNumber = "59897105450"; // El mismo que usás en el botón flotante
