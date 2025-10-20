@@ -13,7 +13,6 @@ import {
   Text,
   SimpleGrid,
 } from "@chakra-ui/react";
-import type { ContactFormData } from "@/types";
 
 const toaster = createToaster({
   placement: "top-end",
@@ -21,56 +20,53 @@ const toaster = createToaster({
 });
 
 export default function ContactoPage() {
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState<ContactFormData>({
+  const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    phone: "",
     email: "",
+    purpose: "inversion",
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    const purposeText =
+      formData.purpose === "inversion"
+        ? "Inversión para alquilarla"
+        : "Vivienda permanente";
 
-      const data = await response.json();
+    // Construir mensaje de WhatsApp
+    const message = `
+    VENTA
 
-      if (data.success) {
-        toaster.success({
-          title: "Mensaje enviado",
-          description: "Te responderemos a la brevedad",
-        });
-        setFormData({
-          firstName: "",
-          lastName: "",
-          phone: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        toaster.error({
-          title: "Error",
-          description: data.message,
-        });
-      }
-    } catch (error) {
-      toaster.error({
-        title: "Error",
-        description: "Ocurrió un error al enviar el mensaje",
-      });
-    } finally {
-      setLoading(false);
-    }
+    Nombre: ${formData.firstName} ${formData.lastName}
+    Email: ${formData.email}
+
+    Interés: ${purposeText}
+
+    Mensaje: ${formData.message}`;
+
+    // Abrir WhatsApp
+    const phoneNumber = "59897105450";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+
+    // Limpiar formulario
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      purpose: "inversion",
+      message: "",
+    });
+
+    toaster.success({
+      title: "Redirigiendo a WhatsApp",
+      description: "Completa tu consulta por WhatsApp",
+    });
   };
 
   return (
@@ -346,24 +342,30 @@ export default function ContactoPage() {
 
                   <Box w="full">
                     <Text mb={2} fontWeight="medium" color="gray.700">
-                      Teléfono *
+                      ¿Cuál es tu interés? *
                     </Text>
-                    <Input
-                      type="tel"
-                      placeholder="+598 99 123 456"
-                      value={formData.phone}
+                    <select
+                      value={formData.purpose}
                       onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
+                        setFormData({ ...formData, purpose: e.target.value })
                       }
                       required
-                      size="lg"
-                      borderColor="gray.300"
-                      _hover={{ borderColor: "primary.500" }}
-                      _focus={{
-                        borderColor: "primary.600",
-                        boxShadow: "0 0 0 1px primary.600",
+                      style={{
+                        width: "100%",
+                        height: "3rem",
+                        borderColor: "#CBD5E0",
+                        borderRadius: "0.375rem",
+                        borderWidth: "1px",
+                        paddingLeft: "1rem",
+                        paddingRight: "1rem",
+                        fontSize: "1rem",
                       }}
-                    />
+                    >
+                      <option value="inversion">
+                        Inversión para alquilarla
+                      </option>
+                      <option value="vivienda">Vivienda permanente</option>
+                    </select>
                   </Box>
 
                   <Box w="full">
@@ -397,14 +399,13 @@ export default function ContactoPage() {
                     py={6}
                     fontSize="lg"
                     fontWeight="semibold"
-                    loading={loading}
                     _hover={{
                       transform: "translateY(-2px)",
                       boxShadow: "xl",
                     }}
                     transition="all 0.2s"
                   >
-                    Enviar mensaje
+                    Enviar consulta
                   </Button>
 
                   <Text fontSize="sm" color="gray.500" textAlign="center">
