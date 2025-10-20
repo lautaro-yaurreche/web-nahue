@@ -408,7 +408,7 @@ export default function ContactoPage() {
                   </Button>
 
                   <Text fontSize="sm" color="gray.500" textAlign="center">
-                    Te responderemos en menos de 24 hs.
+                    Te responderemos a la brevedad
                   </Text>
                 </VStack>
               </Box>

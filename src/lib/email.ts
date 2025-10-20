@@ -47,8 +47,7 @@ export async function sendContactEmail(data: ContactFormData) {
 }
 
 export async function sendReservationEmail(data: ReservationFormData) {
-  const { firstName, lastName, email, checkIn, checkOut } = data;
-  const phone = (data as any).phone; // Obtener teléfono si existe
+  const { firstName, lastName, email, checkIn, checkOut, phone, guests } = data;
 
   const mailOptions = {
     from: process.env.EMAIL_FROM,
@@ -72,7 +71,7 @@ export async function sendReservationEmail(data: ReservationFormData) {
         </div>
 
         <div style="background: #F5F1ED; padding: 20px; border-radius: 10px; margin: 20px 0;">
-          <h3 style="color: #B89A5C; margin-top: 0;">Fechas de estadía</h3>
+          <h3 style="color: #B89A5C; margin-top: 0;">Detalles de la reserva</h3>
           <p><strong>Check-in:</strong> ${new Date(checkIn).toLocaleDateString(
             "es-ES",
             { weekday: "long", year: "numeric", month: "long", day: "numeric" }
@@ -89,6 +88,7 @@ export async function sendReservationEmail(data: ReservationFormData) {
             (new Date(checkOut).getTime() - new Date(checkIn).getTime()) /
               (1000 * 60 * 60 * 24)
           )}</p>
+          <p><strong>Cantidad de personas:</strong> ${guests}</p>
         </div>
 
         <p style="color: #718096; font-size: 12px; margin-top: 30px;">

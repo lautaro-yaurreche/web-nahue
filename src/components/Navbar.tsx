@@ -92,6 +92,7 @@ export default function Navbar() {
                     variant="ghost"
                     color="text"
                     fontWeight="semibold"
+                    fontSize="1rem"
                     _hover={{
                       bg: "background.secondary",
                       color: "text",
@@ -143,6 +144,7 @@ export default function Navbar() {
               bg="text"
               color="accent.500"
               px={6}
+              fontSize="1rem"
               display={{ base: "none", lg: "block" }}
               _hover={{
                 transform: "translateY(-2px)",

@@ -10,8 +10,10 @@ export interface ReservationFormData {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
   checkIn: string;
   checkOut: string;
+  guests: number;
 }
 
 export interface ApiResponse {

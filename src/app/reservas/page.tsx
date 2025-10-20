@@ -22,7 +22,6 @@ const toaster = createToaster({
 });
 
 export default function ReservasPage() {
-  const [loading, setLoading] = useState(false);
   const [selectedDates, setSelectedDates] = useState<{
     checkIn: Date | null;
     checkOut: Date | null;
@@ -32,14 +31,14 @@ export default function ReservasPage() {
   });
   const [formData, setFormData] = useState({
     fullName: "",
-    phone: "",
+    guests: 2,
   });
 
   const handleDateSelect = (startDate: Date, endDate: Date) => {
     setSelectedDates({ checkIn: startDate, checkOut: endDate });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!selectedDates.checkIn || !selectedDates.checkOut) {
@@ -50,52 +49,42 @@ export default function ReservasPage() {
       return;
     }
 
-    setLoading(true);
+    // Formatear fechas
+    const checkInFormatted = format(selectedDates.checkIn, "dd/MM/yyyy", {
+      locale: es,
+    });
+    const checkOutFormatted = format(selectedDates.checkOut, "dd/MM/yyyy", {
+      locale: es,
+    });
 
-    try {
-      const reservationData = {
-        firstName: formData.fullName.split(" ")[0] || formData.fullName,
-        lastName: formData.fullName.split(" ").slice(1).join(" ") || "-",
-        email: `${formData.phone}@reserva.com`, // Email temporal para mantener compatibilidad
-        phone: formData.phone,
-        checkIn: format(selectedDates.checkIn, "yyyy-MM-dd"),
-        checkOut: format(selectedDates.checkOut, "yyyy-MM-dd"),
-      };
+    // Construir mensaje de WhatsApp
+    const message = `
+    ALQUILER
 
-      const response = await fetch("/api/reservations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(reservationData),
-      });
+    Nombre completo: ${formData.fullName}
 
-      const data = await response.json();
+    Fechas: desde ${checkInFormatted} hasta ${checkOutFormatted}
 
-      if (data.success) {
-        toaster.success({
-          title: "Reserva enviada",
-          description: "Te contactaremos para confirmar tu reserva",
-        });
-        setFormData({
-          fullName: "",
-          phone: "",
-        });
-        setSelectedDates({ checkIn: null, checkOut: null });
-      } else {
-        toaster.error({
-          title: "Error",
-          description: data.message,
-        });
-      }
-    } catch (error) {
-      toaster.error({
-        title: "Error",
-        description: "Ocurrió un error al enviar la reserva",
-      });
-    } finally {
-      setLoading(false);
-    }
+    Cantidad de personas: ${formData.guests}`;
+
+    // Abrir WhatsApp
+    const phoneNumber = "59897105450"; // El mismo que usás en el botón flotante
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+
+    // Limpiar formulario
+    setFormData({
+      fullName: "",
+      guests: 2,
+    });
+    setSelectedDates({ checkIn: null, checkOut: null });
+
+    toaster.success({
+      title: "Redirigiendo a WhatsApp",
+      description: "Completa tu reserva por WhatsApp",
+    });
   };
 
   return (
@@ -318,14 +307,18 @@ export default function ReservasPage() {
                         color="gray.700"
                         fontSize="sm"
                       >
-                        Teléfono *
+                        Cantidad de personas *
                       </Text>
                       <Input
-                        type="tel"
-                        placeholder="+598 99 123 456"
-                        value={formData.phone}
+                        type="number"
+                        min={2}
+                        max={11}
+                        value={formData.guests}
                         onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
+                          setFormData({
+                            ...formData,
+                            guests: parseInt(e.target.value) || 2,
+                          })
                         }
                         required
                         size="lg"
@@ -347,7 +340,6 @@ export default function ReservasPage() {
                       py={7}
                       fontSize="lg"
                       fontWeight="semibold"
-                      loading={loading}
                       _hover={{
                         transform: "translateY(-2px)",
                         boxShadow: "xl",
@@ -359,8 +351,7 @@ export default function ReservasPage() {
                     </Button>
 
                     <Text fontSize="xs" color="gray.500" textAlign="center">
-                      Te contactaremos en menos de 24 horas para confirmar
-                      disponibilidad
+                      Te responderemos a la brevedad
                     </Text>
                   </VStack>
                 </Box>
