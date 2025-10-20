@@ -339,7 +339,7 @@ Mensaje: ${formData.message}`;
                     />
                   </Box>
 
-                  <Box w="full">
+                  <Box w="full" position="relative">
                     <Text mb={2} fontWeight="medium" color="gray.700">
                       ¿Cuál es tu interés? *
                     </Text>
@@ -356,8 +356,16 @@ Mensaje: ${formData.message}`;
                         borderRadius: "0.375rem",
                         borderWidth: "1px",
                         paddingLeft: "1rem",
-                        paddingRight: "1rem",
+                        paddingRight: "3rem",
                         fontSize: "1rem",
+                        backgroundColor: "white",
+                        appearance: "none",
+                        WebkitAppearance: "none",
+                        MozAppearance: "none",
+                        backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "right 0.75rem center",
+                        backgroundSize: "1.25rem",
                       }}
                     >
                       <option value="inversion">

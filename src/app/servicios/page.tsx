@@ -7,12 +7,9 @@ import {
   Text,
   VStack,
   SimpleGrid,
-  Stack,
-  Button,
 } from "@chakra-ui/react";
-import Link from "next/link";
 
-export default function ServiciosPage() {
+export default function ActividadesServiciosPage() {
   const services = [
     {
       title: "WiFi de alta velocidad",
@@ -23,8 +20,7 @@ export default function ServiciosPage() {
     },
     {
       title: "Estacionamiento privado",
-      description:
-        "Espacio de estacionamiento privado y seguro para tu vehículo.",
+      description: "Espacio de estacionamiento seguro para tu vehículo.",
       icon: "🚗",
       color: "gray",
     },
@@ -36,7 +32,7 @@ export default function ServiciosPage() {
       color: "orange",
     },
     {
-      title: "Aire acondicionado",
+      title: "Aires acondicionados",
       description:
         "Climatización total para disfrutar tanto en verano como en invierno.",
       icon: "❄️",
@@ -45,20 +41,21 @@ export default function ServiciosPage() {
     {
       title: "Ropa de cama",
       description:
-        "Almohadas, sábanas y acolchados, todo listo para tu descanso.",
-      icon: "🛏️",
+        "Quincho con juego de camastros rodeado de naturaleza para disfrutar de un buen descanso.",
+      icon: "🌴",
       color: "pink",
     },
     {
       title: "Barbacoa completa",
       description:
-        "Barbacoa cerrada con TV, futón y sala de juegos. Estufas a leña, parrillero interior/exterior y fogón exterior.",
+        "Cerrada con parrilero interno y externo, horno de barro, estufas a leña y fogón.",
       icon: "🔥",
       color: "red",
     },
     {
       title: "Entretenimiento",
-      description: "TV Smart con DirecTV prepago, mesa de pool y ping pong.",
+      description:
+        "Smart TV, mesa de pool, mesa de ping pong y cancha de fútbol.",
       icon: "📺",
       color: "green",
     },
@@ -70,17 +67,62 @@ export default function ServiciosPage() {
       color: "gray",
     },
     {
-      title: "Piscina privada climatizada ",
-      description:
-        "Exclusiva de 6x3 mts, calentita y con cascada relajante. Acompañada de quincho con camastros.",
+      title: "Piscina climatizada",
+      description: "Privada, calentita y con cascada terapéutica.",
       icon: "🏊",
       color: "teal",
+    },
+  ];
+
+  const activities = [
+    {
+      title: "Playas",
+      description:
+        "Ideal para baño y caminatas relajadas. Es el lugar perfecto para quienes buscan desconectarse, leer o disfrutar del sonido del mar. ",
+      icon: "🏖️",
+      color: "blue",
+    },
+    {
+      title: "Pesca",
+      description:
+        "Puntos de pesca privilegiados, tanto desde la orilla como embarcada. Las aguas del balneario son ideales para capturar corvinas, brótolas y pejerreyes. ",
+      icon: "🎣",
+      color: "teal",
+    },
+    {
+      title: "Observación de fauna",
+      description:
+        "En Bella Vista y el Arroyo Espina podés disfrutar de fauna y flora nativa, ideal para conectar con la naturaleza y la fotografía.",
+      icon: "🦅",
+      color: "green",
+    },
+    {
+      title: "Paseos y entorno natural",
+      description:
+        "El balneario ofrece calles arboladas y caminos costeros para pasear a pie o en bici. Hacia el oeste, el paisaje se funde con las Sierras de las Ánimas",
+      icon: "🚶🏻",
+      color: "cyan",
+    },
+    {
+      title: "Turismo",
+      description:
+        "Lugares icónicos como Piriápolis, con su cerro San Antonio y rambla costera, el Castillo de Pittamiglio en Las Flores, la Reserva del Cerro Pan de Azúcar, y Punta del Este, con sus playas, gastronomía y vida nocturna.",
+      icon: "🏞️",
+      color: "orange",
+    },
+    {
+      title: "Naturaleza y tranquilidad",
+      description:
+        "Un entorno donde el estrés no tiene lugar, ideal para quienes buscan bienestar y conexión con la naturaleza",
+      icon: "🌳",
+      color: "cyan",
     },
   ];
 
   return (
     <Box bg="gray.50" minH="100vh">
       <Box h="5.25rem" />
+
       {/* Header Section */}
       <Box
         bgGradient="linear(135deg, primary.500, primary.700)"
@@ -96,25 +138,49 @@ export default function ServiciosPage() {
               letterSpacing="wider"
               opacity={0.9}
             >
-              Nuestras Comodidades
+              Todo lo que necesitás
             </Text>
             <Heading
               as="h1"
               fontSize={{ base: "4xl", md: "5xl" }}
               fontWeight="bold"
             >
-              Servicios Incluidos
+              Actividades y Servicios
             </Heading>
             <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
-              Todo lo que necesitás para disfrutar una estadía perfecta, sin
-              preocupaciones y con el máximo comfort.
+              Disfrutá de todas las comodidades y experiencias que tenemos para ofrecerte.
             </Text>
           </VStack>
         </Container>
       </Box>
 
-      {/* Services Grid */}
-      <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
+      {/* Services Section */}
+      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
+        <VStack gap={4} mb={8}>
+          <Text
+            fontSize="sm"
+            fontWeight="semibold"
+            textTransform="uppercase"
+            letterSpacing="wider"
+            color="primary.600"
+          >
+            Nuestras Comodidades
+          </Text>
+          <Heading
+            as="h2"
+            fontSize={{ base: "3xl", md: "4xl" }}
+            fontWeight="bold"
+            textAlign="center"
+            color="gray.800"
+          >
+            Servicios Incluidos
+          </Heading>
+          <Text fontSize={{ base: "md", md: "lg" }} maxW="3xl" textAlign="center" color="gray.600">
+            Todo lo que necesitás para disfrutar una estadía perfecta, sin
+            preocupaciones y con el máximo comfort.
+          </Text>
+        </VStack>
+
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
           {services.map((service, index) => (
             <Box
@@ -151,6 +217,72 @@ export default function ServiciosPage() {
           ))}
         </SimpleGrid>
       </Container>
+
+      {/* Activities Section */}
+      <Box bg="white" py={{ base: 12, md: 16 }}>
+        <Container maxW="container.xl">
+          <VStack gap={4} mb={8}>
+            <Text
+              fontSize="sm"
+              fontWeight="semibold"
+              textTransform="uppercase"
+              letterSpacing="wider"
+              color="primary.600"
+            >
+              Experiencias Únicas
+            </Text>
+            <Heading
+              as="h2"
+              fontSize={{ base: "3xl", md: "4xl" }}
+              fontWeight="bold"
+              textAlign="center"
+              color="gray.800"
+            >
+              Actividades
+            </Heading>
+            <Text fontSize={{ base: "md", md: "lg" }} maxW="3xl" textAlign="center" color="gray.600">
+              Podés disfrutar del mar, la tranquilidad y paisajes únicos, con
+              opciones de recreación y turismo a pocos minutos.
+            </Text>
+          </VStack>
+
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
+            {activities.map((activity, index) => (
+              <Box
+                key={index}
+                p={8}
+                bg="white"
+                borderRadius="2xl"
+                boxShadow="md"
+                _hover={{
+                  boxShadow: "2xl",
+                  transform: "translateY(-8px)",
+                }}
+                transition="all 0.3s"
+                border="1px"
+                borderColor="gray.100"
+              >
+                <Box
+                  fontSize="4xl"
+                  mb={4}
+                  display="inline-block"
+                  p={4}
+                  bg={`${activity.color}.50`}
+                  borderRadius="xl"
+                >
+                  {activity.icon}
+                </Box>
+                <Heading as="h3" size="lg" mb={3} color="gray.800">
+                  {activity.title}
+                </Heading>
+                <Text color="gray.600" fontSize="md" lineHeight="tall">
+                  {activity.description}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </Container>
+      </Box>
     </Box>
   );
 }

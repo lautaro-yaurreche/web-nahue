@@ -69,18 +69,7 @@ export default function Footer() {
                 _hover={{ color: "primary.400", opacity: 1 }}
                 transition="all 0.2s"
               >
-                Servicios
-              </Text>
-            </Link>
-            <Link href="/actividades">
-              <Text
-                fontSize="sm"
-                color="text"
-                opacity={0.8}
-                _hover={{ color: "primary.400", opacity: 1 }}
-                transition="all 0.2s"
-              >
-                Actividades
+                Actividades y Servicios
               </Text>
             </Link>
             <Link href="/galeria">
@@ -92,6 +81,28 @@ export default function Footer() {
                 transition="all 0.2s"
               >
                 Galería
+              </Text>
+            </Link>
+            <Link href="/venta">
+              <Text
+                fontSize="sm"
+                color="text"
+                opacity={0.8}
+                _hover={{ color: "primary.400", opacity: 1 }}
+                transition="all 0.2s"
+              >
+                Venta
+              </Text>
+            </Link>
+            <Link href="/alquila-con-nosotros">
+              <Text
+                fontSize="sm"
+                color="text"
+                opacity={0.8}
+                _hover={{ color: "primary.400", opacity: 1 }}
+                transition="all 0.2s"
+              >
+                Alquilá con nosotros
               </Text>
             </Link>
           </VStack>

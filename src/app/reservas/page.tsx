@@ -299,7 +299,7 @@ Cantidad de personas: ${formData.guests}`;
                       />
                     </Box>
 
-                    <Box w="full">
+                    <Box w="full" position="relative">
                       <Text
                         mb={2}
                         fontWeight="medium"
@@ -308,26 +308,45 @@ Cantidad de personas: ${formData.guests}`;
                       >
                         Cantidad de personas *
                       </Text>
-                      <Input
-                        type="number"
-                        min={2}
-                        max={11}
+                      <select
                         value={formData.guests}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            guests: parseInt(e.target.value) || 2,
+                            guests: parseInt(e.target.value),
                           })
                         }
                         required
-                        size="lg"
-                        borderColor="gray.300"
-                        _hover={{ borderColor: "#A0826D" }}
-                        _focus={{
-                          borderColor: "primary.600",
-                          boxShadow: "0 0 0 1px primary.600",
+                        style={{
+                          width: "100%",
+                          height: "3rem",
+                          borderColor: "#CBD5E0",
+                          borderRadius: "0.375rem",
+                          borderWidth: "1px",
+                          paddingLeft: "1rem",
+                          paddingRight: "3rem",
+                          fontSize: "1rem",
+                          backgroundColor: "white",
+                          appearance: "none",
+                          WebkitAppearance: "none",
+                          MozAppearance: "none",
+                          backgroundImage: `url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e")`,
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "right 0.75rem center",
+                          backgroundSize: "1.25rem",
                         }}
-                      />
+                      >
+                        <option value={2}>2 personas</option>
+                        <option value={3}>3 personas</option>
+                        <option value={4}>4 personas</option>
+                        <option value={5}>5 personas</option>
+                        <option value={6}>6 personas</option>
+                        <option value={7}>7 personas</option>
+                        <option value={8}>8 personas</option>
+                        <option value={9}>9 personas</option>
+                        <option value={10}>10 personas</option>
+                        <option value={11}>11 personas</option>
+                      </select>
                     </Box>
 
                     <Button

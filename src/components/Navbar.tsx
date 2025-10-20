@@ -25,10 +25,10 @@ export default function Navbar() {
 
   const links = [
     { href: "/", label: "Inicio" },
-    { href: "/actividades", label: "Actividades" },
-    { href: "/servicios", label: "Servicios" },
+    { href: "/servicios", label: "Actividades y Servicios" },
     { href: "/galeria", label: "Galería" },
     { href: "/venta", label: "Venta" },
+    { href: "/alquila-con-nosotros", label: "Alquilá con nosotros" },
   ];
 
   // Limpiar el loading cuando la navegación termina
