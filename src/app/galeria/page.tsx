@@ -15,68 +15,34 @@ import {
 export default function GaleriaPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  // Placeholder para las imágenes - usando imágenes de ejemplo
   const images = [
-    {
-      id: 1,
-      title: "Vista Exterior Principal",
-      src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80",
-    },
-    {
-      id: 2,
-      title: "Sala de Estar",
-      src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
-    },
-    {
-      id: 3,
-      title: "Piscina",
-      src: "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1200&q=80",
-    },
-    {
-      id: 4,
-      title: "Jardín Frontal",
-      src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80",
-    },
-    {
-      id: 5,
-      title: "Dormitorio Principal",
-      src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80",
-    },
-    {
-      id: 6,
-      title: "Área de Parrilla",
-      src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1200&q=80",
-    },
-    {
-      id: 7,
-      title: "Terraza con Vista",
-      src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
-    },
-    {
-      id: 8,
-      title: "Cocina Moderna",
-      src: "https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=1200&q=80",
-    },
-    {
-      id: 9,
-      title: "Zona de Descanso",
-      src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=80",
-    },
-    {
-      id: 10,
-      title: "Fachada Nocturna",
-      src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
-    },
-    {
-      id: 11,
-      title: "Baño Principal",
-      src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
-    },
-    {
-      id: 12,
-      title: "Área de Juegos",
-      src: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200&q=80",
-    },
+    { id: 1, title: "Foto 1", src: "/images/foto-1.jpeg" },
+    { id: 2, title: "Foto 2", src: "/images/foto-2.jpeg" },
+    { id: 3, title: "Foto 3", src: "/images/foto-3.jpeg" },
+    { id: 4, title: "Foto 4", src: "/images/foto-4.jpeg" },
+    { id: 5, title: "Foto 5", src: "/images/foto-5.jpeg" },
+    { id: 6, title: "Foto 6", src: "/images/foto-6.jpeg" },
+    { id: 7, title: "Foto 7", src: "/images/foto-7.jpeg" },
+    { id: 8, title: "Foto 8", src: "/images/foto-8.jpeg" },
+    { id: 9, title: "Foto 9", src: "/images/foto-9.jpeg" },
+    { id: 10, title: "Foto 10", src: "/images/foto-10.jpeg" },
+    { id: 11, title: "Foto 11", src: "/images/foto-11.jpeg" },
+    { id: 12, title: "Foto 12", src: "/images/foto-12.jpeg" },
+    { id: 13, title: "Foto 13", src: "/images/foto-13.jpeg" },
+    { id: 14, title: "Foto 14", src: "/images/foto-14.jpeg" },
+    { id: 15, title: "Foto 15", src: "/images/foto-15.jpeg" },
+    { id: 16, title: "Foto 16", src: "/images/foto-16.jpeg" },
+    { id: 17, title: "Foto 17", src: "/images/foto-17.jpeg" },
+    { id: 18, title: "Foto 18", src: "/images/foto-18.jpeg" },
+    { id: 19, title: "Foto 19", src: "/images/foto-19.jpeg" },
+    { id: 20, title: "Foto 20", src: "/images/foto-20.jpeg" },
+    { id: 21, title: "Foto 21", src: "/images/foto-21.jpeg" },
+    { id: 22, title: "Foto 22", src: "/images/foto-22.jpeg" },
+    { id: 23, title: "Foto 23", src: "/images/foto-23.jpeg" },
+    { id: 24, title: "Foto 24", src: "/images/foto-24.jpeg" },
+    { id: 25, title: "Foto 25", src: "/images/foto-25.jpeg" },
+    { id: 26, title: "Foto 26", src: "/images/foto-26.jpeg" },
+    { id: 27, title: "Foto 27", src: "/images/foto-27.jpeg" },
   ];
 
   const openModal = (index: number) => {
@@ -153,7 +119,7 @@ export default function GaleriaPage() {
       </Box>
 
       {/* Gallery Grid */}
-      <Container maxW="container.xl" py={{ base: 12, md: 20 }}>
+      <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
           {images.map((image, index) => (
             <Box
