@@ -255,7 +255,7 @@ export default function ReservasPage() {
                       >
                         ESTADÍA
                       </Text>
-                      <Text fontSize="md" fontWeight="bold" color="primary.700">
+                      <Text fontSize="md" fontWeight="bold">
                         {Math.ceil(
                           (selectedDates.checkOut.getTime() -
                             selectedDates.checkIn.getTime()) /
