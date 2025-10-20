@@ -109,18 +109,7 @@ export default function Footer() {
                 _hover={{ color: "primary.400", opacity: 1 }}
                 transition="all 0.2s"
               >
-                Hacer una Reserva
-              </Text>
-            </Link>
-            <Link href="/contacto">
-              <Text
-                fontSize="sm"
-                color="text"
-                opacity={0.8}
-                _hover={{ color: "primary.400", opacity: 1 }}
-                transition="all 0.2s"
-              >
-                Contáctanos
+                Hacer una reserva
               </Text>
             </Link>
           </VStack>

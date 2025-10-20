@@ -15,64 +15,64 @@ import Link from "next/link";
 export default function ServiciosPage() {
   const services = [
     {
-      title: "WiFi de Alta Velocidad",
+      title: "WiFi de alta velocidad",
       description:
-        "Internet de alta velocidad en todas las propiedades para que estés siempre conectado.",
+        "Internet rápido y estable en toda la propiedad, ideal para teletrabajo o entretenimiento.",
       icon: "📶",
       color: "blue",
     },
     {
-      title: "Estacionamiento Privado",
+      title: "Estacionamiento privado",
       description:
         "Espacio de estacionamiento privado y seguro para tu vehículo.",
       icon: "🚗",
       color: "gray",
     },
     {
-      title: "Cocina Totalmente Equipada",
+      title: "Cocina totalmente equipada",
       description:
         "Cocina completa con todos los electrodomésticos y utensilios necesarios.",
       icon: "🍳",
       color: "orange",
     },
     {
-      title: "Aire Acondicionado",
+      title: "Aire acondicionado",
       description:
-        "Climatización en todas las habitaciones para tu máximo confort.",
+        "Climatización total para disfrutar tanto en verano como en invierno.",
       icon: "❄️",
       color: "cyan",
     },
     {
-      title: "Ropa de Cama Premium",
+      title: "Ropa de cama",
       description:
-        "Sábanas y toallas de primera calidad incluidas en tu estadía.",
+        "Almohadas, sábanas y acolchados, todo listo para tu descanso.",
       icon: "🛏️",
       color: "pink",
     },
     {
-      title: "Parrilla y Quincho",
+      title: "Barbacoa completa",
       description:
-        "Área de parrilla equipada para disfrutar al aire libre con amigos y familia.",
+        "Barbacoa cerrada con TV, futón y sala de juegos. Estufas a leña, parrillero interior/exterior y fogón exterior.",
       icon: "🔥",
       color: "red",
     },
     {
-      title: "TV por Cable",
-      description:
-        "Televisión por cable con variedad de canales para tu entretenimiento.",
+      title: "Entretenimiento",
+      description: "TV Smart con DirecTV prepago, mesa de pool y ping pong.",
       icon: "📺",
       color: "green",
     },
     {
       title: "Seguridad 24/7",
-      description: "Complejo cerrado con vigilancia para tu tranquilidad.",
+      description:
+        "Predio cerrado con cámaras de seguridad y entorno tranquilo y familiar.",
       icon: "🔒",
       color: "gray",
     },
     {
-      title: "Piscina",
+      title: "Piscina privada climatizada ",
       description:
-        "Acceso a piscina compartida para refrescarte en días de calor.",
+        "Exclusiva de 6x3 mts, calentita y con cascada relajante. Acompañada de quincho con camastros.",
       icon: "🏊",
       color: "teal",
     },
@@ -106,8 +106,8 @@ export default function ServiciosPage() {
               Servicios Incluidos
             </Heading>
             <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
-              Todas las comodidades que necesitas para una estadía perfecta y
-              sin preocupaciones
+              Todo lo que necesitás para disfrutar una estadía perfecta, sin
+              preocupaciones y con el máximo comfort.
             </Text>
           </VStack>
         </Container>
@@ -150,64 +150,6 @@ export default function ServiciosPage() {
             </Box>
           ))}
         </SimpleGrid>
-
-        {/* Bottom CTA */}
-        <Box
-          mt={16}
-          p={10}
-          bg="white"
-          borderRadius="2xl"
-          textAlign="center"
-          boxShadow="lg"
-          border="1px"
-          borderColor="gray.100"
-        >
-          <Heading as="h3" size="xl" mb={4} color="gray.800">
-            ¿Necesitas más información?
-          </Heading>
-          <Text fontSize="lg" color="gray.600" mb={6}>
-            Contáctanos para conocer más detalles sobre nuestros servicios y
-            disponibilidad
-          </Text>
-          <Stack
-            direction={{ base: "column", md: "row" }}
-            gap={4}
-            justify="center"
-          >
-            <Link href="/contacto">
-              <Button
-                size="lg"
-                bg="linear-gradient(135deg, #8B7355 0%, #6B5344 100%)"
-                color="white"
-                px={8}
-                _hover={{
-                  transform: "translateY(-2px)",
-                  boxShadow: "xl",
-                }}
-                transition="all 0.2s"
-              >
-                Contactar
-              </Button>
-            </Link>
-            <Link href="/reservas">
-              <Button
-                size="lg"
-                variant="outline"
-                borderColor="#6B5344"
-                color="#6B5344"
-                px={8}
-                _hover={{
-                  bg: "#F5F1ED",
-                  transform: "translateY(-2px)",
-                  boxShadow: "xl",
-                }}
-                transition="all 0.2s"
-              >
-                Reservar Ahora
-              </Button>
-            </Link>
-          </Stack>
-        </Box>
       </Container>
     </Box>
   );

@@ -17,23 +17,33 @@ export default function Home() {
   const features = [
     {
       title: "Ubicación privilegiada",
-      description: "A pasos de las mejores playas y atractivos turísticos",
+      description:
+        "A pasos de la playa, ideal para baño y pesca. Venta de leña y almacén a 1 cuadra. A solo 10 minutos de Piriápolis y 30 minutos de Punta del Este. \n\nEl equilibrio perfecto entre tranquilidad y conexión.",
       icon: "📍",
     },
+    // {
+    //   title: "Comfort total",
+    //   description:
+    //     "Casa completamente equipada, con piscina climatizada, barbacoa, horno de barro, juegos, y detalles en piedra que la hacen única. \n\nFresca en verano y cálida en invierno —lista para vivirla o alquilarla.",
+    //   icon: "🏡",
+    // },
     {
-      title: "Confort total",
-      description: "Casa completamente equipada con todas las comodidades",
-      icon: "🏡",
+      title: "Entorno natural y \ntranquilidad total",
+      description:
+        "Despertá con el sonido de los pájaros, el aire del bosque y el murmullo del mar. \n \nLa casa está rodeada de árboles, cerros y espacios verdes, ideal para reconectar y descansar.",
+      icon: "🌿",
     },
     {
-      title: "Espacios amplios",
-      description: "Propiedad espaciosa ideales para familias y grupos",
+      title: "Atención personalizada y \ntrato directo",
+      description:
+        "Siempre disponible ante cualquier duda o necesidad durante la estadía. \n\nBrindamos un servicio cálido, confiable y con +20 años de experiencia familiar en el rubro.",
       icon: "✨",
     },
     {
-      title: "Entorno natural",
-      description: "Rodeado de naturaleza y paisajes inolvidables",
-      icon: "🌿",
+      title: "Ideal para inversión",
+      description:
+        "Rentabilidad comprobada, tenemos +100.000 visitas anuales online y una alta tasa de ocupación. \n\nUna propiedad que combina placer y rentabilidad, con la posibilidad de que la gestionemos por vos",
+      icon: "💰",
     },
   ];
 
@@ -125,8 +135,8 @@ export default function Home() {
               ¿Por qué elegirnos?
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">
-              Ofrecemos una experiencia única con todas las comodidades que
-              necesitas
+              Ofrecemos una experiencia única en la costa uruguaya con todas las
+              comodidades que necesitas.
             </Text>
           </Box>
 
@@ -148,10 +158,12 @@ export default function Home() {
                 <Text fontSize="4xl" mb={4}>
                   {feature.icon}
                 </Text>
-                <Heading as="h3" size="md" mb={3}>
+                <Heading as="h3" size="md" mb={3} whiteSpace="pre-line">
                   {feature.title}
                 </Heading>
-                <Text color="gray.600">{feature.description}</Text>
+                <Text color="gray.600" whiteSpace="pre-line">
+                  {feature.description}
+                </Text>
               </Box>
             ))}
           </SimpleGrid>

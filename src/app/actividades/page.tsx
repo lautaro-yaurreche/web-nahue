@@ -12,59 +12,46 @@ import {
 export default function ActividadesPage() {
   const activities = [
     {
-      title: "Senderismo y Trekking",
-      description:
-        "Explora los senderos naturales de la zona con vistas espectaculares del paisaje.",
-      icon: "🥾",
-      color: "green",
-    },
-    {
       title: "Playas",
       description:
-        "Disfruta de hermosas playas de arena blanca a pocos minutos de las propiedades.",
+        "Ideal para baño, y caminatas relajadas. Es un lugar ideal para los amantes de la pesca. Perfecta para quienes buscan desconectarse, leer o disfrutar del sonido del mar.",
       icon: "🏖️",
       color: "blue",
     },
     {
-      title: "Deportes Acuáticos",
+      title: "Pesca",
       description:
-        "Kayak, paddleboard, snorkel y otras actividades acuáticas disponibles.",
-      icon: "🏄",
-      color: "cyan",
-    },
-    {
-      title: "Ciclismo",
-      description:
-        "Rutas en bicicleta para todos los niveles a través de paisajes únicos.",
-      icon: "🚴",
-      color: "orange",
-    },
-    {
-      title: "Pesca Deportiva",
-      description:
-        "Zonas de pesca privilegiadas para los amantes de este deporte.",
+        "Puntos de pesca privilegiados, tanto desde la orilla como embarcada. Las aguas del balneario son ideales para capturar corvinas, brótolas y pejerreyes. ",
       icon: "🎣",
       color: "teal",
     },
     {
-      title: "Observación de Fauna",
-      description: "Descubre la rica fauna local en su hábitat natural.",
+      title: "Observación de fauna",
+      description:
+        "En Bella Vista y el Arroyo Espina podés disfrutar de fauna y flora nativa, ideal para conectar con la naturaleza y la fotografía.",
       icon: "🦅",
       color: "green",
     },
     {
-      title: "Paseos a Caballo",
+      title: "Paseos y entorno natural",
       description:
-        "Recorre los alrededores a caballo con guías experimentados.",
-      icon: "🐴",
-      color: "yellow",
+        "El balneario ofrece calles arboladas y caminos costeros para pasear a pie o en bici. Hacia el oeste, el paisaje se funde con las Sierras de las Ánimas, donde podés hacer breves caminatas y disfrutar vistas panorámicas.",
+      icon: "🚶🏻",
+      color: "cyan",
     },
     {
-      title: "Gastronomía Local",
+      title: "Turismo",
       description:
-        "Degusta la cocina local en restaurantes y ferias de la zona.",
-      icon: "🍽️",
-      color: "red",
+        "Lugares icónicos como Piriápolis, con su cerro San Antonio y rambla costera, el Castillo de Pittamiglio en Las Flores, la Reserva del Cerro Pan de Azúcar, y Punta del Este, con sus playas, gastronomía y vida nocturna.",
+      icon: "🏞️",
+      color: "orange",
+    },
+    {
+      title: "Bosques",
+      description:
+        "Bosques de coronilla, arrayanes y tala rodean la zona, creando un refugio de flora y fauna autóctona. Un entorno donde el estrés no tiene lugar, ideal para quienes buscan bienestar y conexión con la naturaleza",
+      icon: "🌳",
+      color: "cyan",
     },
   ];
 
@@ -96,8 +83,8 @@ export default function ActividadesPage() {
               Actividades
             </Heading>
             <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
-              Descubre todas las actividades que puedes disfrutar durante tu
-              estadía
+              Podés disfrutar del mar, la tranquilidad y paisajes únicos, con
+              opciones de recreación y turismo a pocos minutos.
             </Text>
           </VStack>
         </Container>
@@ -105,7 +92,7 @@ export default function ActividadesPage() {
 
       {/* Activities Grid */}
       <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} gap={8}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
           {activities.map((activity, index) => (
             <Box
               key={index}
