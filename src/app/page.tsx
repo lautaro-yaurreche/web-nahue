@@ -157,47 +157,6 @@ export default function Home() {
           </SimpleGrid>
         </VStack>
       </Container>
-
-      {/* CTA Section */}
-      <Box bg="gray.50" py={{ base: 16, md: 20 }}>
-        <Container maxW="container.xl">
-          <Box
-            bgGradient="linear(135deg, primary.500, primary.700)"
-            borderRadius="2xl"
-            p={{ base: 10, md: 16 }}
-            textAlign="center"
-            color="accent.500"
-          >
-            <Heading as="h2" fontSize={{ base: "3xl", md: "4xl" }} mb={4}>
-              ¿Listo para tu próxima aventura?
-            </Heading>
-            <Text
-              fontSize={{ base: "lg", md: "xl" }}
-              mb={8}
-              maxW="2xl"
-              mx="auto"
-            >
-              Contáctanos para más información sobre disponibilidad y precios
-            </Text>
-            <Box>
-              <Link href="/contacto">
-                <Button
-                  size="lg"
-                  bg="white"
-                  color="primary.700"
-                  px={8}
-                  py={6}
-                  fontSize="lg"
-                  _hover={{ transform: "translateY(-2px)", boxShadow: "xl" }}
-                  transition="all 0.3s"
-                >
-                  Contactar
-                </Button>
-              </Link>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
     </Box>
   );
 }
