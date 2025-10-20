@@ -115,7 +115,7 @@ export default function ReservasPage() {
               letterSpacing="wider"
               opacity={0.9}
             >
-              Planifica tu Estadía
+              Planifica tu estadía
             </Text>
             <Heading
               as="h1"

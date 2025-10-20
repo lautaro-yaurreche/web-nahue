@@ -90,7 +90,7 @@ export default function ContactoPage() {
               letterSpacing="wider"
               opacity={0.9}
             >
-              Oportunidad de inversión o tu nuevo refugio
+              Oportunidad
             </Text>
             <Heading
               as="h1"
@@ -140,8 +140,8 @@ export default function ContactoPage() {
               >
                 Consultas directas
               </Text>
-              <Text fontSize="sm" color="primary.600">
-                Trato directo con los propietarios. <br /> Precio real, sin
+              <Text fontSize="md" color="primary.600">
+                Trato directo con la propietaria. <br /> Precio real, sin
                 sobrevaloraciones ni comisiones de inmobiliaria. <br />
                 Ya sea que busques un lugar para vivir o una inversión segura,
                 te acompañamos en todo el proceso.
@@ -244,7 +244,9 @@ export default function ContactoPage() {
                         🏡 Beneficios de la ubicación y crecimiento del área
                       </Text>
                       <Text fontSize="sm" color="gray.700">
-                        📄 Propuesta "Full Service"
+                        📄 Nuestra propuesta "Full Service", con un equipo de
+                        trabajo consolidado desde hace años y una cartera de
+                        clientes segura, garantizando rentabilidad.
                       </Text>
                     </VStack>
                   </Box>

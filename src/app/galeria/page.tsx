@@ -16,7 +16,6 @@ export default function GaleriaPage() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
-    { id: 1, title: "Foto 1", src: "/images/foto1.jpeg" },
     { id: 2, title: "Foto 2", src: "/images/foto2.jpeg" },
     { id: 3, title: "Foto 3", src: "/images/foto3.jpeg" },
     { id: 4, title: "Foto 4", src: "/images/foto4.jpeg" },
@@ -25,7 +24,6 @@ export default function GaleriaPage() {
     { id: 7, title: "Foto 7", src: "/images/foto7.jpeg" },
     { id: 8, title: "Foto 8", src: "/images/foto8.jpeg" },
     { id: 9, title: "Foto 9", src: "/images/foto9.jpeg" },
-    { id: 10, title: "Foto 10", src: "/images/foto10.jpeg" },
     { id: 11, title: "Foto 11", src: "/images/foto11.jpeg" },
     { id: 12, title: "Foto 12", src: "/images/foto12.jpeg" },
     { id: 13, title: "Foto 13", src: "/images/foto13.jpeg" },
@@ -37,7 +35,6 @@ export default function GaleriaPage() {
     { id: 19, title: "Foto 19", src: "/images/foto19.jpeg" },
     { id: 20, title: "Foto 20", src: "/images/foto20.jpeg" },
     { id: 21, title: "Foto 21", src: "/images/foto21.jpeg" },
-    { id: 22, title: "Foto 22", src: "/images/foto22.jpeg" },
     { id: 23, title: "Foto 23", src: "/images/foto23.jpeg" },
     { id: 24, title: "Foto 24", src: "/images/foto24.jpeg" },
     { id: 25, title: "Foto 25", src: "/images/foto25.jpeg" },
@@ -101,18 +98,17 @@ export default function GaleriaPage() {
               letterSpacing="wider"
               opacity={0.9}
             >
-              Nuestros Espacios
+              Nuestros espacios
             </Text>
             <Heading
               as="h1"
               fontSize={{ base: "4xl", md: "5xl" }}
               fontWeight="bold"
             >
-              Galería de Fotos
+              Galería de fotos
             </Heading>
             <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
-              Explora nuestras hermosas propiedades y descubre tu próximo
-              destino
+              Explora nuestra hermosa propiedad
             </Text>
           </VStack>
         </Container>
