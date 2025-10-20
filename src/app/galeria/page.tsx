@@ -153,7 +153,6 @@ export default function GaleriaPage() {
           display="flex"
           alignItems="center"
           justifyContent="center"
-          onClick={closeModal}
         >
           {/* Close Button */}
           <IconButton
@@ -170,99 +169,98 @@ export default function GaleriaPage() {
             backdropFilter="blur(10px)"
             borderRadius="full"
             zIndex={3}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
           >
             ✕
           </IconButton>
 
-          <Box
-            position="relative"
-            w="full"
-            h="full"
+          {/* Previous Button */}
+          <IconButton
+            position="absolute"
+            left={{ base: 2, md: 8 }}
+            top="50%"
+            transform="translateY(-50%)"
+            onClick={goToPrevious}
+            aria-label="Previous image"
+            bg="whiteAlpha.300"
+            color="white"
+            size="lg"
+            fontSize="3xl"
+            _hover={{ bg: "whiteAlpha.500" }}
+            backdropFilter="blur(10px)"
+            borderRadius="full"
+            zIndex={2}
             display="flex"
             alignItems="center"
             justifyContent="center"
-            onClick={(e) => e.stopPropagation()}
           >
-            {/* Previous Button */}
-            <IconButton
-              position="absolute"
-              left={{ base: 2, md: 8 }}
-              top="50%"
-              transform="translateY(-50%)"
-              onClick={goToPrevious}
-              aria-label="Previous image"
-              bg="whiteAlpha.300"
-              color="white"
-              size="lg"
-              fontSize="3xl"
-              _hover={{ bg: "whiteAlpha.500" }}
-              backdropFilter="blur(10px)"
-              borderRadius="full"
-              zIndex={2}
-            >
-              ←
-            </IconButton>
+            ←
+          </IconButton>
 
-            {/* Image Container */}
+          {/* Image Container */}
+          <Box
+            maxW="90vw"
+            maxH="90vh"
+            w="auto"
+            h="auto"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+          >
+            {/* Main Image */}
             <Box
-              maxW="90vw"
-              maxH="90vh"
-              w="auto"
-              h="auto"
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="center"
+              position="relative"
+              maxW="1200px"
+              maxH="70vh"
+              w="90vw"
+              h="70vh"
+              borderRadius="xl"
+              overflow="hidden"
+              boxShadow="2xl"
             >
-              {/* Main Image */}
-              <Box
-                position="relative"
-                maxW="1200px"
-                maxH="70vh"
-                w="90vw"
-                h="70vh"
-                borderRadius="xl"
-                overflow="hidden"
-                boxShadow="2xl"
-              >
-                <Image
-                  src={images[selectedImage].src}
-                  alt={images[selectedImage].title}
-                  fill
-                  style={{ objectFit: "contain" }}
-                  sizes="90vw"
-                  priority
-                />
-              </Box>
-
-              {/* Image Info */}
-              <Box mt={6} textAlign="center">
-                <Text color="whiteAlpha.700" fontSize="sm">
-                  {selectedImage + 1} / {images.length}
-                </Text>
-              </Box>
+              <Image
+                src={images[selectedImage].src}
+                alt={images[selectedImage].title}
+                fill
+                style={{ objectFit: "contain" }}
+                sizes="90vw"
+                priority
+              />
             </Box>
 
-            {/* Next Button */}
-            <IconButton
-              position="absolute"
-              right={{ base: 2, md: 8 }}
-              top="50%"
-              transform="translateY(-50%)"
-              onClick={goToNext}
-              aria-label="Next image"
-              bg="whiteAlpha.300"
-              color="white"
-              size="lg"
-              fontSize="3xl"
-              _hover={{ bg: "whiteAlpha.500" }}
-              backdropFilter="blur(10px)"
-              borderRadius="full"
-              zIndex={2}
-            >
-              →
-            </IconButton>
+            {/* Image Info */}
+            <Box mt={6} textAlign="center">
+              <Text color="whiteAlpha.700" fontSize="sm">
+                {selectedImage + 1} / {images.length}
+              </Text>
+            </Box>
           </Box>
+
+          {/* Next Button */}
+          <IconButton
+            position="absolute"
+            right={{ base: 2, md: 8 }}
+            top="50%"
+            transform="translateY(-50%)"
+            onClick={goToNext}
+            aria-label="Next image"
+            bg="whiteAlpha.300"
+            color="white"
+            size="lg"
+            fontSize="3xl"
+            _hover={{ bg: "whiteAlpha.500" }}
+            backdropFilter="blur(10px)"
+            borderRadius="full"
+            zIndex={2}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            →
+          </IconButton>
         </Box>
       )}
     </Box>
