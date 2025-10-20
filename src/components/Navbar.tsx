@@ -276,7 +276,7 @@ export default function Navbar() {
                   >
                     <Button
                       w="full"
-                      bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+                      bgGradient="linear(135deg, primary.500, primary.700)"
                       color="accent.500"
                       mt={4}
                       _hover={{

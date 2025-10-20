@@ -162,7 +162,7 @@ export default function Home() {
       <Box bg="gray.50" py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <Box
-            bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+            bgGradient="linear(135deg, primary.500, primary.700)"
             borderRadius="2xl"
             p={{ base: 10, md: 16 }}
             textAlign="center"

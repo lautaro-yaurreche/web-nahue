@@ -103,7 +103,7 @@ export default function ReservasPage() {
       <Box h="5.25rem" />
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+        bgGradient="linear(135deg, primary.500, primary.700)"
         py={{ base: 16, md: 20 }}
       >
         <Container maxW="container.xl">

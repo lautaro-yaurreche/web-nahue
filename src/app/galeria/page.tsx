@@ -122,9 +122,9 @@ export default function GaleriaPage() {
       <Box h="5.25rem" />
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+        bgGradient="linear(135deg, primary.500, primary.700)"
         color="accent.500"
-        pb={{ base: 16, md: 20 }}
+        py={{ base: 16, md: 20 }}
       >
         <Container maxW="container.xl">
           <VStack gap={4} textAlign="center">

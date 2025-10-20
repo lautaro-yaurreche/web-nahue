@@ -78,7 +78,7 @@ export default function ContactoPage() {
       <Box h="5.25rem" />
       {/* Header Section */}
       <Box
-        bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+        bgGradient="linear(135deg, primary.500, primary.700)"
         py={{ base: 16, md: 20 }}
       >
         <Container maxW="container.xl">
@@ -108,7 +108,7 @@ export default function ContactoPage() {
 
       {/* Content Section */}
       <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
-        <VStack gap={12} align="stretch">
+        <VStack gap={6} align="stretch">
           {/* Section Title */}
           <Box>
             <Heading
@@ -120,10 +120,33 @@ export default function ContactoPage() {
             >
               ¿Por qué invertir aquí?
             </Heading>
-            <Text fontSize="lg" color="gray.600">
+            <Text fontSize="lg" color="gray.600" mb={5}>
               Una oportunidad real para quienes buscan un hogar rodeado de
               naturaleza o un negocio rentable con retorno comprobado.
             </Text>
+            <Box
+              w="full"
+              p={4}
+              bg="primary.50"
+              borderRadius="lg"
+              border="1px"
+              borderColor="primary.200"
+            >
+              <Text
+                fontSize="md"
+                fontWeight="semibold"
+                color="primary.700"
+                mb="0.125rem"
+              >
+                Consultas directas
+              </Text>
+              <Text fontSize="sm" color="primary.600">
+                Trato directo con los propietarios. <br /> Precio real, sin
+                sobrevaloraciones ni comisiones de inmobiliaria. <br />
+                Ya sea que busques un lugar para vivir o una inversión segura,
+                te acompañamos en todo el proceso.
+              </Text>
+            </Box>
           </Box>
 
           <SimpleGrid
@@ -225,31 +248,6 @@ export default function ContactoPage() {
                       </Text>
                     </VStack>
                   </Box>
-
-                  <Box
-                    w="full"
-                    p={4}
-                    bg="primary.50"
-                    borderRadius="lg"
-                    border="1px"
-                    borderColor="primary.200"
-                  >
-                    <Text
-                      fontSize="sm"
-                      fontWeight="semibold"
-                      color="primary.700"
-                      mb={1}
-                    >
-                      Consultas directas
-                    </Text>
-                    <Text fontSize="sm" color="primary.600">
-                      Trato directo con los propietarios. <br /> Precio real,
-                      sin sobrevaloraciones ni comisiones de inmobiliaria.{" "}
-                      <br />
-                      Ya sea que busques un lugar para vivir o una inversión
-                      segura, te acompañamos en todo el proceso.
-                    </Text>
-                  </Box>
                 </VStack>
               </Box>
             </VStack>
@@ -257,7 +255,7 @@ export default function ContactoPage() {
             {/* Right: Contact Form */}
             <Box
               bg="white"
-              p={{ base: 8, md: 10 }}
+              p={{ base: 8, md: 8 }}
               borderRadius="2xl"
               boxShadow="xl"
               border="1px"
@@ -269,13 +267,13 @@ export default function ContactoPage() {
                 fontSize={{ base: "xl", md: "2xl" }}
                 fontWeight="bold"
                 color="gray.800"
-                mb={6}
+                mb={4}
               >
                 Contactanos
               </Heading>
 
               <Box as="form" onSubmit={handleSubmit}>
-                <VStack gap={5}>
+                <VStack gap={4}>
                   <SimpleGrid columns={{ base: 1, md: 2 }} gap={5} w="full">
                     <Box>
                       <Text mb={2} fontWeight="medium" color="gray.700">
@@ -376,7 +374,7 @@ export default function ContactoPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
-                      rows={5}
+                      rows={2}
                       required
                       size="lg"
                       borderColor="gray.300"
@@ -392,9 +390,9 @@ export default function ContactoPage() {
                     type="submit"
                     size="lg"
                     w="full"
-                    bg="linear-gradient(135deg, primary.500 0%, primary.700 100%)"
+                    bgGradient="linear(135deg, primary.500, primary.700)"
                     color="white"
-                    py={7}
+                    py={6}
                     fontSize="lg"
                     fontWeight="semibold"
                     loading={loading}
@@ -404,7 +402,7 @@ export default function ContactoPage() {
                     }}
                     transition="all 0.2s"
                   >
-                    Enviar Mensaje
+                    Enviar mensaje
                   </Button>
 
                   <Text fontSize="sm" color="gray.500" textAlign="center">
