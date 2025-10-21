@@ -184,7 +184,7 @@ export default function Navbar() {
               <Box
                 w="24px"
                 h="2px"
-                bg="primary.600"
+                bg="text"
                 mb="6px"
                 borderRadius="2px"
                 transition="all 0.3s"
@@ -192,7 +192,7 @@ export default function Navbar() {
               <Box
                 w="24px"
                 h="2px"
-                bg="primary.600"
+                bg="text"
                 mb="6px"
                 borderRadius="2px"
                 transition="all 0.3s"
@@ -200,7 +200,7 @@ export default function Navbar() {
               <Box
                 w="24px"
                 h="2px"
-                bg="primary.600"
+                bg="text"
                 borderRadius="2px"
                 transition="all 0.3s"
               />

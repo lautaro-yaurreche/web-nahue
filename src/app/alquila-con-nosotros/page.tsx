@@ -63,10 +63,7 @@ Mensaje: ${formData.message}`;
     <Box bg="gray.50" minH="100vh">
       <Box h="5.25rem" />
       {/* Header Section */}
-      <Box
-        bgGradient="linear(135deg, primary.500, primary.700)"
-        py={{ base: 16, md: 20 }}
-      >
+      <Box py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <VStack gap={4} textAlign="center">
             <Text
@@ -74,7 +71,7 @@ Mensaje: ${formData.message}`;
               fontWeight="semibold"
               textTransform="uppercase"
               letterSpacing="wider"
-              opacity={0.9}
+              color="primary.600"
             >
               Maximizá tu inversión
             </Text>
@@ -85,7 +82,7 @@ Mensaje: ${formData.message}`;
             >
               Alquilá con nosotros
             </Heading>
-            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl">
               Generá ingresos con tu propiedad sin complicaciones
             </Text>
           </VStack>
@@ -294,7 +291,7 @@ Mensaje: ${formData.message}`;
                   type="submit"
                   size="lg"
                   w="full"
-                  bgGradient="linear(135deg, primary.500, primary.700)"
+                  bg="primary.600"
                   color="white"
                   py={6}
                   fontSize="lg"
@@ -302,6 +299,7 @@ Mensaje: ${formData.message}`;
                   _hover={{
                     transform: "translateY(-2px)",
                     boxShadow: "xl",
+                    bg: "primary.700",
                   }}
                   transition="all 0.2s"
                 >

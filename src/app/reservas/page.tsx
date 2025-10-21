@@ -90,10 +90,7 @@ Cantidad de personas: ${formData.guests}`;
     <Box bg="gray.50" minH="100vh">
       <Box h="5.25rem" />
       {/* Header Section */}
-      <Box
-        bgGradient="linear(135deg, primary.500, primary.700)"
-        py={{ base: 16, md: 20 }}
-      >
+      <Box py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <VStack gap={4} textAlign="center">
             <Text
@@ -101,7 +98,7 @@ Cantidad de personas: ${formData.guests}`;
               fontWeight="semibold"
               textTransform="uppercase"
               letterSpacing="wider"
-              opacity={0.9}
+              color="primary.600"
             >
               Planifica tu estadía
             </Text>
@@ -112,7 +109,7 @@ Cantidad de personas: ${formData.guests}`;
             >
               Reservas
             </Heading>
-            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl">
               Completa el formulario y te contactaremos para confirmar tu
               reserva
             </Text>

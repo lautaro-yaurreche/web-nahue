@@ -2,12 +2,11 @@ import { Providers } from "./providers";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { Box } from "@chakra-ui/react";
 import "@/styles/globals.css";
 
 export const metadata = {
   title: "Casa de piedra",
-  description: "Descubre nuestras hermosas propiedades en alquiler",
+  description: "Descubre esta hermosa propiedad en alquiler",
 };
 
 export default function RootLayout({

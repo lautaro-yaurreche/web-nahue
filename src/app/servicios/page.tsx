@@ -123,12 +123,8 @@ export default function ActividadesServiciosPage() {
     <Box bg="gray.50" minH="100vh">
       <Box h="5.25rem" />
 
-      {/* Header Section */}
-      <Box
-        bgGradient="linear(135deg, primary.500, primary.700)"
-        color="accent.500"
-        py={{ base: 16, md: 20 }}
-      >
+      {/* Services Header Section */}
+      <Box py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
           <VStack gap={4} textAlign="center">
             <Text
@@ -136,51 +132,27 @@ export default function ActividadesServiciosPage() {
               fontWeight="semibold"
               textTransform="uppercase"
               letterSpacing="wider"
-              opacity={0.9}
+              color="primary.600"
             >
-              Todo lo que necesitás
+              Nuestras Comodidades
             </Text>
             <Heading
               as="h1"
               fontSize={{ base: "4xl", md: "5xl" }}
               fontWeight="bold"
             >
-              Actividades y Servicios
+              Servicios Incluidos
             </Heading>
-            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl" opacity={0.95}>
-              Disfrutá de todas las comodidades y experiencias que tenemos para ofrecerte.
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl">
+              Todo lo que necesitás para disfrutar una estadía perfecta, sin
+              preocupaciones y con el máximo comfort.
             </Text>
           </VStack>
         </Container>
       </Box>
 
-      {/* Services Section */}
-      <Container maxW="container.xl" py={{ base: 12, md: 16 }}>
-        <VStack gap={4} mb={8}>
-          <Text
-            fontSize="sm"
-            fontWeight="semibold"
-            textTransform="uppercase"
-            letterSpacing="wider"
-            color="primary.600"
-          >
-            Nuestras Comodidades
-          </Text>
-          <Heading
-            as="h2"
-            fontSize={{ base: "3xl", md: "4xl" }}
-            fontWeight="bold"
-            textAlign="center"
-            color="gray.800"
-          >
-            Servicios Incluidos
-          </Heading>
-          <Text fontSize={{ base: "md", md: "lg" }} maxW="3xl" textAlign="center" color="gray.600">
-            Todo lo que necesitás para disfrutar una estadía perfecta, sin
-            preocupaciones y con el máximo comfort.
-          </Text>
-        </VStack>
-
+      {/* Services Grid */}
+      <Container maxW="container.xl" pb={{ base: 12, md: 16 }}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
           {services.map((service, index) => (
             <Box
@@ -218,10 +190,10 @@ export default function ActividadesServiciosPage() {
         </SimpleGrid>
       </Container>
 
-      {/* Activities Section */}
-      <Box bg="white" py={{ base: 12, md: 16 }}>
+      {/* Activities Header Section */}
+      <Box py={{ base: 16, md: 20 }}>
         <Container maxW="container.xl">
-          <VStack gap={4} mb={8}>
+          <VStack gap={4} textAlign="center">
             <Text
               fontSize="sm"
               fontWeight="semibold"
@@ -232,20 +204,23 @@ export default function ActividadesServiciosPage() {
               Experiencias Únicas
             </Text>
             <Heading
-              as="h2"
-              fontSize={{ base: "3xl", md: "4xl" }}
+              as="h1"
+              fontSize={{ base: "4xl", md: "5xl" }}
               fontWeight="bold"
-              textAlign="center"
-              color="gray.800"
             >
               Actividades
             </Heading>
-            <Text fontSize={{ base: "md", md: "lg" }} maxW="3xl" textAlign="center" color="gray.600">
+            <Text fontSize={{ base: "lg", md: "xl" }} maxW="3xl">
               Podés disfrutar del mar, la tranquilidad y paisajes únicos, con
               opciones de recreación y turismo a pocos minutos.
             </Text>
           </VStack>
+        </Container>
+      </Box>
 
+      {/* Activities Grid */}
+      <Box bg="gray.50">
+        <Container maxW="container.xl" pb={{ base: 12, md: 16 }}>
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
             {activities.map((activity, index) => (
               <Box

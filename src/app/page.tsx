@@ -21,12 +21,6 @@ export default function Home() {
         "A pasos de la playa, ideal para baño y pesca. Venta de leña y almacén a 1 cuadra. A solo 10 minutos de Piriápolis y 30 minutos de Punta del Este. \n\nEl equilibrio perfecto entre tranquilidad y conexión.",
       icon: "📍",
     },
-    // {
-    //   title: "Comfort total",
-    //   description:
-    //     "Casa completamente equipada, con piscina climatizada, barbacoa, horno de barro, juegos, y detalles en piedra que la hacen única. \n\nFresca en verano y cálida en invierno —lista para vivirla o alquilarla.",
-    //   icon: "🏡",
-    // },
     {
       title: "Entorno natural y \ntranquilidad total",
       description:
