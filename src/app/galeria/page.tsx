@@ -110,6 +110,36 @@ export default function GaleriaPage() {
         </Container>
       </Box>
 
+      {/* Video Section */}
+      <Container maxW="container.xl" pb={{ base: 8, md: 12 }}>
+        <Box
+          position="relative"
+          paddingBottom={{ base: "60%", md: "40%" }}
+          height={0}
+          overflow="hidden"
+          maxW="1000px"
+          mx="auto"
+          borderRadius="2xl"
+          boxShadow="2xl"
+        >
+          <iframe
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              border: 0,
+              borderRadius: "1rem",
+            }}
+            src="https://www.youtube.com/embed/hHA6N5H6gGU"
+            title="Video de la propiedad"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </Box>
+      </Container>
+
       {/* Gallery Grid */}
       <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
