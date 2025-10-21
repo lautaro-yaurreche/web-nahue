@@ -18,7 +18,7 @@ export default function Home() {
     {
       title: "Ubicación privilegiada",
       description:
-        "A pasos de la playa, ideal para baño y pesca. Venta de leña y almacén a 1 cuadra. A solo 10 minutos de Piriápolis y 30 minutos de Punta del Este. \n\nEl equilibrio perfecto entre tranquilidad y conexión.",
+        "A pasos de la playa, ideal para baño y pesca. Almacén, rotisería y leñería a menos de 1 cuadra. A solo 10 minutos de Piriápolis y 30 minutos de Punta del Este. \n\nEl equilibrio perfecto entre tranquilidad y conexión.",
       icon: "📍",
     },
     {
@@ -129,8 +129,7 @@ export default function Home() {
               ¿Por qué elegirnos?
             </Heading>
             <Text fontSize="lg" color="gray.600" maxW="2xl" mx="auto">
-              Ofrecemos una experiencia única en la costa uruguaya con todas las
-              comodidades que necesitas.
+              Ofrecemos una experiencia única con todas las comodidades.
             </Text>
           </Box>
 

@@ -128,10 +128,16 @@ export default function GaleriaPage() {
               }}
               transition="all 0.3s"
               boxShadow="lg"
-              backgroundImage={`url(${image.src})`}
-              backgroundSize="cover"
-              backgroundPosition="center"
-            ></Box>
+            >
+              <Image
+                src={image.src}
+                alt={image.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectFit: "cover" }}
+                loading="lazy"
+              />
+            </Box>
           ))}
         </SimpleGrid>
       </Container>

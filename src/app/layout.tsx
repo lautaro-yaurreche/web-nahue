@@ -2,6 +2,7 @@ import { Providers } from "./providers";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import AnalyticsWrapper from "@/components/AnalyticsWrapper";
 import "@/styles/globals.css";
 
 export const metadata = {
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton phoneNumber="59897105450" />
         </Providers>
+        {/* <AnalyticsWrapper /> */}
       </body>
     </html>
   );

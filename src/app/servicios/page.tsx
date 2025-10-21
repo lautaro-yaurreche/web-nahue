@@ -39,7 +39,7 @@ export default function ActividadesServiciosPage() {
       color: "cyan",
     },
     {
-      title: "Ropa de cama",
+      title: "Quincho para descansar",
       description:
         "Quincho con juego de camastros rodeado de naturaleza para disfrutar de un buen descanso.",
       icon: "🌴",
@@ -56,7 +56,7 @@ export default function ActividadesServiciosPage() {
       title: "Entretenimiento",
       description:
         "Smart TV, mesa de pool, mesa de ping pong y cancha de fútbol.",
-      icon: "📺",
+      icon: "🏓",
       color: "green",
     },
     {

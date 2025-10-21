@@ -184,7 +184,7 @@ Mensaje: ${formData.message}`;
                         </Text>
                         <Text fontSize="sm" color="gray.600">
                           Negocio de alquiler con alta demanda turística
-                          comprobada en la zona.
+                          comprobada en la zona. (+100k visitas online)
                         </Text>
                       </Box>
                       <Box>
@@ -236,7 +236,7 @@ Mensaje: ${formData.message}`;
                         🏡 Beneficios de la ubicación y crecimiento del área
                       </Text>
                       <Text fontSize="sm" color="gray.700">
-                        📄 Nuestra propuesta "Full Service", con un equipo de
+                        💎 Nuestra propuesta "Full Service", con un equipo de
                         trabajo consolidado desde hace años y una cartera de
                         clientes segura, garantizando rentabilidad.
                       </Text>

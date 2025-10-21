@@ -91,6 +91,30 @@ Mensaje: ${formData.message}`;
 
       {/* Content Section */}
       <Container maxW="container.xl" pb={{ base: 12, md: 20 }}>
+        {/* Pricing Callout */}
+        <Box
+          mb={8}
+          p={6}
+          bg="primary.50"
+          borderRadius="xl"
+          border="2px"
+          borderColor="primary.200"
+          textAlign="center"
+        >
+          <Text
+            fontSize={{ base: "md", md: "lg" }}
+            color="primary.800"
+            fontWeight="medium"
+            lineHeight="tall"
+          >
+            💰 Nuestro servicio se ofrece únicamente por un porcentaje de la
+            ganancia generada, sin cargos iniciales ni gastos ocultos.
+            <br />
+            Así, tu inversión se mantiene segura, y nosotros solo ganamos si vos
+            ganás.
+          </Text>
+        </Box>
+
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           gap={{ base: 8, lg: 12 }}
@@ -108,25 +132,14 @@ Mensaje: ${formData.message}`;
             >
               <VStack align="start" gap={5}>
                 <Box>
-                  <Text
-                    fontSize="lg"
-                    color="gray.700"
-                    lineHeight="tall"
-                    mb={4}
-                  >
-                    Contamos con un equipo con años de experiencia en el rubro
-                    inmobiliario, dedicado a que obtengas el mejor rendimiento de
-                    tu casa sin perder tiempo.
+                  <Text fontSize="lg" color="gray.700" lineHeight="tall" mb={4}>
+                    Contamos con un equipo con +20 años de experiencia en el
+                    rubro inmobiliario, dedicado a que obtengas el mejor
+                    rendimiento de tu casa sin perder tiempo.
                   </Text>
-                  <Text
-                    fontSize="lg"
-                    color="gray.700"
-                    lineHeight="tall"
-                    mb={4}
-                  >
-                    Nos ocupamos de la publicidad, gestión de reservas, atención
-                    personalizada a los huéspedes e interesados, coordinación de
-                    mantenimiento, limpieza y cuidado integral de la propiedad.
+                  <Text fontSize="lg" color="gray.700" lineHeight="tall" mb={4}>
+                    Nos encargamos de todo, incluyendo publicidad, reservas,
+                    atención a huéspedes y mantenimiento.
                   </Text>
                   <Text
                     fontSize="lg"
@@ -134,7 +147,8 @@ Mensaje: ${formData.message}`;
                     color="primary.700"
                     lineHeight="tall"
                   >
-                    Vos disfrutás la renta, nosotros nos encargamos del resto.
+                    Vos disfrutás de las ganancias, nosotros nos encargamos del
+                    resto.
                   </Text>
                 </Box>
 
@@ -153,22 +167,29 @@ Mensaje: ${formData.message}`;
                   </Text>
                   <VStack align="start" gap={2}>
                     <Text fontSize="sm" color="gray.700">
-                      📸 Publicidad profesional en todas las plataformas
+                      📣 Publicación profesional en las principales plataformas.
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      📅 Gestión completa de reservas y calendario
+                      🗓️ Gestión integral de reservas, calendario y comunicación
+                      con los huéspedes.
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      👥 Atención personalizada a huéspedes
+                      💬 Atención directa 24/7, personalizada y con seguimiento
+                      durante toda la estadía.
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      🧹 Coordinación de limpieza y mantenimiento
+                      🧹 Supervisión de mantenimiento.
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      🏡 Cuidado integral de tu propiedad
+                      📊 Reportes de ingresos y ocupación, con total
+                      transparencia.
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      💰 Optimización de tarifas para máxima rentabilidad
+                      🧾 Cobro y control de pagos para que recibas tus ganancias
+                      sin demoras.
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      🔑 Sin costos fijos, solo comisión por resultados
                     </Text>
                   </VStack>
                 </Box>
@@ -249,7 +270,7 @@ Mensaje: ${formData.message}`;
                     Ubicación de la casa *
                   </Text>
                   <Input
-                    placeholder="Ej: Punta del Este, La Barra"
+                    placeholder="Ej: Punta del Este, Piriápolis"
                     value={formData.location}
                     onChange={(e) =>
                       setFormData({ ...formData, location: e.target.value })
