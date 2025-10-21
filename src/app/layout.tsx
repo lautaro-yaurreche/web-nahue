@@ -26,7 +26,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton phoneNumber="59897105450" />
         </Providers>
-        {/* <AnalyticsWrapper /> */}
+        <AnalyticsWrapper />
       </body>
     </html>
   );
