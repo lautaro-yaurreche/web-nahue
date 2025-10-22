@@ -32,13 +32,10 @@ export default function GaleriaPage() {
     { id: 15, title: "Foto 15", src: "/images/foto15.jpeg" },
     { id: 16, title: "Foto 16", src: "/images/foto16.jpeg" },
     { id: 17, title: "Foto 17", src: "/images/foto17.jpeg" },
-    { id: 18, title: "Foto 18", src: "/images/foto18.jpeg" },
     { id: 19, title: "Foto 19", src: "/images/foto19.jpeg" },
-    { id: 20, title: "Foto 20", src: "/images/foto20.jpeg" },
     { id: 21, title: "Foto 21", src: "/images/foto21.jpeg" },
     { id: 23, title: "Foto 23", src: "/images/foto23.jpeg" },
     { id: 24, title: "Foto 24", src: "/images/foto24.jpeg" },
-    { id: 25, title: "Foto 25", src: "/images/foto25.jpeg" },
     { id: 26, title: "Foto 26", src: "/images/foto26.jpeg" },
   ];
 

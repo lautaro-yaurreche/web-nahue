@@ -69,22 +69,30 @@ export default function Home() {
         <Container maxW="container.xl" position="relative" zIndex={2}>
           <VStack gap={8} textAlign="center" color="white">
             <Box>
+              <Text
+                fontSize="lg"
+                fontWeight="semibold"
+                textTransform="uppercase"
+                letterSpacing="wider"
+                color="primary.500"
+              >
+                Venta y alquiler
+              </Text>
               <Heading
                 as="h1"
-                fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
+                fontSize={{ base: "4xl", md: "5xl" }}
                 fontWeight="bold"
                 lineHeight="1.2"
                 textShadow="0 2px 10px rgba(0,0,0,0.2)"
               >
-                Casa de piedra
+                Casa de piedra, Bella Vista
               </Heading>
               <Text
-                fontSize={{ base: "xl", md: "2xl" }}
-                maxW="3xl"
+                fontSize={{ base: "xl", md: "3xl" }}
                 fontWeight="500"
                 textShadow="0 1px 5px rgba(0,0,0,0.1)"
               >
-                Bella Vista, Maldonado
+                Piriápolis, Maldonado
               </Text>
             </Box>
             <Link href="/reservas">
