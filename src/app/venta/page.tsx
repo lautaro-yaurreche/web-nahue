@@ -13,6 +13,7 @@ import {
   Text,
   SimpleGrid,
 } from "@chakra-ui/react";
+import { useWhatsAppThrottle } from "@/hooks/useWhatsAppThrottle";
 
 const toaster = createToaster({
   placement: "top-end",
@@ -20,6 +21,7 @@ const toaster = createToaster({
 });
 
 export default function ContactoPage() {
+  const throttledOpen = useWhatsAppThrottle(3000);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -33,7 +35,7 @@ export default function ContactoPage() {
 
     const purposeText =
       formData.purpose === "inversion"
-        ? "Inversión para alquilarla"
+        ? "Inversión para alquilar"
         : "Vivienda permanente";
 
     // Construir mensaje de WhatsApp
@@ -46,26 +48,34 @@ Interés: ${purposeText}
 
 Mensaje: ${formData.message}`;
 
-    // Abrir WhatsApp
+    // Abrir WhatsApp con throttle
     const phoneNumber = "59897105450";
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
-    window.open(whatsappUrl, "_blank");
+    const success = throttledOpen(whatsappUrl);
 
-    // Limpiar formulario
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      purpose: "inversion",
-      message: "",
-    });
+    if (success) {
+      // Limpiar formulario
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        purpose: "inversion",
+        message: "",
+      });
 
-    toaster.success({
-      title: "Redirigiendo a WhatsApp",
-      description: "Completa tu consulta por WhatsApp",
-    });
+      toaster.success({
+        title: "Redirigiendo a WhatsApp",
+        description: "Completa tu consulta por WhatsApp",
+      });
+    } else {
+      toaster.error({
+        title: "Espera un momento",
+        description:
+          "Por favor espera unos segundos antes de volver a intentar",
+      });
+    }
   };
 
   return (
@@ -141,120 +151,202 @@ Mensaje: ${formData.message}`;
             </Box>
           </Box>
 
+          {/* Information Grid - Two columns */}
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
             gap={{ base: 8, lg: 12 }}
             w="full"
+            mb={8}
           >
-            {/* Left: Sale Information */}
-            <VStack align="stretch" gap={6}>
-              <Box
-                bg="white"
-                p={8}
-                borderRadius="2xl"
-                boxShadow="lg"
-                border="1px"
-                borderColor="gray.100"
-              >
-                <VStack align="start" gap={5}>
-                  <Box>
-                    <Text
-                      fontSize="sm"
-                      fontWeight="bold"
-                      color="accent.600"
-                      textTransform="uppercase"
-                      letterSpacing="wide"
-                      mb={3}
-                    >
-                      Características destacadas
-                    </Text>
-                    <VStack align="start" gap={3}>
-                      <Box>
-                        <Text fontWeight="semibold" color="gray.800" mb={1}>
-                          Propiedad en venta
-                        </Text>
-                        <Text fontSize="sm" color="gray.600">
-                          Lista para disfrutar o comenzar a generar ingresos
-                          desde el primer día.
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text fontWeight="semibold" color="gray.800" mb={1}>
-                          Ideal para inversión
-                        </Text>
-                        <Text fontSize="sm" color="gray.600">
-                          Negocio de alquiler con alta demanda turística
-                          comprobada en la zona. (+100k visitas online)
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text fontWeight="semibold" color="gray.800" mb={1}>
-                          Entorno natural
-                        </Text>
-                        <Text fontSize="sm" color="gray.600">
-                          Ubicación privilegiada, rodeada de árboles,
-                          tranquilidad y a solo minutos del mar.
-                        </Text>
-                      </Box>
-                      <Box>
-                        <Text fontWeight="semibold" color="gray.800" mb={1}>
-                          Diseño único
-                        </Text>
-                        <Text fontSize="sm" color="gray.600">
-                          Construcción sólida, fresca en verano y cálida en
-                          invierno, con detalles en piedra y amplios espacios
-                          exteriores.
-                        </Text>
-                      </Box>
-                    </VStack>
-                  </Box>
-
-                  <Box w="full" h="1px" bg="gray.200" my={2} />
-
-                  <Box>
-                    <Text
-                      fontSize="sm"
-                      fontWeight="bold"
-                      color="accent.600"
-                      textTransform="uppercase"
-                      letterSpacing="wide"
-                      mb={4}
-                    >
-                      Si estas interesado, te pasamos:
-                    </Text>
-                    <VStack align="start" gap={2}>
-                      <Text fontSize="sm" color="gray.700">
-                        📄 PDF con propuesta completa y detalles de la casa
-                      </Text>
-                      <Text fontSize="sm" color="gray.700">
-                        📊 Análisis de rentabilidad y retorno real
-                      </Text>
-                      <Text fontSize="sm" color="gray.700">
-                        💰 Información sobre ingresos anuales y costos reales
-                      </Text>
-                      <Text fontSize="sm" color="gray.700">
-                        🏡 Beneficios de la ubicación y crecimiento del área
-                      </Text>
-                      <Text fontSize="sm" color="gray.700">
-                        💎 Nuestra propuesta "Full Service", con un equipo de
-                        trabajo consolidado desde hace años y una cartera de
-                        clientes segura, garantizando rentabilidad.
-                      </Text>
-                    </VStack>
-                  </Box>
-                </VStack>
-              </Box>
-            </VStack>
-
-            {/* Right: Contact Form */}
+            {/* Left: Sale Information 1 */}
             <Box
               bg="white"
-              p={{ base: 8, md: 8 }}
+              p={8}
+              borderRadius="2xl"
+              boxShadow="lg"
+              border="1px"
+              borderColor="gray.100"
+            >
+              <VStack align="start" gap={5}>
+                <Box>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="bold"
+                    color="accent.600"
+                    textTransform="uppercase"
+                    letterSpacing="wide"
+                    mb={3}
+                  >
+                    Inversión para alquilar
+                  </Text>
+                  <VStack align="start" gap={3}>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        📈 Demanda en auge y fuerte revalorización
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Zona con alto movimiento turístico y ocupación sostenida
+                        durante todo el año. Plusvalía en crecimiento
+                        exponencial.
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        💰 Mayor rentabilidad, menor costo
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        ROI alto con gastos bajos y costo por m² hasta 3 veces
+                        más económico que en Montevideo o Punta del Este.
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        📊 Ubicación estratégica (plusvalía asegurada)
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Zona en expansión constante, con entorno natural,
+                        seguridad y tranquilidad.
+                      </Text>
+                    </Box>
+                  </VStack>
+                </Box>
+
+                <Box w="full" h="1px" bg="gray.200" my={2} />
+
+                <Box>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="bold"
+                    color="accent.600"
+                    textTransform="uppercase"
+                    letterSpacing="wide"
+                    mb={4}
+                  >
+                    Si estas interesado, te pasamos:
+                  </Text>
+                  <VStack align="start" gap={2}>
+                    <Text fontSize="sm" color="gray.700">
+                      📄 PDF con propuesta completa y detalles de la casa.
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      📊 Análisis de rentabilidad.
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      💰 Información sobre ingresos anuales y costos reales de
+                      mantenimiento.
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      🏡 Beneficios de la ubicación y crecimiento del área en
+                      los últimos años.
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      💎 Nuestra propuesta "Full Service", con un equipo de
+                      trabajo consolidado desde hace +20 años y una cartera de
+                      clientes segura, garantizamos tu rentabilidad.
+                    </Text>
+                  </VStack>
+                </Box>
+              </VStack>
+            </Box>
+
+            {/* Right: Sale Information 2 */}
+            <Box
+              bg="white"
+              p={8}
+              borderRadius="2xl"
+              boxShadow="lg"
+              border="1px"
+              borderColor="gray.100"
+            >
+              <VStack align="start" gap={5}>
+                <Box>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="bold"
+                    color="accent.600"
+                    textTransform="uppercase"
+                    letterSpacing="wide"
+                    mb={3}
+                  >
+                    Vivienda permanente
+                  </Text>
+                  <VStack align="start" gap={3}>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        🌿 Entorno natural privilegiado
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Ideal para quienes buscan un estilo de vida tranquilo,
+                        en contacto con la naturaleza.
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        🔥 Comodidades completas
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Todo pensado para disfrutar en cualquier época del año
+                        con el máximo comfort.
+                      </Text>
+                    </Box>
+                    <Box>
+                      <Text fontWeight="semibold" color="gray.800" mb={1}>
+                        💫 Tranquilidad y calidad de vida aseguradas
+                      </Text>
+                      <Text fontSize="sm" color="gray.600">
+                        Zona segura y silenciosa, con vecinos permanentes,
+                        servicios a menos de una cuadra y a minutos de
+                        Piriápolis y Punta del Este. Perfecta para familias o
+                        para quienes buscan su residencia definitiva junto al
+                        mar.
+                      </Text>
+                    </Box>
+                  </VStack>
+                </Box>
+
+                <Box w="full" h="1px" bg="gray.200" my={2} />
+
+                <Box>
+                  <Text
+                    fontSize="sm"
+                    fontWeight="bold"
+                    color="accent.600"
+                    textTransform="uppercase"
+                    letterSpacing="wide"
+                    mb={4}
+                  >
+                    Si estas interesado, te pasamos:
+                  </Text>
+                  <VStack align="start" gap={2}>
+                    <Text fontSize="sm" color="gray.700">
+                      📄 PDF con detalles y equipamiento de la casa
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      💡 Costos de mantenimiento y servicios de la zona
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      🗺️ Guía práctica con transporte, comercios y actividades
+                      cercanas
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
+                      ♦️ Posibilidad de conversión a “vivienda de descanso” con
+                      servicio de alquiler estacional
+                    </Text>
+                  </VStack>
+                </Box>
+              </VStack>
+            </Box>
+          </SimpleGrid>
+
+          {/* Contact Form - Centered Below */}
+          <Box maxW="800px" mx="auto" w="full">
+            <Box
+              bg="white"
+              p={{ base: 8, md: 10 }}
               borderRadius="2xl"
               boxShadow="xl"
               border="1px"
               borderColor="gray.100"
-              h="fit-content"
             >
               <Heading
                 as="h3"
@@ -419,7 +511,7 @@ Mensaje: ${formData.message}`;
                 </VStack>
               </Box>
             </Box>
-          </SimpleGrid>
+          </Box>
         </VStack>
       </Container>
     </Box>

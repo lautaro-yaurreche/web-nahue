@@ -9,10 +9,15 @@ interface WhatsAppButtonProps {
 
 export default function WhatsAppButton({
   phoneNumber,
-  message = "¡Hola! Me gustaría consultar sobre la casa de piedra.",
+  message = "Hola, tengo una consulta sobre la Casa de piedra",
 }: WhatsAppButtonProps) {
-  const encodedMessage = encodeURIComponent(message);
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  // Acortar mensaje para evitar URLs muy largas
+  const shortMessage =
+    message.length > 100 ? message.substring(0, 100) : message;
+  const encodedMessage = encodeURIComponent(shortMessage);
+
+  // Usar api.whatsapp.com que es más estable que wa.me
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
   return (
     <Link

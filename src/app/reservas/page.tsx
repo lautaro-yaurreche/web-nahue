@@ -15,6 +15,7 @@ import {
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import ReservationCalendar from "@/components/ReservationCalendar";
+import { useWhatsAppThrottle } from "@/hooks/useWhatsAppThrottle";
 
 const toaster = createToaster({
   placement: "top-end",
@@ -22,6 +23,7 @@ const toaster = createToaster({
 });
 
 export default function ReservasPage() {
+  const throttledOpen = useWhatsAppThrottle(3000);
   const [selectedDates, setSelectedDates] = useState<{
     checkIn: Date | null;
     checkOut: Date | null;
@@ -66,24 +68,31 @@ Fechas: desde ${checkInFormatted} hasta ${checkOutFormatted}
 
 Cantidad de personas: ${formData.guests}`;
 
-    // Abrir WhatsApp
-    const phoneNumber = "59897105450"; // El mismo que usás en el botón flotante
+    // Abrir WhatsApp con throttle
+    const phoneNumber = "59897105450";
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
-    window.open(whatsappUrl, "_blank");
+    const success = throttledOpen(whatsappUrl);
 
-    // Limpiar formulario
-    setFormData({
-      fullName: "",
-      guests: 2,
-    });
-    setSelectedDates({ checkIn: null, checkOut: null });
+    if (success) {
+      // Limpiar formulario
+      setFormData({
+        fullName: "",
+        guests: 2,
+      });
+      setSelectedDates({ checkIn: null, checkOut: null });
 
-    toaster.success({
-      title: "Redirigiendo a WhatsApp",
-      description: "Completa tu reserva por WhatsApp",
-    });
+      toaster.success({
+        title: "Redirigiendo a WhatsApp",
+        description: "Completa tu reserva por WhatsApp",
+      });
+    } else {
+      toaster.error({
+        title: "Espera un momento",
+        description: "Por favor espera unos segundos antes de volver a intentar",
+      });
+    }
   };
 
   return (

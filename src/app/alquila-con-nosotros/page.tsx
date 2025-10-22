@@ -13,6 +13,7 @@ import {
   Text,
   SimpleGrid,
 } from "@chakra-ui/react";
+import { useWhatsAppThrottle } from "@/hooks/useWhatsAppThrottle";
 
 const toaster = createToaster({
   placement: "top-end",
@@ -20,6 +21,7 @@ const toaster = createToaster({
 });
 
 export default function AlquilaConNosotrosPage() {
+  const throttledOpen = useWhatsAppThrottle(3000);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -38,25 +40,33 @@ Ubicación de la casa: ${formData.location}
 
 Mensaje: ${formData.message}`;
 
-    // Abrir WhatsApp
+    // Abrir WhatsApp con throttle
     const phoneNumber = "59897105450";
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
-    window.open(whatsappUrl, "_blank");
+    const success = throttledOpen(whatsappUrl);
 
-    // Limpiar formulario
-    setFormData({
-      firstName: "",
-      lastName: "",
-      location: "",
-      message: "",
-    });
+    if (success) {
+      // Limpiar formulario
+      setFormData({
+        firstName: "",
+        lastName: "",
+        location: "",
+        message: "",
+      });
 
-    toaster.success({
-      title: "Redirigiendo a WhatsApp",
-      description: "Completa tu consulta por WhatsApp",
-    });
+      toaster.success({
+        title: "Redirigiendo a WhatsApp",
+        description: "Completa tu consulta por WhatsApp",
+      });
+    } else {
+      toaster.error({
+        title: "Espera un momento",
+        description:
+          "Por favor espera unos segundos antes de volver a intentar",
+      });
+    }
   };
 
   return (
@@ -107,11 +117,8 @@ Mensaje: ${formData.message}`;
             fontWeight="medium"
             lineHeight="tall"
           >
-            💰 Nuestro servicio se ofrece únicamente por un porcentaje de la
-            ganancia generada, sin cargos iniciales ni gastos ocultos.
-            <br />
-            Así, tu inversión se mantiene segura, y nosotros solo ganamos si vos
-            ganás.
+            💰 Vos ponés el precio y recibís el 100%, sin descuentos ni
+            comisiones.
           </Text>
         </Box>
 
@@ -135,11 +142,12 @@ Mensaje: ${formData.message}`;
                   <Text fontSize="lg" color="gray.700" lineHeight="tall" mb={4}>
                     Contamos con un equipo con +20 años de experiencia en el
                     rubro inmobiliario, dedicado a que obtengas el mejor
-                    rendimiento de tu casa sin perder tiempo.
+                    rendimiento de tu propiedad sin perder tiempo.
                   </Text>
                   <Text fontSize="lg" color="gray.700" lineHeight="tall" mb={4}>
-                    Nos encargamos de todo, incluyendo publicidad, reservas,
-                    atención a huéspedes y mantenimiento.
+                    Hacemos un servicio integral y completo: publicidad,
+                    negociación, reservas, atención a huéspedes, mantenimiento y
+                    entrega/recibo de llaves.
                   </Text>
                   <Text
                     fontSize="lg"
@@ -167,11 +175,14 @@ Mensaje: ${formData.message}`;
                   </Text>
                   <VStack align="start" gap={2}>
                     <Text fontSize="sm" color="gray.700">
+                      🏖️ Abarcamos tanto alquileres anuales como por temporada.
+                    </Text>
+                    <Text fontSize="sm" color="gray.700">
                       📣 Publicación profesional en las principales plataformas.
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      🗓️ Gestión integral de reservas, calendario y comunicación
-                      con los huéspedes.
+                      🗓️ Gestión integral de negociación, reservas y
+                      comunicación con los huéspedes.
                     </Text>
                     <Text fontSize="sm" color="gray.700">
                       💬 Atención directa 24/7, personalizada y con seguimiento
@@ -185,11 +196,8 @@ Mensaje: ${formData.message}`;
                       transparencia.
                     </Text>
                     <Text fontSize="sm" color="gray.700">
-                      🧾 Cobro y control de pagos para que recibas tus ganancias
-                      sin demoras.
-                    </Text>
-                    <Text fontSize="sm" color="gray.700">
-                      🔑 Sin costos fijos, solo comisión por resultados
+                      🧾 Cobro y control de pagos, para que recibas tus
+                      ganancias sin demoras.
                     </Text>
                   </VStack>
                 </Box>
